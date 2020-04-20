@@ -47,15 +47,15 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\PropertyPages\OutDir.props" />
-    <Import Project="..\PropertyPages\IntDir.props" />
-    <Import Project="..\PropertyPages\WarningsAsErrors.props" />
+    <Import Project="..\PropertySheets\OutDir.props" />
+    <Import Project="..\PropertySheets\IntDir.props" />
+    <Import Project="..\PropertySheets\WarningsAsErrors.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\PropertyPages\OutDir.props" />
-    <Import Project="..\PropertyPages\IntDir.props" />
-    <Import Project="..\PropertyPages\WarningsAsErrors.props" />
+    <Import Project="..\PropertySheets\OutDir.props" />
+    <Import Project="..\PropertySheets\IntDir.props" />
+    <Import Project="..\PropertySheets\WarningsAsErrors.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
