@@ -4,6 +4,7 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 
 SlowFunctionCompilationAnalyzer::SlowFunctionCompilationAnalyzer()
 	: CppBI::IAnalyzer()
+	, m_functionDurations()
 {
 }
 
@@ -20,5 +21,6 @@ CppBI::AnalysisControl SlowFunctionCompilationAnalyzer::OnStopActivity(const Cpp
 
 void SlowFunctionCompilationAnalyzer::OnFunction(const CppBI::Activities::Function& function)
 {
-	// TODO: store it somehow!
+	auto result = m_functionDurations.try_emplace(function.Name(), TDurations());
+	result.first->second.emplace_back(function.Duration());
 }
