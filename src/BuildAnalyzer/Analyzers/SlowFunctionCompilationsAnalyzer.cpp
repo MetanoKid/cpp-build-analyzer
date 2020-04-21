@@ -2,24 +2,24 @@
 
 namespace CppBI = Microsoft::Cpp::BuildInsights;
 
-SlowFunctionCompilationAnalyzer::SlowFunctionCompilationAnalyzer()
+SlowFunctionCompilationsAnalyzer::SlowFunctionCompilationsAnalyzer()
 	: CppBI::IAnalyzer()
 	, m_functionDurations()
 {
 }
 
-SlowFunctionCompilationAnalyzer::~SlowFunctionCompilationAnalyzer()
+SlowFunctionCompilationsAnalyzer::~SlowFunctionCompilationsAnalyzer()
 {
 }
 
-CppBI::AnalysisControl SlowFunctionCompilationAnalyzer::OnStopActivity(const CppBI::EventStack& eventStack)
+CppBI::AnalysisControl SlowFunctionCompilationsAnalyzer::OnStopActivity(const CppBI::EventStack& eventStack)
 {
-	CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &SlowFunctionCompilationAnalyzer::OnFunction);
+	CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &SlowFunctionCompilationsAnalyzer::OnFunction);
 
 	return CppBI::AnalysisControl::CONTINUE;
 }
 
-void SlowFunctionCompilationAnalyzer::OnFunction(const CppBI::Activities::Function& function)
+void SlowFunctionCompilationsAnalyzer::OnFunction(const CppBI::Activities::Function& function)
 {
 	// function names are decorated at this stage
 	auto result = m_functionDurations.try_emplace(function.Name(), TDurations());

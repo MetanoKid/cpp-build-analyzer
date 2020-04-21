@@ -7,11 +7,11 @@
 #include <CppBuildInsights.hpp>
 namespace CppBI = Microsoft::Cpp::BuildInsights;
 
-class SlowFunctionCompilationAnalyzer : public CppBI::IAnalyzer
+class SlowFunctionCompilationsAnalyzer : public CppBI::IAnalyzer
 {
 public:
-	SlowFunctionCompilationAnalyzer();
-	virtual ~SlowFunctionCompilationAnalyzer();
+	SlowFunctionCompilationsAnalyzer();
+	virtual ~SlowFunctionCompilationsAnalyzer();
 
 	CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
 

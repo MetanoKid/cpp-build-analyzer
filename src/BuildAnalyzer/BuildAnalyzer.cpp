@@ -15,7 +15,7 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 
 BuildAnalyzer::BuildAnalyzer(const std::string& traceFilePath)
 	: m_traceFilePath(traceFilePath)
-	, m_slowFunctionCompilations(std::make_unique<SlowFunctionCompilationAnalyzer>())
+	, m_slowFunctionCompilations(std::make_unique<SlowFunctionCompilationsAnalyzer>())
 	, m_analysisPerformed(false)
 {
 }
