@@ -5,7 +5,7 @@
       <UniqueIdentifier>{3af15940-12c7-4d6b-9422-97bfa4c55545}</UniqueIdentifier>
     </Filter>
     <Filter Include="PCH">
-      <UniqueIdentifier>{6428dc20-4432-41d4-822b-d8037fabad84}</UniqueIdentifier>
+      <UniqueIdentifier>{02b25273-b465-496f-94a0-85bc1c280ec8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -13,7 +13,7 @@
       <Filter>Analyzers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h" />
-    <ClInclude Include="..\..\src\BuildAnalyzer\PCH.h">
+    <ClInclude Include="..\..\src\BuildAnalyzer\PCH\PCH.h">
       <Filter>PCH</Filter>
     </ClInclude>
   </ItemGroup>
@@ -22,7 +22,7 @@
       <Filter>Analyzers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp" />
-    <ClCompile Include="..\..\src\BuildAnalyzer\PCH.cpp">
+    <ClCompile Include="..\..\src\BuildAnalyzer\PCH\PCH.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
   </ItemGroup>

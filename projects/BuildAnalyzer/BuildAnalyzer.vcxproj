@@ -13,12 +13,12 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h" />
-    <ClInclude Include="..\..\src\BuildAnalyzer\PCH.h" />
+    <ClInclude Include="..\..\src\BuildAnalyzer\PCH\PCH.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp" />
-    <ClCompile Include="..\..\src\BuildAnalyzer\PCH.cpp">
+    <ClCompile Include="..\..\src\BuildAnalyzer\PCH\PCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
