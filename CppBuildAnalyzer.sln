@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BuildAnalyzer", "projects\BuildAnalyzer\BuildAnalyzer.vcxproj", "{7FE021B2-7DFE-46D8-806C-845038FFDFD1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AnalysisExporter", "projects\AnalysisExporter\AnalysisExporter.vcxproj", "{8C8F3C28-381A-424F-BF39-650C29CF9CB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -25,6 +27,10 @@ Global
 		{7FE021B2-7DFE-46D8-806C-845038FFDFD1}.Debug|x64.Build.0 = Debug|x64
 		{7FE021B2-7DFE-46D8-806C-845038FFDFD1}.Release|x64.ActiveCfg = Release|x64
 		{7FE021B2-7DFE-46D8-806C-845038FFDFD1}.Release|x64.Build.0 = Release|x64
+		{8C8F3C28-381A-424F-BF39-650C29CF9CB6}.Debug|x64.ActiveCfg = Debug|x64
+		{8C8F3C28-381A-424F-BF39-650C29CF9CB6}.Debug|x64.Build.0 = Debug|x64
+		{8C8F3C28-381A-424F-BF39-650C29CF9CB6}.Release|x64.ActiveCfg = Release|x64
+		{8C8F3C28-381A-424F-BF39-650C29CF9CB6}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{3CC756EB-2FD1-44A2-82B6-61BAD37D327D} = {57DA5BB1-39DD-4A1B-BF1A-9BAC6F954069}
 		{7FE021B2-7DFE-46D8-806C-845038FFDFD1} = {9400C307-FDFF-433F-8938-05F9A1D93FD3}
+		{8C8F3C28-381A-424F-BF39-650C29CF9CB6} = {9400C307-FDFF-433F-8938-05F9A1D93FD3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EA9CD6CF-ECF2-4CA0-843E-7B410564FCD1}

@@ -11,31 +11,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationAnalyzer.h" />
-    <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h" />
-    <ClInclude Include="..\..\src\BuildAnalyzer\PCH\PCH.h" />
+    <ClInclude Include="..\..\src\AnalysisExporter\PCH\PCH.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationAnalyzer.cpp" />
-    <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp" />
-    <ClCompile Include="..\..\src\BuildAnalyzer\PCH\PCH.cpp">
+    <ClCompile Include="..\..\src\AnalysisExporter\PCH\PCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AnalysisExporter\AnalysisExporter.vcxproj">
-      <Project>{8c8f3c28-381a-424f-bf39-650c29cf9cb6}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{7FE021B2-7DFE-46D8-806C-845038FFDFD1}</ProjectGuid>
+    <ProjectGuid>{8C8F3C28-381A-424F-BF39-650C29CF9CB6}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>BuildAnalyzer</RootNamespace>
+    <RootNamespace>AnalysisExporter</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -87,7 +75,6 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>PCH.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -105,7 +92,6 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>PCH.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -116,12 +102,5 @@
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\..\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\Microsoft.Cpp.BuildInsights.targets" Condition="Exists('..\..\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\Microsoft.Cpp.BuildInsights.targets')" />
   </ImportGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\Microsoft.Cpp.BuildInsights.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\Microsoft.Cpp.BuildInsights.targets'))" />
-  </Target>
 </Project>
