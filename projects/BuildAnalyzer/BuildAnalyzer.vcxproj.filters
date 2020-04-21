@@ -21,12 +21,18 @@
     <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationAnalyzer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\BuildAnalyzer\PCH.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationAnalyzer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
