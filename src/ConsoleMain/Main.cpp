@@ -1,16 +1,27 @@
 #include <iostream>
+#include <string>
 #include <cxxopts\cxxopts.hpp>
 
 #include "BuildAnalyzer\BuildAnalyzer.h"
+
+namespace
+{
+	const std::string s_defaultOutputPathSlowFunctionCompilations = "SlowFunctionCompilations.csv";
+}
 
 int main(int argc, char** argv)
 {
 	cxxopts::Options commandLineOptions = cxxopts::Options(argv[0], "Analyzes C++ builds");
 
-	// list options
+	// variables to populate from options
+	std::string inputPathTraceFile;
+	std::string outputPathSlowFunctionCompilations = s_defaultOutputPathSlowFunctionCompilations;
+
+	// configure options
 	commandLineOptions.add_options()
 		("h,help", "Show help")
-		("i,input", "Path to trace file", cxxopts::value<std::string>());
+		("i,input", "Path to trace file", cxxopts::value(inputPathTraceFile))
+		("out_slow_function_compilations", "Path to output slow function compilations", cxxopts::value(outputPathSlowFunctionCompilations));
 
 	// parse command line
 	cxxopts::ParseResult result = commandLineOptions.parse(argc, argv);
@@ -30,8 +41,14 @@ int main(int argc, char** argv)
 	}
 
 	// analyze trace
-	BuildAnalyzer analyzer;
-	bool succeeded = analyzer.Analyze(result["input"].as<std::string>());
+	BuildAnalyzer analyzer(inputPathTraceFile);
+	bool succeeded = analyzer.Analyze();
+	
+	// export data
+	if (succeeded)
+	{
+		analyzer.ExportSlowFunctionCompilations(outputPathSlowFunctionCompilations);
+	}
 
 	std::cout << "Analysis " << (succeeded ? "succeeded" : "failed") << std::endl;
 
