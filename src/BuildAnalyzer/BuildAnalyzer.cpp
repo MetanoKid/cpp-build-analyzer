@@ -3,7 +3,7 @@
 #include <cassert>
 #include <CppBuildInsights.hpp>
 
-#include "Analyzers\SlowFunctionCompilationAnalyzer.h"
+#include "Analyzers\SlowFunctionCompilationsAnalyzer.h"
 #include "AnalysisExporter\SlowFunctionCompilations\SlowFunctionCompilationsExporter.h"
 
 namespace

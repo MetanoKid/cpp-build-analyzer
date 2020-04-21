@@ -1,4 +1,4 @@
-#include "SlowFunctionCompilationAnalyzer.h"
+#include "SlowFunctionCompilationsAnalyzer.h"
 
 namespace CppBI = Microsoft::Cpp::BuildInsights;
 

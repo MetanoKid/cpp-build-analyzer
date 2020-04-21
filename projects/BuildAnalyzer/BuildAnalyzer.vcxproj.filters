@@ -9,21 +9,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationAnalyzer.h">
-      <Filter>Analyzers</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\PCH\PCH.h">
       <Filter>PCH</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationsAnalyzer.h">
+      <Filter>Analyzers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationAnalyzer.cpp">
-      <Filter>Analyzers</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\PCH\PCH.cpp">
       <Filter>PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationsAnalyzer.cpp">
+      <Filter>Analyzers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
