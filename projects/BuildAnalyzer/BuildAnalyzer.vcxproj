@@ -27,6 +27,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AnalysisData\AnalysisData.vcxproj">
+      <Project>{a0cc94e3-cea0-4f2c-94d5-920fa1369245}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\AnalysisExporter\AnalysisExporter.vcxproj">
       <Project>{8c8f3c28-381a-424f-bf39-650c29cf9cb6}</Project>
     </ProjectReference>

@@ -22,6 +22,6 @@ CppBI::AnalysisControl SlowFunctionCompilationsAnalyzer::OnStopActivity(const Cp
 void SlowFunctionCompilationsAnalyzer::OnFunction(const CppBI::Activities::Function& function)
 {
 	// function names are decorated at this stage
-	auto result = m_functionDurations.try_emplace(function.Name(), TDurations());
+	auto result = m_functionDurations.try_emplace(function.Name(), TTimeElapsedPerOccurrence());
 	result.first->second.emplace_back(function.Duration());
 }

@@ -42,6 +42,6 @@ bool BuildAnalyzer::ExportSlowFunctionCompilations(const std::string& path) cons
 	assert(m_analysisPerformed);
 	assert(m_slowFunctionCompilations != nullptr);
 
-	SlowFunctionCompilationsExporter exporter/*(m_slowFunctionCompilations->GetAnalyzedData())*/;
+	SlowFunctionCompilationsExporter exporter(m_slowFunctionCompilations->GetFunctionDurations());
 	return exporter.ExportTo(path);
 }

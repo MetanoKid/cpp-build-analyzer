@@ -9,6 +9,8 @@
     <ClInclude Include="..\..\src\AnalysisData\PCH\PCH.h">
       <Filter>PCH</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\AnalysisData\TimeElapsedPerOcurrence.h" />
+    <ClInclude Include="..\..\src\AnalysisData\TimeElapsedPerOccurrencePerConcept.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisData\PCH\PCH.cpp">

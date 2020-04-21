@@ -7,6 +7,8 @@
 #include <CppBuildInsights.hpp>
 namespace CppBI = Microsoft::Cpp::BuildInsights;
 
+#include "AnalysisData\TimeElapsedPerOccurrencePerConcept.h"
+
 class SlowFunctionCompilationsAnalyzer : public CppBI::IAnalyzer
 {
 public:
@@ -15,12 +17,10 @@ public:
 
 	CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
 
-private:
-	typedef std::chrono::nanoseconds TDuration;
-	typedef std::vector<TDuration> TDurations;
-	typedef std::unordered_map<std::string, TDurations> TFunctionDurations;
+	inline const TTimeElapsedPerOcurrencePerConcept& GetFunctionDurations() const { return m_functionDurations; }
 
-	TFunctionDurations m_functionDurations;
+private:
+	TTimeElapsedPerOcurrencePerConcept m_functionDurations;
 
 	void OnFunction(const CppBI::Activities::Function& function);
 };
