@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cxxopts\cxxopts.hpp>
 
+#include "BuildAnalyzer\BuildAnalyzer.h"
+
 int main(int argc, char** argv)
 {
 	cxxopts::Options commandLineOptions = cxxopts::Options(argv[0], "Analyzes C++ builds");
@@ -8,19 +10,30 @@ int main(int argc, char** argv)
 	// list options
 	commandLineOptions.add_options()
 		("h,help", "Show help")
-		("in", "Path to trace", cxxopts::value<std::string>());
+		("i,input", "Path to trace file", cxxopts::value<std::string>());
 
 	// parse command line
 	cxxopts::ParseResult result = commandLineOptions.parse(argc, argv);
 	
 	// display help
-	if (result.count("h") > 0)
+	if (result.count("help") > 0)
 	{
 		std::cout << commandLineOptions.help() << std::endl;
 		exit(0);
 	}
 
-	// TODO: analyze trace
+	// requires input file
+	if (result.count("input") == 0)
+	{
+		std::cout << "Missing input file option" << std::endl;
+		exit(-1);
+	}
+
+	// analyze trace
+	BuildAnalyzer analyzer;
+	bool succeeded = analyzer.Analyze(result["input"].as<std::string>());
+
+	std::cout << "Analysis " << (succeeded ? "succeeded" : "failed") << std::endl;
 
 	return 0;
 }

@@ -8,7 +8,5 @@ public:
 	BuildAnalyzer();
 	~BuildAnalyzer();
 
-	bool Analyze(const char* traceFilePath);
-
-private:
+	bool Analyze(const std::string& traceFilePath);
 };
