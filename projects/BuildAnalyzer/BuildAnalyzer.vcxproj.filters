@@ -1,39 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Analyzers">
+      <UniqueIdentifier>{3af15940-12c7-4d6b-9422-97bfa4c55545}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="PCH">
+      <UniqueIdentifier>{6428dc20-4432-41d4-822b-d8037fabad84}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\BuildAnalyzer\PCH.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationAnalyzer.h">
-      <Filter>Header Files</Filter>
+      <Filter>Analyzers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h" />
+    <ClInclude Include="..\..\src\BuildAnalyzer\PCH.h">
+      <Filter>PCH</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\BuildAnalyzer\PCH.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationAnalyzer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Analyzers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp" />
+    <ClCompile Include="..\..\src\BuildAnalyzer\PCH.cpp">
+      <Filter>PCH</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
