@@ -31,12 +31,6 @@ bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
 		return false;
 	}
 
-	// data header
-	out << "Decorated function name" << ";"
-		<< "Undecorated function name" << ";"
-		<< "Average elapsed time (nanoseconds)" << ";"
-		<< "Occurrences" << std::endl;
-
 	// get undecorated name here
 	char undecoratedFunctionName[s_undecoratedNameMaxLength];
 
@@ -64,6 +58,12 @@ bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
 		// slowest functions first
 		return lhs.averageCompilationTime > rhs.averageCompilationTime;
 	});
+
+	// write data header to stream
+	out << "Decorated function name" << ";"
+		<< "Undecorated function name" << ";"
+		<< "Average elapsed time (nanoseconds)" << ";"
+		<< "Occurrences" << std::endl;
 
 	// write data to file
 	for (auto&& data : dataPerFunction)

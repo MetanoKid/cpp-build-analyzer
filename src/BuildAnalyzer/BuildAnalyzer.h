@@ -18,6 +18,7 @@ public:
 	bool Analyze();
 	bool ExportFunctionCompilationsData(const std::string& path) const;
 	bool ExportFileInclusionsData(const std::string& path) const;
+	bool ExportFileCompilationsData(const std::string& path) const;
 
 private:
 	std::string m_traceFilePath;

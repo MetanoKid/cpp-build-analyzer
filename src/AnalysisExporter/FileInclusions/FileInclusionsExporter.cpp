@@ -20,11 +20,6 @@ bool FileInclusionsExporter::ExportTo(const std::string& path) const
 		return false;
 	}
 
-	// data header
-	out << "File path" << ";"
-		<< "Average elapsed time (nanoseconds)" << ";"
-		<< "Occurrences" << std::endl;
-
 	// store aggregated data in this vector
 	std::vector<DataPerFile> dataPerFile;
 
@@ -48,6 +43,11 @@ bool FileInclusionsExporter::ExportTo(const std::string& path) const
 		// slowest inclusions first
 		return lhs.averageInclusionTime > rhs.averageInclusionTime;
 	});
+
+	// write data header to stream
+	out << "File path" << ";"
+		<< "Average elapsed time (nanoseconds)" << ";"
+		<< "Occurrences" << std::endl;
 
 	// write data to stream
 	for (auto&& data : dataPerFile)

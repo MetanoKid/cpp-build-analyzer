@@ -16,6 +16,8 @@ public:
 
 	CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
 
+	inline const TFileCompilationDataPerFile& GetData() const { return m_fileCompilationsData; }
+
 private:
 	TFileCompilationDataPerFile m_fileCompilationsData;
 

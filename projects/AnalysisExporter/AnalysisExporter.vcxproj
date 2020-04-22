@@ -11,11 +11,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.h" />
     <ClInclude Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionsExporter.h" />
     <ClInclude Include="..\..\src\AnalysisExporter\PCH\PCH.h" />
     <ClInclude Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.cpp" />
     <ClCompile Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionsExporter.cpp" />
     <ClCompile Include="..\..\src\AnalysisExporter\PCH\PCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -26,7 +26,7 @@ void FileCompilationsAnalyzer::OnFrontEndPassCompleted(const CppBI::Activities::
 	FileCompilationData::Pass& frontEndData = result.first->second.FrontEnd;
 
 	frontEndData.Start = ConvertActivityTimestamp(frontEndPass.StartTimestamp(), frontEndPass.TickFrequency());
-	frontEndData.Stop = ConvertActivityTimestamp(frontEndPass.StopTimestamp, frontEndPass.TickFrequency());
+	frontEndData.Stop = ConvertActivityTimestamp(frontEndPass.StopTimestamp(), frontEndPass.TickFrequency());
 }
 
 void FileCompilationsAnalyzer::OnBackEndPassCompleted(const CppBI::Activities::BackEndPass& backEndPass)
@@ -35,7 +35,7 @@ void FileCompilationsAnalyzer::OnBackEndPassCompleted(const CppBI::Activities::B
 	FileCompilationData::Pass& backEndData = result.first->second.BackEnd;
 
 	backEndData.Start = ConvertActivityTimestamp(backEndPass.StartTimestamp(), backEndPass.TickFrequency());
-	backEndData.Stop = ConvertActivityTimestamp(backEndPass.StopTimestamp, backEndPass.TickFrequency());
+	backEndData.Stop = ConvertActivityTimestamp(backEndPass.StopTimestamp(), backEndPass.TickFrequency());
 }
 
 std::string FileCompilationsAnalyzer::ConvertFilePath(const wchar_t* filePath) const

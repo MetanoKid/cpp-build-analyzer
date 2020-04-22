@@ -8,6 +8,7 @@
 #include "Analyzers\FileCompilationsAnalyzer.h"
 #include "AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h"
 #include "AnalysisExporter\FileInclusions\FileInclusionsExporter.h"
+#include "AnalysisExporter\FileCompilations\FileCompilationsExporter.h"
 
 namespace
 {
@@ -61,5 +62,14 @@ bool BuildAnalyzer::ExportFileInclusionsData(const std::string& path) const
 	assert(m_fileInclusions != nullptr);
 
 	FileInclusionsExporter exporter(m_fileInclusions->GetData());
+	return exporter.ExportTo(path);
+}
+
+bool BuildAnalyzer::ExportFileCompilationsData(const std::string& path) const
+{
+	assert(m_analysisPerformed);
+	assert(m_fileCompilations != nullptr);
+
+	FileCompilationsExporter exporter(m_fileCompilations->GetData());
 	return exporter.ExportTo(path);
 }

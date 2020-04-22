@@ -8,6 +8,7 @@ namespace
 {
 	const std::string s_defaultOutputPathFunctionCompilations = "FunctionCompilations.csv";
 	const std::string s_defaultOutputPathFileInclusions = "FileInclusions.csv";
+	const std::string s_defaultOutputPathFileCompilations = "FileCompilations.csv";
 }
 
 int main(int argc, char** argv)
@@ -18,13 +19,15 @@ int main(int argc, char** argv)
 	std::string inputPathTraceFile;
 	std::string outputPathFunctionCompilations = s_defaultOutputPathFunctionCompilations;
 	std::string outputPathFileInclusions = s_defaultOutputPathFileInclusions;
+	std::string outputPathFileCompilations = s_defaultOutputPathFileCompilations;
 
 	// configure options
 	commandLineOptions.add_options()
 		("h,help", "Show help")
 		("i,input", "Path to trace file", cxxopts::value(inputPathTraceFile))
 		("out_function_compilations", "Path to output function compilations data", cxxopts::value(outputPathFunctionCompilations))
-		("out_file_inclusions", "Path to output file inclusions data", cxxopts::value(outputPathFileInclusions));
+		("out_file_inclusions", "Path to output file inclusions data", cxxopts::value(outputPathFileInclusions))
+		("out_file_compilations", "Path to output file compilations data", cxxopts::value(outputPathFileCompilations));
 
 	// parse command line
 	cxxopts::ParseResult result = commandLineOptions.parse(argc, argv);
@@ -52,6 +55,7 @@ int main(int argc, char** argv)
 	{
 		analyzer.ExportFunctionCompilationsData(outputPathFunctionCompilations);
 		analyzer.ExportFileInclusionsData(outputPathFileInclusions);
+		analyzer.ExportFileCompilationsData(outputPathFileCompilations);
 	}
 
 	std::cout << "Analysis " << (succeeded ? "succeeded" : "failed") << std::endl;

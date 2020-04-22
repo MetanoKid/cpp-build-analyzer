@@ -11,6 +11,8 @@
     </ClInclude>
     <ClInclude Include="..\..\src\AnalysisData\TimeElapsedPerOcurrence.h" />
     <ClInclude Include="..\..\src\AnalysisData\TimeElapsedPerOccurrencePerConcept.h" />
+    <ClInclude Include="..\..\src\AnalysisData\FileCompilationData.h" />
+    <ClInclude Include="..\..\src\AnalysisData\FileCompilationDataPerFile.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisData\PCH\PCH.cpp">
