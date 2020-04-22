@@ -7,6 +7,7 @@
 namespace
 {
 	const std::string s_defaultOutputPathFunctionCompilations = "FunctionCompilations.csv";
+	const std::string s_defaultOutputPathFileInclusions = "FileInclusions.csv";
 }
 
 int main(int argc, char** argv)
@@ -16,12 +17,14 @@ int main(int argc, char** argv)
 	// variables to populate from options
 	std::string inputPathTraceFile;
 	std::string outputPathFunctionCompilations = s_defaultOutputPathFunctionCompilations;
+	std::string outputPathFileInclusions = s_defaultOutputPathFileInclusions;
 
 	// configure options
 	commandLineOptions.add_options()
 		("h,help", "Show help")
 		("i,input", "Path to trace file", cxxopts::value(inputPathTraceFile))
-		("out_slow_function_compilations", "Path to output slow function compilations", cxxopts::value(outputPathFunctionCompilations));
+		("out_function_compilations", "Path to output function compilations data", cxxopts::value(outputPathFunctionCompilations))
+		("out_file_inclusions", "Path to output file inclusions data", cxxopts::value(outputPathFileInclusions));
 
 	// parse command line
 	cxxopts::ParseResult result = commandLineOptions.parse(argc, argv);
@@ -47,7 +50,8 @@ int main(int argc, char** argv)
 	// export data
 	if (succeeded)
 	{
-		analyzer.ExportFunctionCompilationTimes(outputPathFunctionCompilations);
+		analyzer.ExportFunctionCompilationsData(outputPathFunctionCompilations);
+		analyzer.ExportFileInclusionsData(outputPathFileInclusions);
 	}
 
 	std::cout << "Analysis " << (succeeded ? "succeeded" : "failed") << std::endl;

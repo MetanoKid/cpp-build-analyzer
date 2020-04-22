@@ -7,6 +7,9 @@
     <Filter Include="FunctionCompilations">
       <UniqueIdentifier>{eb1e9b0f-d70c-4453-9f9f-bf5a7bb6bae8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FileInclusions">
+      <UniqueIdentifier>{b687568b-f153-4daf-b39c-7e3741710dc7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\AnalysisExporter\PCH\PCH.h">
@@ -15,6 +18,9 @@
     <ClInclude Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h">
       <Filter>FunctionCompilations</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionsExporter.h">
+      <Filter>FileInclusions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisExporter\PCH\PCH.cpp">
@@ -22,6 +28,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.cpp">
       <Filter>FunctionCompilations</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionsExporter.cpp">
+      <Filter>FileInclusions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

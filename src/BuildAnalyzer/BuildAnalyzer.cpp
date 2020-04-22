@@ -6,6 +6,7 @@
 #include "Analyzers\FunctionCompilationTimeAnalyzer.h"
 #include "Analyzers\FileInclusionTimeAnalyzer.h"
 #include "AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h"
+#include "AnalysisExporter\FileInclusions\FileInclusionsExporter.h"
 
 namespace
 {
@@ -17,7 +18,7 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 BuildAnalyzer::BuildAnalyzer(const std::string& traceFilePath)
 	: m_traceFilePath(traceFilePath)
 	, m_functionCompilations(std::make_unique<FunctionCompilationTimeAnalyzer>())
-	, m_fileInclusionTimes(std::make_unique<FileInclusionTimeAnalyzer>())
+	, m_fileInclusions(std::make_unique<FileInclusionTimeAnalyzer>())
 	, m_analysisPerformed(false)
 {
 }
@@ -30,10 +31,10 @@ bool BuildAnalyzer::Analyze()
 {
 	assert(!m_analysisPerformed);
 	assert(m_functionCompilations != nullptr);
-	assert(m_fileInclusionTimes != nullptr);
+	assert(m_fileInclusions != nullptr);
 
 	auto analyzerGroup = CppBI::MakeStaticAnalyzerGroup(m_functionCompilations.get(),
-														m_fileInclusionTimes.get());
+														m_fileInclusions.get());
 
 	CppBI::RESULT_CODE result = CppBI::Analyze(m_traceFilePath.c_str(), s_numberOfPasses, analyzerGroup);
 	m_analysisPerformed = true;
@@ -41,19 +42,20 @@ bool BuildAnalyzer::Analyze()
 	return result == CppBI::RESULT_CODE::RESULT_CODE_SUCCESS;
 }
 
-bool BuildAnalyzer::ExportFunctionCompilationTimes(const std::string& path) const
+bool BuildAnalyzer::ExportFunctionCompilationsData(const std::string& path) const
 {
 	assert(m_analysisPerformed);
-	assert(m_functionCompilations != nullptr);
+	assert(m_fileInclusions != nullptr);
 
 	FunctionCompilationsExporter exporter(m_functionCompilations->GetData());
 	return exporter.ExportTo(path);
 }
 
-bool BuildAnalyzer::ExportFileInclusionTimes(const std::string& path) const
+bool BuildAnalyzer::ExportFileInclusionsData(const std::string& path) const
 {
 	assert(m_analysisPerformed);
-	assert(m_fileInclusionTimes != nullptr);
+	assert(m_fileInclusions != nullptr);
 
-	return false;
+	FileInclusionsExporter exporter(m_fileInclusions->GetData());
+	return exporter.ExportTo(path);
 }

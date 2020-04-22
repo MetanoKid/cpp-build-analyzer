@@ -13,10 +13,10 @@ public:
 
 	CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
 
-	inline const TTimeElapsedPerOcurrencePerConcept& GetData() const { return m_functionCompilationsData; }
+	inline const TTimeElapsedPerOccurrencePerConcept& GetData() const { return m_functionCompilationsData; }
 
 private:
-	TTimeElapsedPerOcurrencePerConcept m_functionCompilationsData;
+	TTimeElapsedPerOccurrencePerConcept m_functionCompilationsData;
 
 	void OnFunctionCompiled(const CppBI::Activities::Function& function);
 };

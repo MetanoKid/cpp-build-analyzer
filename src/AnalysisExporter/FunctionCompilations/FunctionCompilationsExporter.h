@@ -8,7 +8,7 @@
 class FunctionCompilationsExporter
 {
 public:
-	FunctionCompilationsExporter(const TTimeElapsedPerOcurrencePerConcept& data);
+	FunctionCompilationsExporter(const TTimeElapsedPerOccurrencePerConcept& data);
 	~FunctionCompilationsExporter();
 
 	// exports to CSV format
@@ -32,5 +32,5 @@ private:
 		}
 	};
 
-	const TTimeElapsedPerOcurrencePerConcept& m_data;
+	const TTimeElapsedPerOccurrencePerConcept& m_data;
 };

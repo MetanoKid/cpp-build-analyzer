@@ -14,7 +14,7 @@ namespace
 									UNDNAME_NO_ACCESS_SPECIFIERS;
 }
 
-FunctionCompilationsExporter::FunctionCompilationsExporter(const TTimeElapsedPerOcurrencePerConcept& data)
+FunctionCompilationsExporter::FunctionCompilationsExporter(const TTimeElapsedPerOccurrencePerConcept& data)
 	: m_data(data)
 {
 }
@@ -54,7 +54,7 @@ bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
 		}
 		averageTimeElapsed /= pair.second.size();
 
-		// store it
+		// store data
 		dataPerFunction.emplace_back(&pair.first, averageTimeElapsed, static_cast<unsigned int>(pair.second.size()));
 	}
 

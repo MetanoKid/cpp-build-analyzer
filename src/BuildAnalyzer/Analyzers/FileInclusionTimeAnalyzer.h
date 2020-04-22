@@ -13,10 +13,10 @@ public:
 
 	CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
 
-	inline const TTimeElapsedPerOcurrencePerConcept& GetInclusionDurations() const { return m_inclusionDurations; }
+	inline const TTimeElapsedPerOccurrencePerConcept& GetData() const { return m_inclusionDurations; }
 
 private:
-	TTimeElapsedPerOcurrencePerConcept m_inclusionDurations;
+	TTimeElapsedPerOccurrencePerConcept m_inclusionDurations;
 
 	void OnFileParsed(const CppBI::Activities::FrontEndFile& fromFile,
 					  const CppBI::Activities::FrontEndFile& includedFile);
