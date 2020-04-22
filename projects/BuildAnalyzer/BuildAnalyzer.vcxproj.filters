@@ -13,13 +13,13 @@
     <ClInclude Include="..\..\src\BuildAnalyzer\PCH\PCH.h">
       <Filter>PCH</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationTimeAnalyzer.h">
-      <Filter>Analyzers</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionTimeAnalyzer.h">
-      <Filter>Analyzers</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilationAnalyzer.h">
+      <Filter>Analyzers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionsAnalyzer.h">
+      <Filter>Analyzers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationsAnalyzer.h">
       <Filter>Analyzers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -28,13 +28,13 @@
     <ClCompile Include="..\..\src\BuildAnalyzer\PCH\PCH.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationTimeAnalyzer.cpp">
-      <Filter>Analyzers</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionTimeAnalyzer.cpp">
-      <Filter>Analyzers</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilationAnalyzer.cpp">
+      <Filter>Analyzers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionsAnalyzer.cpp">
+      <Filter>Analyzers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationsAnalyzer.cpp">
       <Filter>Analyzers</Filter>
     </ClCompile>
   </ItemGroup>

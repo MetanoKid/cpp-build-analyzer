@@ -3,8 +3,8 @@
 #include <string>
 #include <memory>
 
-class FunctionCompilationTimeAnalyzer;
-class FileInclusionTimeAnalyzer;
+class FunctionCompilationsAnalyzer;
+class FileInclusionsAnalyzer;
 class FileCompilationAnalyzer;
 
 class BuildAnalyzer
@@ -22,8 +22,8 @@ public:
 private:
 	std::string m_traceFilePath;
 
-	std::unique_ptr<FunctionCompilationTimeAnalyzer> m_functionCompilations;
-	std::unique_ptr<FileInclusionTimeAnalyzer> m_fileInclusions;
+	std::unique_ptr<FunctionCompilationsAnalyzer> m_functionCompilations;
+	std::unique_ptr<FileInclusionsAnalyzer> m_fileInclusions;
 	std::unique_ptr<FileCompilationAnalyzer> m_fileCompilations;
 	
 	bool m_analysisPerformed;

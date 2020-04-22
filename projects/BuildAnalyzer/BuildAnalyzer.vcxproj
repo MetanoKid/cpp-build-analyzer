@@ -12,15 +12,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilationAnalyzer.h" />
-    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationTimeAnalyzer.h" />
-    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionTimeAnalyzer.h" />
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationsAnalyzer.h" />
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionsAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\PCH\PCH.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilationAnalyzer.cpp" />
-    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationTimeAnalyzer.cpp" />
-    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionTimeAnalyzer.cpp" />
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationsAnalyzer.cpp" />
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionsAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\PCH\PCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

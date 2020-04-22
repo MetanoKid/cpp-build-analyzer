@@ -3,8 +3,8 @@
 #include <cassert>
 #include <CppBuildInsights.hpp>
 
-#include "Analyzers\FunctionCompilationTimeAnalyzer.h"
-#include "Analyzers\FileInclusionTimeAnalyzer.h"
+#include "Analyzers\FunctionCompilationsAnalyzer.h"
+#include "Analyzers\FileInclusionsAnalyzer.h"
 #include "Analyzers\FileCompilationAnalyzer.h"
 #include "AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h"
 #include "AnalysisExporter\FileInclusions\FileInclusionsExporter.h"
@@ -18,8 +18,8 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 
 BuildAnalyzer::BuildAnalyzer(const std::string& traceFilePath)
 	: m_traceFilePath(traceFilePath)
-	, m_functionCompilations(std::make_unique<FunctionCompilationTimeAnalyzer>())
-	, m_fileInclusions(std::make_unique<FileInclusionTimeAnalyzer>())
+	, m_functionCompilations(std::make_unique<FunctionCompilationsAnalyzer>())
+	, m_fileInclusions(std::make_unique<FileInclusionsAnalyzer>())
 	, m_fileCompilations(std::make_unique<FileCompilationAnalyzer>())
 	, m_analysisPerformed(false)
 {

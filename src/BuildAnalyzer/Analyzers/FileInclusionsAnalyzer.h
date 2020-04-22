@@ -5,18 +5,18 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 
 #include "AnalysisData\TimeElapsedPerOccurrencePerConcept.h"
 
-class FileInclusionTimeAnalyzer : public CppBI::IAnalyzer
+class FileInclusionsAnalyzer : public CppBI::IAnalyzer
 {
 public:
-	FileInclusionTimeAnalyzer();
-	virtual ~FileInclusionTimeAnalyzer();
+	FileInclusionsAnalyzer();
+	virtual ~FileInclusionsAnalyzer();
 
 	CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
 
-	inline const TTimeElapsedPerOccurrencePerConcept& GetData() const { return m_inclusionDurations; }
+	inline const TTimeElapsedPerOccurrencePerConcept& GetData() const { return m_fileInclusionsData; }
 
 private:
-	TTimeElapsedPerOccurrencePerConcept m_inclusionDurations;
+	TTimeElapsedPerOccurrencePerConcept m_fileInclusionsData;
 
 	void OnFileParsed(const CppBI::Activities::FrontEndFile& fromFile,
 					  const CppBI::Activities::FrontEndFile& includedFile);
