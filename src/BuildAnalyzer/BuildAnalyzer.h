@@ -20,7 +20,7 @@ public:
 
 private:
 	std::string m_traceFilePath;
-	std::unique_ptr<FunctionCompilationTimeAnalyzer> m_functionCompilationTimes;
+	std::unique_ptr<FunctionCompilationTimeAnalyzer> m_functionCompilations;
 	std::unique_ptr<FileInclusionTimeAnalyzer> m_fileInclusionTimes;
 	bool m_analysisPerformed;
 };

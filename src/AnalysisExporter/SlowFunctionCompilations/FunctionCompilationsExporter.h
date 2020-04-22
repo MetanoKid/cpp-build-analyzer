@@ -5,11 +5,11 @@
 
 #include "AnalysisData\TimeElapsedPerOccurrencePerConcept.h"
 
-class FunctionCompilationTimeExporter
+class FunctionCompilationsExporter
 {
 public:
-	FunctionCompilationTimeExporter(const TTimeElapsedPerOcurrencePerConcept& data);
-	~FunctionCompilationTimeExporter();
+	FunctionCompilationsExporter(const TTimeElapsedPerOcurrencePerConcept& data);
+	~FunctionCompilationsExporter();
 
 	// exports to CSV format
 	bool ExportTo(const std::string& path) const;

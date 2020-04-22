@@ -4,7 +4,7 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 
 FunctionCompilationTimeAnalyzer::FunctionCompilationTimeAnalyzer()
 	: CppBI::IAnalyzer()
-	, m_functionDurations()
+	, m_functionCompilationsData()
 {
 }
 
@@ -22,6 +22,6 @@ CppBI::AnalysisControl FunctionCompilationTimeAnalyzer::OnStopActivity(const Cpp
 void FunctionCompilationTimeAnalyzer::OnFunctionCompiled(const CppBI::Activities::Function& function)
 {
 	// function names are decorated at this stage
-	auto result = m_functionDurations.try_emplace(function.Name(), TTimeElapsedPerOccurrence());
+	auto result = m_functionCompilationsData.try_emplace(function.Name(), TTimeElapsedPerOccurrence());
 	result.first->second.emplace_back(function.Duration());
 }
