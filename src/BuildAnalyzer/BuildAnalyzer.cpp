@@ -5,7 +5,7 @@
 
 #include "Analyzers\FunctionCompilationsAnalyzer.h"
 #include "Analyzers\FileInclusionsAnalyzer.h"
-#include "Analyzers\FileCompilationAnalyzer.h"
+#include "Analyzers\FileCompilationsAnalyzer.h"
 #include "AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h"
 #include "AnalysisExporter\FileInclusions\FileInclusionsExporter.h"
 
@@ -20,7 +20,7 @@ BuildAnalyzer::BuildAnalyzer(const std::string& traceFilePath)
 	: m_traceFilePath(traceFilePath)
 	, m_functionCompilations(std::make_unique<FunctionCompilationsAnalyzer>())
 	, m_fileInclusions(std::make_unique<FileInclusionsAnalyzer>())
-	, m_fileCompilations(std::make_unique<FileCompilationAnalyzer>())
+	, m_fileCompilations(std::make_unique<FileCompilationsAnalyzer>())
 	, m_analysisPerformed(false)
 {
 }

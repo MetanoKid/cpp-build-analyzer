@@ -5,7 +5,7 @@
 
 class FunctionCompilationsAnalyzer;
 class FileInclusionsAnalyzer;
-class FileCompilationAnalyzer;
+class FileCompilationsAnalyzer;
 
 class BuildAnalyzer
 {
@@ -24,7 +24,7 @@ private:
 
 	std::unique_ptr<FunctionCompilationsAnalyzer> m_functionCompilations;
 	std::unique_ptr<FileInclusionsAnalyzer> m_fileInclusions;
-	std::unique_ptr<FileCompilationAnalyzer> m_fileCompilations;
+	std::unique_ptr<FileCompilationsAnalyzer> m_fileCompilations;
 	
 	bool m_analysisPerformed;
 };

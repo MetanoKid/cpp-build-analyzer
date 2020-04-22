@@ -3,11 +3,11 @@
 #include <CppBuildInsights.hpp>
 namespace CppBI = Microsoft::Cpp::BuildInsights;
 
-class FileCompilationAnalyzer : public CppBI::IAnalyzer
+class FileCompilationsAnalyzer : public CppBI::IAnalyzer
 {
 public:
-	FileCompilationAnalyzer();
-	virtual ~FileCompilationAnalyzer();
+	FileCompilationsAnalyzer();
+	virtual ~FileCompilationsAnalyzer();
 
 	CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
 
