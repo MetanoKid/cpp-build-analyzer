@@ -7,20 +7,29 @@
     <Filter Include="PCH">
       <UniqueIdentifier>{02b25273-b465-496f-94a0-85bc1c280ec8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Analyzers\FileCompilations">
+      <UniqueIdentifier>{79210204-aac4-4b43-afbd-f00dc6ae5c5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Analyzers\FileInclusions">
+      <UniqueIdentifier>{2e121553-7923-4b76-8d32-c70f196478fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Analyzers\FunctionCompilations">
+      <UniqueIdentifier>{a5c87a45-27b6-4a0f-82f3-3d966e79be42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\PCH\PCH.h">
       <Filter>PCH</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionsAnalyzer.h">
-      <Filter>Analyzers</Filter>
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.h">
+      <Filter>Analyzers\FileCompilations</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationsAnalyzer.h">
-      <Filter>Analyzers</Filter>
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.h">
+      <Filter>Analyzers\FileInclusions</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilationsAnalyzer.h">
-      <Filter>Analyzers</Filter>
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h">
+      <Filter>Analyzers\FunctionCompilations</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -28,14 +37,14 @@
     <ClCompile Include="..\..\src\BuildAnalyzer\PCH\PCH.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionsAnalyzer.cpp">
-      <Filter>Analyzers</Filter>
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.cpp">
+      <Filter>Analyzers\FileCompilations</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationsAnalyzer.cpp">
-      <Filter>Analyzers</Filter>
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.cpp">
+      <Filter>Analyzers\FileInclusions</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilationsAnalyzer.cpp">
-      <Filter>Analyzers</Filter>
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.cpp">
+      <Filter>Analyzers\FunctionCompilations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

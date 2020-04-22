@@ -3,9 +3,9 @@
 #include <cassert>
 #include <CppBuildInsights.hpp>
 
-#include "Analyzers\FunctionCompilationsAnalyzer.h"
-#include "Analyzers\FileInclusionsAnalyzer.h"
-#include "Analyzers\FileCompilationsAnalyzer.h"
+#include "Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h"
+#include "Analyzers\FileInclusions\FileInclusionsAnalyzer.h"
+#include "Analyzers\FileCompilations\FileCompilationsAnalyzer.h"
 #include "AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h"
 #include "AnalysisExporter\FileInclusions\FileInclusionsExporter.h"
 #include "AnalysisExporter\FileCompilations\FileCompilationsExporter.h"
