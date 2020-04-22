@@ -34,14 +34,14 @@ bool FunctionCompilationTimeExporter::ExportTo(const std::string& path) const
 	// data header
 	out << "Decorated function name" << ";"
 		<< "Undecorated function name" << ";"
-		<< "Average elapsed time (nanoseconds)" << std::endl;
+		<< "Average elapsed time (nanoseconds)" << ";"
+		<< "Occurrences" << std::endl;
 
 	// get undecorated name here
 	char undecoratedFunctionName[s_undecoratedNameMaxLength];
 
 	// store aggregated data in this vector
-	typedef std::pair<const std::string*, std::chrono::nanoseconds> TDataPerFunction;
-	std::vector<TDataPerFunction> dataPerFunction;
+	std::vector<DataPerFunction> dataPerFunction;
 
 	// each function will have one entry with aggregated data
 	for (auto&& pair : m_data)
@@ -55,27 +55,28 @@ bool FunctionCompilationTimeExporter::ExportTo(const std::string& path) const
 		averageTimeElapsed /= pair.second.size();
 
 		// store it
-		dataPerFunction.emplace_back(std::make_pair(&pair.first, averageTimeElapsed));
+		dataPerFunction.emplace_back(&pair.first, averageTimeElapsed, static_cast<unsigned int>(pair.second.size()));
 	}
 
 	// sort entries
-	std::sort(dataPerFunction.begin(), dataPerFunction.end(), [](const TDataPerFunction& lhs, const TDataPerFunction& rhs)
+	std::sort(dataPerFunction.begin(), dataPerFunction.end(), [](const DataPerFunction& lhs, const DataPerFunction& rhs)
 	{
 		// slowest functions first
-		return lhs.second > rhs.second;
+		return lhs.averageCompilationTime > rhs.averageCompilationTime;
 	});
 
 	// write data to file
 	for (auto&& data : dataPerFunction)
 	{
 		// undecorate function name
-		DWORD result = UnDecorateSymbolName(data.first->c_str(), undecoratedFunctionName,
+		DWORD result = UnDecorateSymbolName(data.functionName->c_str(), undecoratedFunctionName,
 											s_undecoratedNameMaxLength, s_undecorateFlags);
 
 		// dump to stream
-		out << (*data.first) << ";"
-			<< (result != 0 ? undecoratedFunctionName : (*data.first)) << ";"
-			<< data.second.count() << std::endl;
+		out << (*data.functionName) << ";"
+			<< (result != 0 ? undecoratedFunctionName : (*data.functionName)) << ";"
+			<< data.averageCompilationTime.count() << ";"
+			<< data.occurrences << std::endl;
 	}
 
 	out.close();
