@@ -33,22 +33,29 @@ bool SlowFunctionCompilationsExporter::ExportTo(const std::string& path) const
 	// data header
 	out << "Decorated function name" << ";"
 		<< "Undecorated function name" << ";"
-		<< "Time elapsed (nanoseconds)" << std::endl;
+		<< "Average elapsed time (nanoseconds)" << std::endl;
 
 	// get undecorated name here
 	char undecoratedFunctionName[s_undecoratedNameMaxLength];
 
-	// each function will have as many entries as occurrences
+	// each function will have one entry with aggregated data
 	for (auto&& pair : m_data)
 	{
-		DWORD result = UnDecorateSymbolName(pair.first.c_str(), undecoratedFunctionName, s_undecoratedNameMaxLength, s_undecorateFlags);
-
+		// calculate average time
+		std::chrono::nanoseconds averageTimeElapsed(0);
 		for (auto&& timeElapsed : pair.second)
 		{
-			out << pair.first << ";"
-				<< (result != 0 ? undecoratedFunctionName : pair.first) << ";"
-				<< timeElapsed.count() << std::endl;
+			averageTimeElapsed += timeElapsed;
 		}
+		averageTimeElapsed /= pair.second.size();
+
+		// undecorate function name
+		DWORD result = UnDecorateSymbolName(pair.first.c_str(), undecoratedFunctionName, s_undecoratedNameMaxLength, s_undecorateFlags);
+
+		// dump to stream
+		out << pair.first << ";"
+			<< (result != 0 ? undecoratedFunctionName : pair.first) << ";"
+			<< averageTimeElapsed.count() << std::endl;
 	}
 
 	out.close();

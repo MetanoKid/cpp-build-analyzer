@@ -10,6 +10,7 @@ public:
 	SlowFunctionCompilationsExporter(const TTimeElapsedPerOcurrencePerConcept& data);
 	~SlowFunctionCompilationsExporter();
 
+	// exports to CSV format
 	bool ExportTo(const std::string& path) const;
 
 private:
