@@ -1,9 +1,5 @@
 #pragma once
 
-#include <unordered_map>
-#include <vector>
-#include <chrono>
-
 #include <CppBuildInsights.hpp>
 namespace CppBI = Microsoft::Cpp::BuildInsights;
 

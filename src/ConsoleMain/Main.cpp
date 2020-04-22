@@ -47,7 +47,7 @@ int main(int argc, char** argv)
 	// export data
 	if (succeeded)
 	{
-		analyzer.ExportSlowFunctionCompilations(outputPathSlowFunctionCompilations);
+		analyzer.ExportFunctionCompilationTimes(outputPathSlowFunctionCompilations);
 	}
 
 	std::cout << "Analysis " << (succeeded ? "succeeded" : "failed") << std::endl;
