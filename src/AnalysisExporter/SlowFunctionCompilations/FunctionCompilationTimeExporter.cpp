@@ -4,6 +4,7 @@
 #include <DbgHelp.h>
 
 #include <fstream>
+#include <algorithm>
 
 namespace
 {
@@ -38,6 +39,10 @@ bool FunctionCompilationTimeExporter::ExportTo(const std::string& path) const
 	// get undecorated name here
 	char undecoratedFunctionName[s_undecoratedNameMaxLength];
 
+	// store aggregated data in this vector
+	typedef std::pair<const std::string*, std::chrono::nanoseconds> TDataPerFunction;
+	std::vector<TDataPerFunction> dataPerFunction;
+
 	// each function will have one entry with aggregated data
 	for (auto&& pair : m_data)
 	{
@@ -49,13 +54,28 @@ bool FunctionCompilationTimeExporter::ExportTo(const std::string& path) const
 		}
 		averageTimeElapsed /= pair.second.size();
 
+		// store it
+		dataPerFunction.emplace_back(std::make_pair(&pair.first, averageTimeElapsed));
+	}
+
+	// sort entries
+	std::sort(dataPerFunction.begin(), dataPerFunction.end(), [](const TDataPerFunction& lhs, const TDataPerFunction& rhs)
+	{
+		// slowest functions first
+		return lhs.second > rhs.second;
+	});
+
+	// write data to file
+	for (auto&& data : dataPerFunction)
+	{
 		// undecorate function name
-		DWORD result = UnDecorateSymbolName(pair.first.c_str(), undecoratedFunctionName, s_undecoratedNameMaxLength, s_undecorateFlags);
+		DWORD result = UnDecorateSymbolName(data.first->c_str(), undecoratedFunctionName,
+											s_undecoratedNameMaxLength, s_undecorateFlags);
 
 		// dump to stream
-		out << pair.first << ";"
-			<< (result != 0 ? undecoratedFunctionName : pair.first) << ";"
-			<< averageTimeElapsed.count() << std::endl;
+		out << (*data.first) << ";"
+			<< (result != 0 ? undecoratedFunctionName : (*data.first)) << ";"
+			<< data.second.count() << std::endl;
 	}
 
 	out.close();
