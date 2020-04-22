@@ -11,12 +11,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationsAnalyzer.h" />
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationTimeAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\PCH\PCH.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationsAnalyzer.cpp" />
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationTimeAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\PCH\PCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -3,7 +3,7 @@
 #include <string>
 #include <memory>
 
-class SlowFunctionCompilationsAnalyzer;
+class FunctionCompilationTimeAnalyzer;
 
 class BuildAnalyzer
 {
@@ -18,6 +18,6 @@ public:
 
 private:
 	std::string m_traceFilePath;
-	std::unique_ptr<SlowFunctionCompilationsAnalyzer> m_slowFunctionCompilations;
+	std::unique_ptr<FunctionCompilationTimeAnalyzer> m_slowFunctionCompilations;
 	bool m_analysisPerformed;
 };

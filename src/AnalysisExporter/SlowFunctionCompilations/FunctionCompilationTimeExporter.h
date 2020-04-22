@@ -4,11 +4,11 @@
 
 #include "AnalysisData\TimeElapsedPerOccurrencePerConcept.h"
 
-class SlowFunctionCompilationsExporter
+class FunctionCompilationTimeExporter
 {
 public:
-	SlowFunctionCompilationsExporter(const TTimeElapsedPerOcurrencePerConcept& data);
-	~SlowFunctionCompilationsExporter();
+	FunctionCompilationTimeExporter(const TTimeElapsedPerOcurrencePerConcept& data);
+	~FunctionCompilationTimeExporter();
 
 	// exports to CSV format
 	bool ExportTo(const std::string& path) const;

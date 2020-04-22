@@ -13,7 +13,7 @@
     <ClInclude Include="..\..\src\BuildAnalyzer\PCH\PCH.h">
       <Filter>PCH</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationsAnalyzer.h">
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationTimeAnalyzer.h">
       <Filter>Analyzers</Filter>
     </ClInclude>
   </ItemGroup>
@@ -22,7 +22,7 @@
     <ClCompile Include="..\..\src\BuildAnalyzer\PCH\PCH.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\SlowFunctionCompilationsAnalyzer.cpp">
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationTimeAnalyzer.cpp">
       <Filter>Analyzers</Filter>
     </ClCompile>
   </ItemGroup>

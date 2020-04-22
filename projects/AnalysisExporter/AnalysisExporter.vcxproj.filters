@@ -4,7 +4,7 @@
     <Filter Include="PCH">
       <UniqueIdentifier>{5e3f22b1-9ae5-4c14-8c92-8d5d9e4b32eb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SlowFunctionCompilations">
+    <Filter Include="FunctionCompilationTime">
       <UniqueIdentifier>{eb1e9b0f-d70c-4453-9f9f-bf5a7bb6bae8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -12,16 +12,16 @@
     <ClInclude Include="..\..\src\AnalysisExporter\PCH\PCH.h">
       <Filter>PCH</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\AnalysisExporter\SlowFunctionCompilations\SlowFunctionCompilationsExporter.h">
-      <Filter>SlowFunctionCompilations</Filter>
+    <ClInclude Include="..\..\src\AnalysisExporter\SlowFunctionCompilations\FunctionCompilationTimeExporter.h">
+      <Filter>FunctionCompilationTime</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisExporter\PCH\PCH.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\AnalysisExporter\SlowFunctionCompilations\SlowFunctionCompilationsExporter.cpp">
-      <Filter>SlowFunctionCompilations</Filter>
+    <ClCompile Include="..\..\src\AnalysisExporter\SlowFunctionCompilations\FunctionCompilationTimeExporter.cpp">
+      <Filter>FunctionCompilationTime</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

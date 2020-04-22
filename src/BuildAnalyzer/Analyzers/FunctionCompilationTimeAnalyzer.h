@@ -9,11 +9,11 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 
 #include "AnalysisData\TimeElapsedPerOccurrencePerConcept.h"
 
-class SlowFunctionCompilationsAnalyzer : public CppBI::IAnalyzer
+class FunctionCompilationTimeAnalyzer : public CppBI::IAnalyzer
 {
 public:
-	SlowFunctionCompilationsAnalyzer();
-	virtual ~SlowFunctionCompilationsAnalyzer();
+	FunctionCompilationTimeAnalyzer();
+	virtual ~FunctionCompilationTimeAnalyzer();
 
 	CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
 

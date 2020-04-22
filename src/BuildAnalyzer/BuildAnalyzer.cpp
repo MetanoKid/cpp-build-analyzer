@@ -3,8 +3,8 @@
 #include <cassert>
 #include <CppBuildInsights.hpp>
 
-#include "Analyzers\SlowFunctionCompilationsAnalyzer.h"
-#include "AnalysisExporter\SlowFunctionCompilations\SlowFunctionCompilationsExporter.h"
+#include "Analyzers\FunctionCompilationTimeAnalyzer.h"
+#include "AnalysisExporter\SlowFunctionCompilations\FunctionCompilationTimeExporter.h"
 
 namespace
 {
@@ -15,7 +15,7 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 
 BuildAnalyzer::BuildAnalyzer(const std::string& traceFilePath)
 	: m_traceFilePath(traceFilePath)
-	, m_slowFunctionCompilations(std::make_unique<SlowFunctionCompilationsAnalyzer>())
+	, m_slowFunctionCompilations(std::make_unique<FunctionCompilationTimeAnalyzer>())
 	, m_analysisPerformed(false)
 {
 }
@@ -42,6 +42,6 @@ bool BuildAnalyzer::ExportSlowFunctionCompilations(const std::string& path) cons
 	assert(m_analysisPerformed);
 	assert(m_slowFunctionCompilations != nullptr);
 
-	SlowFunctionCompilationsExporter exporter(m_slowFunctionCompilations->GetFunctionDurations());
+	FunctionCompilationTimeExporter exporter(m_slowFunctionCompilations->GetFunctionDurations());
 	return exporter.ExportTo(path);
 }

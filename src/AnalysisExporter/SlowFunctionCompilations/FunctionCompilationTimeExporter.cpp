@@ -1,4 +1,4 @@
-#include "SlowFunctionCompilationsExporter.h"
+#include "FunctionCompilationTimeExporter.h"
 
 #include <Windows.h>
 #include <DbgHelp.h>
@@ -13,16 +13,16 @@ namespace
 									UNDNAME_NO_ACCESS_SPECIFIERS;
 }
 
-SlowFunctionCompilationsExporter::SlowFunctionCompilationsExporter(const TTimeElapsedPerOcurrencePerConcept& data)
+FunctionCompilationTimeExporter::FunctionCompilationTimeExporter(const TTimeElapsedPerOcurrencePerConcept& data)
 	: m_data(data)
 {
 }
 
-SlowFunctionCompilationsExporter::~SlowFunctionCompilationsExporter()
+FunctionCompilationTimeExporter::~FunctionCompilationTimeExporter()
 {
 }
 
-bool SlowFunctionCompilationsExporter::ExportTo(const std::string& path) const
+bool FunctionCompilationTimeExporter::ExportTo(const std::string& path) const
 {
 	std::ofstream out = std::ofstream(path);
 	if (!out)
