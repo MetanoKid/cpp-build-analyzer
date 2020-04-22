@@ -6,7 +6,7 @@
 
 namespace
 {
-	const std::string s_defaultOutputPathSlowFunctionCompilations = "SlowFunctionCompilations.csv";
+	const std::string s_defaultOutputPathSlowFunctionCompilations = "FunctionCompilations.csv";
 }
 
 int main(int argc, char** argv)
