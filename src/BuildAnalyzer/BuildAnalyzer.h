@@ -5,6 +5,7 @@
 
 class FunctionCompilationTimeAnalyzer;
 class FileInclusionTimeAnalyzer;
+class FileCompilationAnalyzer;
 
 class BuildAnalyzer
 {
@@ -20,7 +21,10 @@ public:
 
 private:
 	std::string m_traceFilePath;
+
 	std::unique_ptr<FunctionCompilationTimeAnalyzer> m_functionCompilations;
 	std::unique_ptr<FileInclusionTimeAnalyzer> m_fileInclusions;
+	std::unique_ptr<FileCompilationAnalyzer> m_fileCompilations;
+	
 	bool m_analysisPerformed;
 };

@@ -5,6 +5,7 @@
 
 #include "Analyzers\FunctionCompilationTimeAnalyzer.h"
 #include "Analyzers\FileInclusionTimeAnalyzer.h"
+#include "Analyzers\FileCompilationAnalyzer.h"
 #include "AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h"
 #include "AnalysisExporter\FileInclusions\FileInclusionsExporter.h"
 
@@ -19,6 +20,7 @@ BuildAnalyzer::BuildAnalyzer(const std::string& traceFilePath)
 	: m_traceFilePath(traceFilePath)
 	, m_functionCompilations(std::make_unique<FunctionCompilationTimeAnalyzer>())
 	, m_fileInclusions(std::make_unique<FileInclusionTimeAnalyzer>())
+	, m_fileCompilations(std::make_unique<FileCompilationAnalyzer>())
 	, m_analysisPerformed(false)
 {
 }
@@ -32,9 +34,11 @@ bool BuildAnalyzer::Analyze()
 	assert(!m_analysisPerformed);
 	assert(m_functionCompilations != nullptr);
 	assert(m_fileInclusions != nullptr);
+	assert(m_fileCompilations != nullptr);
 
 	auto analyzerGroup = CppBI::MakeStaticAnalyzerGroup(m_functionCompilations.get(),
-														m_fileInclusions.get());
+														m_fileInclusions.get(),
+														m_fileCompilations.get());
 
 	CppBI::RESULT_CODE result = CppBI::Analyze(m_traceFilePath.c_str(), s_numberOfPasses, analyzerGroup);
 	m_analysisPerformed = true;

@@ -11,12 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilationAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationTimeAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionTimeAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\PCH\PCH.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilationAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilationTimeAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionTimeAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp" />

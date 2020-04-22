@@ -19,6 +19,9 @@
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionTimeAnalyzer.h">
       <Filter>Analyzers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilationAnalyzer.h">
+      <Filter>Analyzers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp" />
@@ -29,6 +32,9 @@
       <Filter>Analyzers</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusionTimeAnalyzer.cpp">
+      <Filter>Analyzers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilationAnalyzer.cpp">
       <Filter>Analyzers</Filter>
     </ClCompile>
   </ItemGroup>
