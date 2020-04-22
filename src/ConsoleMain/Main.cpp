@@ -6,7 +6,7 @@
 
 namespace
 {
-	const std::string s_defaultOutputPathSlowFunctionCompilations = "FunctionCompilations.csv";
+	const std::string s_defaultOutputPathFunctionCompilations = "FunctionCompilations.csv";
 }
 
 int main(int argc, char** argv)
@@ -15,13 +15,13 @@ int main(int argc, char** argv)
 
 	// variables to populate from options
 	std::string inputPathTraceFile;
-	std::string outputPathSlowFunctionCompilations = s_defaultOutputPathSlowFunctionCompilations;
+	std::string outputPathFunctionCompilations = s_defaultOutputPathFunctionCompilations;
 
 	// configure options
 	commandLineOptions.add_options()
 		("h,help", "Show help")
 		("i,input", "Path to trace file", cxxopts::value(inputPathTraceFile))
-		("out_slow_function_compilations", "Path to output slow function compilations", cxxopts::value(outputPathSlowFunctionCompilations));
+		("out_slow_function_compilations", "Path to output slow function compilations", cxxopts::value(outputPathFunctionCompilations));
 
 	// parse command line
 	cxxopts::ParseResult result = commandLineOptions.parse(argc, argv);
@@ -47,7 +47,7 @@ int main(int argc, char** argv)
 	// export data
 	if (succeeded)
 	{
-		analyzer.ExportFunctionCompilationTimes(outputPathSlowFunctionCompilations);
+		analyzer.ExportFunctionCompilationTimes(outputPathFunctionCompilations);
 	}
 
 	std::cout << "Analysis " << (succeeded ? "succeeded" : "failed") << std::endl;

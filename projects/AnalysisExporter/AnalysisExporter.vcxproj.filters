@@ -12,7 +12,7 @@
     <ClInclude Include="..\..\src\AnalysisExporter\PCH\PCH.h">
       <Filter>PCH</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\AnalysisExporter\SlowFunctionCompilations\FunctionCompilationsExporter.h">
+    <ClInclude Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h">
       <Filter>FunctionCompilations</Filter>
     </ClInclude>
   </ItemGroup>
@@ -20,7 +20,7 @@
     <ClCompile Include="..\..\src\AnalysisExporter\PCH\PCH.cpp">
       <Filter>PCH</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\AnalysisExporter\SlowFunctionCompilations\FunctionCompilationsExporter.cpp">
+    <ClCompile Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.cpp">
       <Filter>FunctionCompilations</Filter>
     </ClCompile>
   </ItemGroup>

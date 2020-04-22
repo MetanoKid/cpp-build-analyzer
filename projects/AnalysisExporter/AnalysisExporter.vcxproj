@@ -12,14 +12,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\AnalysisExporter\PCH\PCH.h" />
-    <ClInclude Include="..\..\src\AnalysisExporter\SlowFunctionCompilations\FunctionCompilationsExporter.h" />
+    <ClInclude Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisExporter\PCH\PCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\..\src\AnalysisExporter\SlowFunctionCompilations\FunctionCompilationsExporter.cpp" />
+    <ClCompile Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AnalysisData\AnalysisData.vcxproj">

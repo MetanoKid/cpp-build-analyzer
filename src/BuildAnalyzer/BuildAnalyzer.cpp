@@ -5,7 +5,7 @@
 
 #include "Analyzers\FunctionCompilationTimeAnalyzer.h"
 #include "Analyzers\FileInclusionTimeAnalyzer.h"
-#include "AnalysisExporter\SlowFunctionCompilations\FunctionCompilationsExporter.h"
+#include "AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h"
 
 namespace
 {
