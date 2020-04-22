@@ -22,5 +22,5 @@ public:
 private:
 	TTimeElapsedPerOcurrencePerConcept m_functionDurations;
 
-	void OnFunction(const CppBI::Activities::Function& function);
+	void OnFunctionCompiled(const CppBI::Activities::Function& function);
 };
