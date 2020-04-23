@@ -21,11 +21,14 @@
     <ClInclude Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h">
       <Filter>FunctionCompilations</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionsExporter.h">
-      <Filter>FileInclusions</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.h">
       <Filter>FileCompilations</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionTimesExporter.h">
+      <Filter>FileInclusions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h">
+      <Filter>FileInclusions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -35,11 +38,14 @@
     <ClCompile Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.cpp">
       <Filter>FunctionCompilations</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionsExporter.cpp">
-      <Filter>FileInclusions</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.cpp">
       <Filter>FileCompilations</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionTimesExporter.cpp">
+      <Filter>FileInclusions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.cpp">
+      <Filter>FileInclusions</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -7,7 +7,8 @@
 #include "Analyzers\FileInclusions\FileInclusionsAnalyzer.h"
 #include "Analyzers\FileCompilations\FileCompilationsAnalyzer.h"
 #include "AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h"
-#include "AnalysisExporter\FileInclusions\FileInclusionsExporter.h"
+#include "AnalysisExporter\FileInclusions\FileInclusionTimesExporter.h"
+#include "AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h"
 #include "AnalysisExporter\FileCompilations\FileCompilationsExporter.h"
 
 namespace
@@ -56,12 +57,21 @@ bool BuildAnalyzer::ExportFunctionCompilationsData(const std::string& path) cons
 	return exporter.ExportTo(path);
 }
 
-bool BuildAnalyzer::ExportFileInclusionsData(const std::string& path) const
+bool BuildAnalyzer::ExportFileInclusionTimesData(const std::string& path) const
 {
 	assert(m_analysisPerformed);
 	assert(m_fileInclusions != nullptr);
 
-	FileInclusionsExporter exporter(m_fileInclusions->GetData());
+	FileInclusionTimesExporter exporter(m_fileInclusions->GetTimeData());
+	return exporter.ExportTo(path);
+}
+
+bool BuildAnalyzer::ExportFileInclusionGraph(const std::string& path) const
+{
+	assert(m_analysisPerformed);
+	assert(m_fileInclusions != nullptr);
+
+	FileInclusionGraphExporter exporter(m_fileInclusions->GetFileInclusionsData());
 	return exporter.ExportTo(path);
 }
 

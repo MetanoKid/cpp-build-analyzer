@@ -12,13 +12,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.h" />
-    <ClInclude Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionsExporter.h" />
+    <ClInclude Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h" />
+    <ClInclude Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionTimesExporter.h" />
     <ClInclude Include="..\..\src\AnalysisExporter\PCH\PCH.h" />
     <ClInclude Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.cpp" />
-    <ClCompile Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionsExporter.cpp" />
+    <ClCompile Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.cpp" />
+    <ClCompile Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionTimesExporter.cpp" />
     <ClCompile Include="..\..\src\AnalysisExporter\PCH\PCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>

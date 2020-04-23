@@ -17,7 +17,8 @@ public:
 
 	bool Analyze();
 	bool ExportFunctionCompilationsData(const std::string& path) const;
-	bool ExportFileInclusionsData(const std::string& path) const;
+	bool ExportFileInclusionTimesData(const std::string& path) const;
+	bool ExportFileInclusionGraph(const std::string& path) const;
 	bool ExportFileCompilationsData(const std::string& path) const;
 
 private:

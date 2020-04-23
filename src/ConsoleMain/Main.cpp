@@ -7,7 +7,8 @@
 namespace
 {
 	const std::string s_defaultOutputPathFunctionCompilations = "FunctionCompilations.csv";
-	const std::string s_defaultOutputPathFileInclusions = "FileInclusions.csv";
+	const std::string s_defaultoutputPathFileInclusionTimes = "FileInclusionTimes.csv";
+	const std::string s_defaultOutputPathFileInclusionGraph = "FileInclusions.dgml";
 	const std::string s_defaultOutputPathFileCompilations = "FileCompilations.csv";
 }
 
@@ -18,15 +19,20 @@ int main(int argc, char** argv)
 	// variables to populate from options
 	std::string inputPathTraceFile;
 	std::string outputPathFunctionCompilations = s_defaultOutputPathFunctionCompilations;
-	std::string outputPathFileInclusions = s_defaultOutputPathFileInclusions;
+	std::string outputPathFileInclusionTimes = s_defaultoutputPathFileInclusionTimes;
+	std::string outputPathFileInclusionGraph = s_defaultOutputPathFileInclusionGraph;
 	std::string outputPathFileCompilations = s_defaultOutputPathFileCompilations;
 
 	// configure options
 	commandLineOptions.add_options()
+		// help
 		("h,help", "Show help")
+		// input
 		("i,input", "Path to trace file", cxxopts::value(inputPathTraceFile))
+		// outputs
 		("out_function_compilations", "Path to output function compilations data", cxxopts::value(outputPathFunctionCompilations))
-		("out_file_inclusions", "Path to output file inclusions data", cxxopts::value(outputPathFileInclusions))
+		("out_file_inclusion_times", "Path to output file inclusion times", cxxopts::value(outputPathFileInclusionTimes))
+		("out_file_inclusion_graph", "Path to output file inclusion graph", cxxopts::value(outputPathFileInclusionGraph))
 		("out_file_compilations", "Path to output file compilations data", cxxopts::value(outputPathFileCompilations));
 
 	// parse command line
@@ -54,7 +60,8 @@ int main(int argc, char** argv)
 	if (succeeded)
 	{
 		analyzer.ExportFunctionCompilationsData(outputPathFunctionCompilations);
-		analyzer.ExportFileInclusionsData(outputPathFileInclusions);
+		analyzer.ExportFileInclusionTimesData(outputPathFileInclusionTimes);
+		analyzer.ExportFileInclusionGraph(outputPathFileInclusionGraph);
 		analyzer.ExportFileCompilationsData(outputPathFileCompilations);
 	}
 

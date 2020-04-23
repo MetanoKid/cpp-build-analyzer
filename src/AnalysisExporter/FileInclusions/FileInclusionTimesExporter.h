@@ -5,11 +5,11 @@
 
 #include "AnalysisData\TimeElapsedPerOccurrencePerConcept.h"
 
-class FileInclusionsExporter
+class FileInclusionTimesExporter
 {
 public:
-	FileInclusionsExporter(const TTimeElapsedPerOccurrencePerConcept& data);
-	~FileInclusionsExporter();
+	FileInclusionTimesExporter(const TTimeElapsedPerOccurrencePerConcept& data);
+	~FileInclusionTimesExporter();
 
 	// exports to CSV format
 	bool ExportTo(const std::string& path) const;

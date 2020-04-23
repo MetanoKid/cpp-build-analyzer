@@ -1,18 +1,18 @@
-#include "FileInclusionsExporter.h"
+#include "FileInclusionTimesExporter.h"
 
 #include <fstream>
 #include <algorithm>
 
-FileInclusionsExporter::FileInclusionsExporter(const TTimeElapsedPerOccurrencePerConcept& data)
+FileInclusionTimesExporter::FileInclusionTimesExporter(const TTimeElapsedPerOccurrencePerConcept& data)
 	: m_data(data)
 {
 }
 
-FileInclusionsExporter::~FileInclusionsExporter()
+FileInclusionTimesExporter::~FileInclusionTimesExporter()
 {
 }
 
-bool FileInclusionsExporter::ExportTo(const std::string& path) const
+bool FileInclusionTimesExporter::ExportTo(const std::string& path) const
 {
 	std::ofstream out(path);
 	if (!out)
