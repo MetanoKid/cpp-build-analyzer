@@ -13,6 +13,7 @@
     <ClInclude Include="..\..\src\AnalysisData\TimeElapsedPerOccurrencePerConcept.h" />
     <ClInclude Include="..\..\src\AnalysisData\FileCompilationData.h" />
     <ClInclude Include="..\..\src\AnalysisData\FileCompilationDataPerFile.h" />
+    <ClInclude Include="..\..\src\AnalysisData\FileInclusionsPerFile.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisData\PCH\PCH.cpp">
