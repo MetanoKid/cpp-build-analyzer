@@ -41,7 +41,8 @@ bool FileInclusionGraphExporter::ExportTo(const std::string& path) const
 	{
 		for (auto&& includedFile : inclusionsForFile.second)
 		{
-			out << "    <Link Source=\"" << inclusionsForFile.first << "\" Target=\"" << includedFile << "\" />" << std::endl;
+			out << "    <Link Source=\"" << inclusionsForFile.first << "\""
+				<<          " Target=\"" << includedFile << "\" />" << std::endl;
 		}
 	}
 	out << "  </Links>" << std::endl;
