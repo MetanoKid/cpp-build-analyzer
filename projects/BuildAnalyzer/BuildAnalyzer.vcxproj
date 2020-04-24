@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h" />
@@ -18,6 +19,7 @@
     <ClInclude Include="..\..\src\BuildAnalyzer\PCH\PCH.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.cpp" />

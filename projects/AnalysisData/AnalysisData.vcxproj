@@ -11,18 +11,28 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\BuildTimeline.h" />
+    <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\TimelineEntry.h" />
+    <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\TimelineTypes.h" />
     <ClInclude Include="..\..\src\AnalysisData\FileCompilationData.h" />
     <ClInclude Include="..\..\src\AnalysisData\FileCompilationDataPerFile.h" />
     <ClInclude Include="..\..\src\AnalysisData\FileInclusionsPerFile.h" />
     <ClInclude Include="..\..\src\AnalysisData\PCH\PCH.h" />
     <ClInclude Include="..\..\src\AnalysisData\TimeElapsedPerOccurrencePerConcept.h" />
     <ClInclude Include="..\..\src\AnalysisData\TimeElapsedPerOcurrence.h" />
+    <ClInclude Include="..\..\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\AnalysisData\BuildTimeline\BuildTimeline.cpp" />
+    <ClCompile Include="..\..\src\AnalysisData\BuildTimeline\TimelineEntry.cpp" />
     <ClCompile Include="..\..\src\AnalysisData\PCH\PCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\..\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -107,5 +117,12 @@
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\..\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\Microsoft.Cpp.BuildInsights.targets" Condition="Exists('..\..\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\Microsoft.Cpp.BuildInsights.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\Microsoft.Cpp.BuildInsights.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\Microsoft.Cpp.BuildInsights.targets'))" />
+  </Target>
 </Project>

@@ -16,6 +16,9 @@
     <Filter Include="Analyzers\FunctionCompilations">
       <UniqueIdentifier>{a5c87a45-27b6-4a0f-82f3-3d966e79be42}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Analyzers\BuildTimeline">
+      <UniqueIdentifier>{422afbb5-bb78-41c5-8f9d-010a548cc801}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h" />
@@ -31,6 +34,9 @@
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h">
       <Filter>Analyzers\FunctionCompilations</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.h">
+      <Filter>Analyzers\BuildTimeline</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp" />
@@ -45,6 +51,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.cpp">
       <Filter>Analyzers\FunctionCompilations</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.cpp">
+      <Filter>Analyzers\BuildTimeline</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

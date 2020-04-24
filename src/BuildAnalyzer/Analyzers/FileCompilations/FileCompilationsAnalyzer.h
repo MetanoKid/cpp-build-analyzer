@@ -1,8 +1,5 @@
 #pragma once
 
-#include <string>
-#include <chrono>
-
 #include <CppBuildInsights.hpp>
 namespace CppBI = Microsoft::Cpp::BuildInsights;
 
@@ -23,7 +20,4 @@ private:
 
 	void OnFrontEndPassCompleted(const CppBI::Activities::FrontEndPass& frontEndPass);
 	void OnBackEndPassCompleted(const CppBI::Activities::BackEndPass& backEndPass);
-
-	std::string ConvertFilePath(const wchar_t* filePath) const;
-	std::chrono::nanoseconds ConvertActivityTimestamp(long long timestamp, long long tickFrequency) const;
 };
