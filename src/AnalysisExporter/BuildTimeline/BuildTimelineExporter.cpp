@@ -27,16 +27,21 @@ bool BuildTimelineExporter::ExportTo(const std::string& path) const
 
 	rapidjson::Document document(rapidjson::kObjectType);
 	
-	// add all events
-	rapidjson::Value traceEvents(rapidjson::kArrayType);
-	for (auto&& root : m_timeline.GetRoots())
+	// although this is the default time unit representation, make it explicit
 	{
-		AddEntry(root, traceEvents, document);
+		rapidjson::Value displayTimeUnit("ms");
+		document.AddMember("displayTimeUnit", displayTimeUnit, document.GetAllocator());
 	}
-	document.AddMember("traceEvents", traceEvents, document.GetAllocator());
 
-	rapidjson::Value displayTimeUnit("ms");
-	document.AddMember("displayTimeUnit", displayTimeUnit, document.GetAllocator());
+	// add all events
+	{
+		rapidjson::Value traceEvents(rapidjson::kArrayType);
+		for (auto&& root : m_timeline.GetRoots())
+		{
+			AddEntry(root, traceEvents, document);
+		}
+		document.AddMember("traceEvents", traceEvents, document.GetAllocator());
+	}
 	
 	// write data to stream
 	rapidjson::OStreamWrapper ostreamWrapper(out);
