@@ -6,10 +6,13 @@
 #include "Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h"
 #include "Analyzers\FileInclusions\FileInclusionsAnalyzer.h"
 #include "Analyzers\FileCompilations\FileCompilationsAnalyzer.h"
+#include "Analyzers\BuildTimeline\BuildTimelineAnalyzer.h"
+
 #include "AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h"
 #include "AnalysisExporter\FileInclusions\FileInclusionTimesExporter.h"
 #include "AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h"
 #include "AnalysisExporter\FileCompilations\FileCompilationsExporter.h"
+#include "AnalysisExporter\BuildTimeline\BuildTimelineExporter.h"
 
 namespace
 {
@@ -23,6 +26,7 @@ BuildAnalyzer::BuildAnalyzer(const std::string& traceFilePath)
 	, m_functionCompilations(std::make_unique<FunctionCompilationsAnalyzer>())
 	, m_fileInclusions(std::make_unique<FileInclusionsAnalyzer>())
 	, m_fileCompilations(std::make_unique<FileCompilationsAnalyzer>())
+	, m_buildTimeline(std::make_unique<BuildTimelineAnalyzer>())
 	, m_analysisPerformed(false)
 {
 }
@@ -37,10 +41,12 @@ bool BuildAnalyzer::Analyze()
 	assert(m_functionCompilations != nullptr);
 	assert(m_fileInclusions != nullptr);
 	assert(m_fileCompilations != nullptr);
+	assert(m_buildTimeline != nullptr);
 
 	auto analyzerGroup = CppBI::MakeStaticAnalyzerGroup(m_functionCompilations.get(),
 														m_fileInclusions.get(),
-														m_fileCompilations.get());
+														m_fileCompilations.get(),
+														m_buildTimeline.get());
 
 	CppBI::RESULT_CODE result = CppBI::Analyze(m_traceFilePath.c_str(), s_numberOfPasses, analyzerGroup);
 	m_analysisPerformed = true;
@@ -81,5 +87,14 @@ bool BuildAnalyzer::ExportFileCompilationsData(const std::string& path) const
 	assert(m_fileCompilations != nullptr);
 
 	FileCompilationsExporter exporter(m_fileCompilations->GetData());
+	return exporter.ExportTo(path);
+}
+
+bool BuildAnalyzer::ExportBuildTimeline(const std::string& path) const
+{
+	assert(m_analysisPerformed);
+	assert(m_buildTimeline != nullptr);
+
+	BuildTimelineExporter exporter(m_buildTimeline->GetTimeline());
 	return exporter.ExportTo(path);
 }

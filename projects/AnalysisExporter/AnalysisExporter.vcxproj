@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.h" />
     <ClInclude Include="..\..\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.h" />
     <ClInclude Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h" />
     <ClInclude Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionTimesExporter.h" />
@@ -18,6 +19,7 @@
     <ClInclude Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.cpp" />
     <ClCompile Include="..\..\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.cpp" />
     <ClCompile Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.cpp" />
     <ClCompile Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionTimesExporter.cpp" />
@@ -84,11 +86,11 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;RAPIDJSON_HAS_STDSTRING=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>PCH.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src;$(SolutionDir)external_libraries\%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -106,11 +108,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;RAPIDJSON_HAS_STDSTRING=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>PCH.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src;$(SolutionDir)external_libraries\%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

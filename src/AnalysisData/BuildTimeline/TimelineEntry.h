@@ -23,6 +23,13 @@ public:
 
 	void SetFinishTimestamp(const std::chrono::nanoseconds& timestamp);
 
+	inline const std::vector<TimelineEntry*>& GetChildren() const { return m_children; }
+	inline const std::string& GetName() const { return m_name; }
+	inline const std::chrono::nanoseconds& GetStartTimestamp() const { return m_startTimestamp; }
+	inline const std::chrono::nanoseconds& GetFinishTimestamp() const { return m_finishTimestamp; }
+	inline const TProcessId& GetProcessId() const { return m_processId; }
+	inline const TThreadId& GetThreadId() const { return m_threadId; }
+
 private:
 	TEventInstanceId m_id;
 	std::string m_name;

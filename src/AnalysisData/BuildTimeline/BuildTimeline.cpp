@@ -24,7 +24,11 @@ void BuildTimeline::AddRootEntry(const CppBI::Activities::Activity& activity)
 void BuildTimeline::AddNestedEntry(const CppBI::Activities::Activity& parent,
 								   const CppBI::Activities::Activity& activity)
 {
+	TimelineEntry* parentEntry = GetEntry(parent.EventInstanceId());
+	assert(parentEntry != nullptr);
+
 	TimelineEntry* entry = AddEntry(activity);
+	parentEntry->AddChild(entry);
 }
 
 TimelineEntry* BuildTimeline::AddEntry(const CppBI::Activities::Activity& activity)

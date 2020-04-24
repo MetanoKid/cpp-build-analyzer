@@ -13,6 +13,9 @@
     <Filter Include="FileCompilations">
       <UniqueIdentifier>{d00a743f-4b95-4256-8a92-db11ed7ffc13}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BuildTimeline">
+      <UniqueIdentifier>{7c5a8211-50bf-434c-9479-69c3407e8356}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\AnalysisExporter\PCH\PCH.h">
@@ -30,6 +33,9 @@
     <ClInclude Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h">
       <Filter>FileInclusions</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.h">
+      <Filter>BuildTimeline</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisExporter\PCH\PCH.cpp">
@@ -46,6 +52,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.cpp">
       <Filter>FileInclusions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.cpp">
+      <Filter>BuildTimeline</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -34,6 +34,8 @@ public:
 						const CppBI::Activities::Activity& activity);
 	void FinishEntry(const CppBI::Activities::Activity& activity);
 
+	inline const std::vector<TimelineEntry*>& GetRoots() const { return m_roots; }
+
 private:
 	std::unordered_map<TEventInstanceId, TimelineEntry> m_entries;
 	std::vector<TimelineEntry*> m_roots;

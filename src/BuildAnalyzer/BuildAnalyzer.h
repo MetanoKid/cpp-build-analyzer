@@ -6,6 +6,7 @@
 class FunctionCompilationsAnalyzer;
 class FileInclusionsAnalyzer;
 class FileCompilationsAnalyzer;
+class BuildTimelineAnalyzer;
 
 class BuildAnalyzer
 {
@@ -20,6 +21,7 @@ public:
 	bool ExportFileInclusionTimesData(const std::string& path) const;
 	bool ExportFileInclusionGraph(const std::string& path) const;
 	bool ExportFileCompilationsData(const std::string& path) const;
+	bool ExportBuildTimeline(const std::string& path) const;
 
 private:
 	std::string m_traceFilePath;
@@ -27,6 +29,7 @@ private:
 	std::unique_ptr<FunctionCompilationsAnalyzer> m_functionCompilations;
 	std::unique_ptr<FileInclusionsAnalyzer> m_fileInclusions;
 	std::unique_ptr<FileCompilationsAnalyzer> m_fileCompilations;
-	
+	std::unique_ptr<BuildTimelineAnalyzer> m_buildTimeline;
+
 	bool m_analysisPerformed;
 };

@@ -10,6 +10,7 @@ namespace
 	const std::string s_defaultoutputPathFileInclusionTimes = "FileInclusionTimes.csv";
 	const std::string s_defaultOutputPathFileInclusionGraph = "FileInclusions.dgml";
 	const std::string s_defaultOutputPathFileCompilations = "FileCompilations.csv";
+	const std::string s_defaultOutputPathBuildTimeline = "BuildTimeline.json";
 }
 
 int main(int argc, char** argv)
@@ -22,6 +23,7 @@ int main(int argc, char** argv)
 	std::string outputPathFileInclusionTimes = s_defaultoutputPathFileInclusionTimes;
 	std::string outputPathFileInclusionGraph = s_defaultOutputPathFileInclusionGraph;
 	std::string outputPathFileCompilations = s_defaultOutputPathFileCompilations;
+	std::string outputPathBuildTimeline = s_defaultOutputPathBuildTimeline;
 
 	// configure options
 	commandLineOptions.add_options()
@@ -33,7 +35,8 @@ int main(int argc, char** argv)
 		("out_function_compilations", "Path to output function compilations data", cxxopts::value(outputPathFunctionCompilations))
 		("out_file_inclusion_times", "Path to output file inclusion times", cxxopts::value(outputPathFileInclusionTimes))
 		("out_file_inclusion_graph", "Path to output file inclusion graph", cxxopts::value(outputPathFileInclusionGraph))
-		("out_file_compilations", "Path to output file compilations data", cxxopts::value(outputPathFileCompilations));
+		("out_file_compilations", "Path to output file compilations data", cxxopts::value(outputPathFileCompilations))
+		("out_build_timeline", "Path to output build timeline", cxxopts::value(outputPathBuildTimeline));
 
 	// parse command line
 	cxxopts::ParseResult result = commandLineOptions.parse(argc, argv);
@@ -63,6 +66,7 @@ int main(int argc, char** argv)
 		analyzer.ExportFileInclusionTimesData(outputPathFileInclusionTimes);
 		analyzer.ExportFileInclusionGraph(outputPathFileInclusionGraph);
 		analyzer.ExportFileCompilationsData(outputPathFileCompilations);
+		analyzer.ExportBuildTimeline(outputPathBuildTimeline);
 	}
 
 	std::cout << "Analysis " << (succeeded ? "succeeded" : "failed") << std::endl;
