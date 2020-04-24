@@ -1,18 +1,9 @@
 #include "FunctionCompilationsExporter.h"
 
-#include <Windows.h>
-#include <DbgHelp.h>
-
 #include <fstream>
 #include <algorithm>
 
-namespace
-{
-	const DWORD s_undecoratedNameMaxLength = 512;
-	const DWORD s_undecorateFlags = UNDNAME_COMPLETE |
-									UNDNAME_32_BIT_DECODE |
-									UNDNAME_NO_ACCESS_SPECIFIERS;
-}
+#include "AnalysisData\Utilities\CppBuildInsightsDataConversion.h"
 
 FunctionCompilationsExporter::FunctionCompilationsExporter(const TTimeElapsedPerOccurrencePerConcept& data)
 	: m_data(data)
@@ -30,9 +21,6 @@ bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
 	{
 		return false;
 	}
-
-	// get undecorated name here
-	char undecoratedFunctionName[s_undecoratedNameMaxLength];
 
 	// store aggregated data in this vector
 	std::vector<DataPerFunction> dataPerFunction;
@@ -68,13 +56,9 @@ bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
 	// write data to file
 	for (auto&& data : dataPerFunction)
 	{
-		// undecorate function name
-		DWORD result = UnDecorateSymbolName(data.functionName->c_str(), undecoratedFunctionName,
-											s_undecoratedNameMaxLength, s_undecorateFlags);
-
 		// dump to stream
 		out << (*data.functionName) << ";"
-			<< (result != 0 ? undecoratedFunctionName : (*data.functionName)) << ";"
+			<< Utilities::CppBuildInsightsDataConversion::UndecorateFunction(*data.functionName) << ";"
 			<< data.averageCompilationTime.count() << ";"
 			<< data.occurrences << std::endl;
 	}

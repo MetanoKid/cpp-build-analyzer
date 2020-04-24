@@ -2,6 +2,8 @@
 
 #include <cassert>
 
+#include "AnalysisData\Utilities\CppBuildInsightsDataConversion.h"
+
 BuildTimelineAnalyzer::BuildTimelineAnalyzer()
 	: CppBI::IAnalyzer()
 	, m_buildTimeline()
@@ -57,6 +59,5 @@ void BuildTimelineAnalyzer::OnFrontEndFile(const CppBI::Activities::FrontEndFile
 
 void BuildTimelineAnalyzer::OnFunction(const CppBI::Activities::Function& function)
 {
-	// TODO: undecorate it!
-	m_buildTimeline.UpdateEntryName(function, function.Name());
+	m_buildTimeline.UpdateEntryName(function, Utilities::CppBuildInsightsDataConversion::UndecorateFunction(function.Name()));
 }
