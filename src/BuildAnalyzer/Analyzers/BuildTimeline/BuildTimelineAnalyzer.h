@@ -19,8 +19,13 @@ public:
 private:
 	BuildTimeline m_buildTimeline;
 
+	// generic activity handling
 	void OnActivityStartRoot(const CppBI::Activities::Activity& activity);
 	void OnActivityStartNested(const CppBI::Activities::Activity& parent,
 							   const CppBI::Activities::Activity& activity);
 	void OnActivityFinished(const CppBI::Activities::Activity& activity);
+
+	// specific activity handling
+	void OnFrontEndFile(const CppBI::Activities::FrontEndFile& frontEndFile);
+	void OnFunction(const CppBI::Activities::Function& function);
 };

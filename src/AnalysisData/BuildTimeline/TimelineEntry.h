@@ -21,6 +21,7 @@ public:
 	void AddChild(TimelineEntry* entry);
 	void SetParent(TimelineEntry* entry);
 
+	void SetName(const std::string& name);
 	void SetFinishTimestamp(const std::chrono::nanoseconds& timestamp);
 
 	inline const std::vector<TimelineEntry*>& GetChildren() const { return m_children; }

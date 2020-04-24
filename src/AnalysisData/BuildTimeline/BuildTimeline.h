@@ -34,6 +34,8 @@ public:
 						const CppBI::Activities::Activity& activity);
 	void FinishEntry(const CppBI::Activities::Activity& activity);
 
+	void UpdateEntryName(const CppBI::Activities::Activity& activity, const std::string& name);
+
 	inline const std::vector<TimelineEntry*>& GetRoots() const { return m_roots; }
 
 private:

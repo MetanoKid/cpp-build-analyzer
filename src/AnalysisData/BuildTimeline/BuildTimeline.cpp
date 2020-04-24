@@ -55,6 +55,14 @@ void BuildTimeline::FinishEntry(const CppBI::Activities::Activity& activity)
 	entry->SetFinishTimestamp(Utilities::CppBuildInsightsDataConversion::Timestamp(activity.StopTimestamp(), activity.TickFrequency()));
 }
 
+void BuildTimeline::UpdateEntryName(const CppBI::Activities::Activity& activity, const std::string& name)
+{
+	TimelineEntry* entry = GetEntry(activity.EventInstanceId());
+	assert(entry != nullptr);
+
+	entry->SetName(name);
+}
+
 TimelineEntry* BuildTimeline::GetEntry(const TEventInstanceId& id)
 {
 	auto itEntry = m_entries.find(id);

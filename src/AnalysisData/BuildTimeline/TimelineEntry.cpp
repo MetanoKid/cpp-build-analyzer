@@ -41,6 +41,11 @@ void TimelineEntry::SetParent(TimelineEntry* entry)
 	m_parent = entry;
 }
 
+void TimelineEntry::SetName(const std::string& name)
+{
+	m_name = name;
+}
+
 void TimelineEntry::SetFinishTimestamp(const std::chrono::nanoseconds& timestamp)
 {
 	assert(m_startTimestamp <= timestamp);

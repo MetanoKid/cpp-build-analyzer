@@ -14,9 +14,14 @@ BuildTimelineAnalyzer::~BuildTimelineAnalyzer()
 
 CppBI::AnalysisControl BuildTimelineAnalyzer::OnStartActivity(const CppBI::EventStack& eventStack)
 {
-	bool processedBaseData = CppBI::MatchEventStackInMemberFunction(eventStack,   this, &BuildTimelineAnalyzer::OnActivityStartNested) ||
-							 CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnActivityStartRoot);
+	bool processedBaseData =
+		CppBI::MatchEventStackInMemberFunction(eventStack,   this, &BuildTimelineAnalyzer::OnActivityStartNested) ||
+		CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnActivityStartRoot);
 	assert(processedBaseData);
+
+	bool processedSpecificData =
+		CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnFrontEndFile) ||
+		CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnFunction);
 
 	return CppBI::AnalysisControl::CONTINUE;
 }
@@ -43,4 +48,15 @@ void BuildTimelineAnalyzer::OnActivityStartNested(const CppBI::Activities::Activ
 void BuildTimelineAnalyzer::OnActivityFinished(const CppBI::Activities::Activity& activity)
 {
 	m_buildTimeline.FinishEntry(activity);
+}
+
+void BuildTimelineAnalyzer::OnFrontEndFile(const CppBI::Activities::FrontEndFile& frontEndFile)
+{
+	m_buildTimeline.UpdateEntryName(frontEndFile, frontEndFile.Path());
+}
+
+void BuildTimelineAnalyzer::OnFunction(const CppBI::Activities::Function& function)
+{
+	// TODO: undecorate it!
+	m_buildTimeline.UpdateEntryName(function, function.Name());
 }
