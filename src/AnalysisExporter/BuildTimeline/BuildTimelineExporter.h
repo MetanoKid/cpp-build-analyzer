@@ -26,6 +26,7 @@ namespace rapidjson
 
 class BuildTimeline;
 class TimelineEntry;
+class ProcessIdThreadIdRecalculation;
 
 class BuildTimelineExporter
 {
@@ -39,5 +40,6 @@ public:
 private:
 	const BuildTimeline& m_timeline;
 
-	void AddEntry(const TimelineEntry* entry, rapidjson::Value& traceEvents, rapidjson::Document& document) const;
+	void AddEntry(const TimelineEntry* entry, rapidjson::Value& traceEvents,
+				  rapidjson::Document& document, const ProcessIdThreadIdRecalculation& processThreadRemappings) const;
 };

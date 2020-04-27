@@ -7,5 +7,6 @@
 #include <cassert>
 #include <locale>
 #include <codecvt>
+#include <utility>
 
 #include <CppBuildInsights.hpp>

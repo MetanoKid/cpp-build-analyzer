@@ -32,6 +32,9 @@
     <ClInclude Include="..\..\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.h">
+      <Filter>BuildTimeline</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisData\PCH\PCH.cpp">
@@ -45,6 +48,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.cpp">
       <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.cpp">
+      <Filter>BuildTimeline</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
