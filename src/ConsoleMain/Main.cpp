@@ -56,16 +56,26 @@ int main(int argc, char** argv)
 	}
 
 	// analyze trace
+	std::cout << "Analyzing..." << std::endl;
 	BuildAnalyzer analyzer(inputPathTraceFile);
 	bool succeeded = analyzer.Analyze();
 	
 	// export data
 	if (succeeded)
 	{
+		std::cout << "Exporting function compilations..." << std::endl;
 		analyzer.ExportFunctionCompilationsData(outputPathFunctionCompilations);
+
+		std::cout << "Exporting file inclusion times..." << std::endl;
 		analyzer.ExportFileInclusionTimesData(outputPathFileInclusionTimes);
+		
+		std::cout << "Exporting file inclusion graph..." << std::endl; 
 		analyzer.ExportFileInclusionGraph(outputPathFileInclusionGraph);
+		
+		std::cout << "Exporting file compilations..." << std::endl; 
 		analyzer.ExportFileCompilationsData(outputPathFileCompilations);
+		
+		std::cout << "Exporting build timeline..." << std::endl; 
 		analyzer.ExportBuildTimeline(outputPathBuildTimeline);
 	}
 

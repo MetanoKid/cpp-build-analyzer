@@ -13,11 +13,16 @@ public:
 
 	CppBI::AnalysisControl OnStartActivity(const CppBI::EventStack& eventStack) override;
 	CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
+	CppBI::AnalysisControl OnSimpleEvent(const CppBI::EventStack& eventStack) override;
 
 	inline const BuildTimeline& GetTimeline() const { return m_buildTimeline; }
 
 private:
 	BuildTimeline m_buildTimeline;
+	
+	typedef std::vector<TEventInstanceId> TEventInstanceIds;
+	typedef std::unordered_map<unsigned long long, TEventInstanceIds> TUnresolvedTemplateInstantiations;
+	std::unordered_map<TEventInstanceId, TUnresolvedTemplateInstantiations> m_unresolvedTemplateInstantiationsPerFrontEndPass;
 
 	// generic activity handling
 	void OnActivityStartRoot(const CppBI::Activities::Activity& activity);
@@ -28,5 +33,13 @@ private:
 	// specific activity handling
 	void OnFrontEndFile(const CppBI::Activities::FrontEndFile& frontEndFile);
 	void OnFunction(const CppBI::Activities::Function& function);
-	void OnTemplateInstantiation(const CppBI::Activities::TemplateInstantiation& templateInstantiation);
+	void OnTemplateInstantiation(const CppBI::Activities::FrontEndPass& frontEndPass,
+								 const CppBI::Activities::TemplateInstantiation& templateInstantiation);
+
+	void OnFrontEndPass(const CppBI::Activities::FrontEndPass& frontEndPass);
+	void OnFrontEndPassFinished(const CppBI::Activities::FrontEndPass& frontEndPass);
+
+	// specific event handling
+	void OnSymbolNameEvent(const CppBI::Activities::FrontEndPass& frontEndPass,
+						   const CppBI::SimpleEvents::SymbolName& event);
 };
