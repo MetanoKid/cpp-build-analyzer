@@ -8,5 +8,6 @@
 #include <locale>
 #include <codecvt>
 #include <utility>
+#include <algorithm>
 
 #include <CppBuildInsights.hpp>

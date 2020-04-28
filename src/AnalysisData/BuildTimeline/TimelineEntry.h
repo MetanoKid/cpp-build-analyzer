@@ -24,6 +24,8 @@ public:
 	void SetName(const std::string& name);
 	void SetFinishTimestamp(const std::chrono::nanoseconds& timestamp);
 
+	bool OverlapsWith(const TimelineEntry* entry) const;
+
 	inline const TEventInstanceId& GetId() const { return m_id; }
 	inline const std::string& GetName() const { return m_name; }
 	inline const std::chrono::nanoseconds& GetStartTimestamp() const { return m_startTimestamp; }

@@ -52,3 +52,9 @@ void TimelineEntry::SetFinishTimestamp(const std::chrono::nanoseconds& timestamp
 
 	m_finishTimestamp = timestamp;
 }
+
+bool TimelineEntry::OverlapsWith(const TimelineEntry* entry) const
+{
+	return m_startTimestamp < entry->GetFinishTimestamp() &&
+		   entry->GetStartTimestamp() < m_finishTimestamp;
+}
