@@ -23,7 +23,8 @@ CppBI::AnalysisControl BuildTimelineAnalyzer::OnStartActivity(const CppBI::Event
 
 	bool processedSpecificData =
 		CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnFrontEndFile) ||
-		CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnFunction);
+		CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnFunction) ||
+		CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnTemplateInstantiation);
 
 	return CppBI::AnalysisControl::CONTINUE;
 }
@@ -60,4 +61,9 @@ void BuildTimelineAnalyzer::OnFrontEndFile(const CppBI::Activities::FrontEndFile
 void BuildTimelineAnalyzer::OnFunction(const CppBI::Activities::Function& function)
 {
 	m_buildTimeline.UpdateEntryName(function, Utilities::CppBuildInsightsDataConversion::UndecorateFunction(function.Name()));
+}
+
+void BuildTimelineAnalyzer::OnTemplateInstantiation(const CppBI::Activities::TemplateInstantiation& templateInstantiation)
+{
+	// TODO: check docs and understand the format
 }

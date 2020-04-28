@@ -28,4 +28,5 @@ private:
 	// specific activity handling
 	void OnFrontEndFile(const CppBI::Activities::FrontEndFile& frontEndFile);
 	void OnFunction(const CppBI::Activities::Function& function);
+	void OnTemplateInstantiation(const CppBI::Activities::TemplateInstantiation& templateInstantiation);
 };
