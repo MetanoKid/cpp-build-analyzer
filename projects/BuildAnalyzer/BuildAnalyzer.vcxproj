@@ -27,6 +27,8 @@
     <ClCompile Include="..\..\src\BuildAnalyzer\PCH\PCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</PrecompiledHeaderFile>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,8 +96,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <ForcedIncludeFiles>PCH.h</ForcedIncludeFiles>
+      <PrecompiledHeaderFile>$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</ForcedIncludeFiles>
       <AdditionalIncludeDirectories>$(SolutionDir)src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -112,8 +114,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <ForcedIncludeFiles>PCH.h</ForcedIncludeFiles>
+      <PrecompiledHeaderFile>$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</ForcedIncludeFiles>
       <AdditionalIncludeDirectories>$(SolutionDir)src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
