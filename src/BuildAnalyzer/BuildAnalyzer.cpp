@@ -5,11 +5,6 @@
 #include <CppBuildInsights.hpp>
 namespace CppBI = Microsoft::Cpp::BuildInsights;
 
-#include "Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h"
-#include "Analyzers\FileInclusions\FileInclusionsAnalyzer.h"
-#include "Analyzers\FileCompilations\FileCompilationsAnalyzer.h"
-#include "Analyzers\BuildTimeline\BuildTimelineAnalyzer.h"
-
 #include "AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h"
 #include "AnalysisExporter\FileInclusions\FileInclusionTimesExporter.h"
 #include "AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h"
