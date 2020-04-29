@@ -1,17 +1,16 @@
 #pragma once
 
 #include <string>
-#include <memory>
 #include <vector>
+
+#include "BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h"
+#include "BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.h"
+#include "BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.h"
+#include "BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.h"
 
 namespace Microsoft { namespace Cpp { namespace BuildInsights {
 	class IAnalyzer;
 }}}
-
-class FunctionCompilationsAnalyzer;
-class FileInclusionsAnalyzer;
-class FileCompilationsAnalyzer;
-class BuildTimelineAnalyzer;
 
 class BuildAnalyzer
 {
@@ -42,12 +41,12 @@ private:
 	std::string m_traceFilePath;
 	AnalysisOptions m_analysisOptions;
 
-	std::unique_ptr<FunctionCompilationsAnalyzer> m_functionCompilations;
-	std::unique_ptr<FileInclusionsAnalyzer> m_fileInclusions;
-	std::unique_ptr<FileCompilationsAnalyzer> m_fileCompilations;
-	std::unique_ptr<BuildTimelineAnalyzer> m_buildTimeline;
+	FunctionCompilationsAnalyzer m_functionCompilations;
+	FileInclusionsAnalyzer m_fileInclusions;
+	FileCompilationsAnalyzer m_fileCompilations;
+	BuildTimelineAnalyzer m_buildTimeline;
 
 	bool m_analysisPerformed;
 
-	std::vector<Microsoft::Cpp::BuildInsights::IAnalyzer*> BuildAnalyzerList(const AnalysisOptions& options) const;
+	std::vector<Microsoft::Cpp::BuildInsights::IAnalyzer*> BuildAnalyzerList(const AnalysisOptions& options);
 };
