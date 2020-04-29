@@ -10,4 +10,7 @@
 #include <utility>
 #include <algorithm>
 
+#include <Windows.h>
+#include <DbgHelp.h>
+
 #include <CppBuildInsights.hpp>
