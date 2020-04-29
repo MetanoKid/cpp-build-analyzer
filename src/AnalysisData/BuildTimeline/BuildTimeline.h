@@ -3,8 +3,8 @@
 #include <unordered_map>
 #include <vector>
 
-#include "TimelineTypes.h"
-#include "TimelineEntry.h"
+#include "AnalysisData\BuildTimeline\TimelineTypes.h"
+#include "AnalysisData\BuildTimeline\TimelineEntry.h"
 
 namespace Microsoft
 {

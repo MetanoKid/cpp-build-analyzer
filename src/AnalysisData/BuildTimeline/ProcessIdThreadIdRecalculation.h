@@ -3,7 +3,7 @@
 #include <utility>
 #include <unordered_map>
 
-#include "TimelineTypes.h"
+#include "AnalysisData\BuildTimeline\TimelineTypes.h"
 
 class BuildTimeline;
 class TimelineEntry;

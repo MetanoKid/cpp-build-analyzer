@@ -3,7 +3,7 @@
 #include <cassert>
 #include <algorithm>
 
-#include "BuildTimeline.h"
+#include "AnalysisData\BuildTimeline\BuildTimeline.h"
 
 ProcessIdThreadIdRecalculation::ProcessIdThreadIdRecalculation(const BuildTimeline& timeline)
 	: m_timeline(timeline)

@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "TimelineTypes.h"
+#include "AnalysisData\BuildTimeline\TimelineTypes.h"
 
 class TimelineEntry
 {

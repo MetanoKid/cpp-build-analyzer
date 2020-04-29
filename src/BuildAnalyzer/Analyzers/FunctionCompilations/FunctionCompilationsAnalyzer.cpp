@@ -1,7 +1,5 @@
 #include "FunctionCompilationsAnalyzer.h"
 
-namespace CppBI = Microsoft::Cpp::BuildInsights;
-
 FunctionCompilationsAnalyzer::FunctionCompilationsAnalyzer()
 	: CppBI::IAnalyzer()
 	, m_functionCompilationsData()

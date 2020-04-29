@@ -3,6 +3,6 @@
 #include <unordered_map>
 #include <string>
 
-#include "FileCompilationData.h"
+#include "AnalysisData\FileCompilationData.h"
 
 typedef std::unordered_map<std::string, FileCompilationData> TFileCompilationDataPerFile;

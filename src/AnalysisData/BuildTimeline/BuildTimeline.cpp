@@ -3,7 +3,7 @@
 #include <cassert>
 #include <CppBuildInsights.hpp>
 
-#include "..\Utilities\CppBuildInsightsDataConversion.h"
+#include "AnalysisData\Utilities\CppBuildInsightsDataConversion.h"
 
 BuildTimeline::BuildTimeline()
 {
