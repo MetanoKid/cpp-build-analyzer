@@ -20,4 +20,5 @@ private:
 
 	void OnFrontEndPassCompleted(const CppBI::Activities::FrontEndPass& frontEndPass);
 	void OnBackEndPassCompleted(const CppBI::Activities::BackEndPass& backEndPass);
+	const wchar_t* GetFilePath(const CppBI::Activities::CompilerPass& compilerPass) const;
 };
