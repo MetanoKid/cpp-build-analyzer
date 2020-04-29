@@ -2,6 +2,11 @@
 
 #include <string>
 #include <memory>
+#include <vector>
+
+namespace Microsoft { namespace Cpp { namespace BuildInsights {
+	class IAnalyzer;
+}}}
 
 class FunctionCompilationsAnalyzer;
 class FileInclusionsAnalyzer;
@@ -11,7 +16,17 @@ class BuildTimelineAnalyzer;
 class BuildAnalyzer
 {
 public:
-	BuildAnalyzer(const std::string& traceFilePath);
+	struct AnalysisOptions
+	{
+		bool functionCompilations = true;
+		bool fileInclusionTimes = true;
+		bool fileInclusionGraph = true;
+		bool fileCompilations = true;
+		bool buildTimeline = true;
+	};
+
+public:
+	BuildAnalyzer(const std::string& traceFilePath, const AnalysisOptions& options);
 	~BuildAnalyzer();
 
 	inline bool IsAnalysisPerformed() const { return m_analysisPerformed; }
@@ -25,6 +40,7 @@ public:
 
 private:
 	std::string m_traceFilePath;
+	AnalysisOptions m_analysisOptions;
 
 	std::unique_ptr<FunctionCompilationsAnalyzer> m_functionCompilations;
 	std::unique_ptr<FileInclusionsAnalyzer> m_fileInclusions;
@@ -32,4 +48,6 @@ private:
 	std::unique_ptr<BuildTimelineAnalyzer> m_buildTimeline;
 
 	bool m_analysisPerformed;
+
+	std::vector<Microsoft::Cpp::BuildInsights::IAnalyzer*> BuildAnalyzerList(const AnalysisOptions& options) const;
 };
