@@ -34,7 +34,7 @@ bool BuildTimelineExporter::ExportTo(const std::string& path) const
 	
 	// although this is the default time unit representation, make it explicit
 	{
-		rapidjson::Value displayTimeUnit("ms");
+		rapidjson::Value displayTimeUnit("ms"); // microseconds
 		document.AddMember("displayTimeUnit", displayTimeUnit, document.GetAllocator());
 	}
 
