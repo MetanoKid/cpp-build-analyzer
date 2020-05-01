@@ -1,12 +1,12 @@
 # C++ Build Analyzer
 
-Leverage C++ Build Insights SDK to get interesting data from your builds.
+Leverage [C++ Build Insights SDK](https://docs.microsoft.com/cpp/build-insights/reference/sdk/overview) to get interesting data from your builds.
 
 ## Features
 
   * Generates flame graphs out of build execution (`.json`):
     ![Flame graph: CppBuildAnalyzer](./readme-samples/flame-graph.png "Flame graph: CppBuildAnalyzer")
-    * Also processes template instantiations, if present:
+    * Also shows template instantiations, if present:
       ![Flame graph: template instantiation](./readme-samples/flame-graph-template-instantiation.png "Flame graph: template instantiation")
   * Generates file inclusion graphs (`.dgml`):
     ![File inclusion graph, .dgml file](./readme-samples/file-inclusion-graph.png "File inclusion graph, .dgml file")
@@ -14,20 +14,20 @@ Leverage C++ Build Insights SDK to get interesting data from your builds.
   * Lists file inclusion times (`.csv`).
   * Lists function compilation times (`.csv`).
 
-### Examples
+### Interactive examples
 
   * [Flame graph for `CppBuildAnalyzer`](./readme-samples/BuildTimeline.json) (open in Google Chrome trace viewer ([chrome://tracing](chrome://tracing), edited to cut paths down).
   * [File inclusion graph for `CppBuildAnalyzer`](./readme-samples/FileInclusions.dgml) (open in Visual Studio, edited to cut paths down).
 
 ## Getting started
 
-Requisites:
+**Requisites**:
 
   * Install Visual Studio 2019 Community Edition.
   * Clone and build [vcperf](https://github.com/microsoft/vcperf).
   * Clone and build this repository.
 
-To collect a trace:
+**To collect a trace**:
 
   * Open an elevated command prompt pointing to vcperf.
   * Execute `vcperf /start SomeSessionName`.
@@ -35,7 +35,7 @@ To collect a trace:
   * Build your Visual Studio 2017+ project from Visual Studio or command line.
   * Execute `vcperf /stopnoanalyze SomeSessionName TraceFile.etl`.
 
-To analyze a trace:
+**To analyze a trace**:
 
   * Open a command prompt.
   * Execute `CppBuildAnalyzer -i TraceFile.etl --analyze_all`.
@@ -71,4 +71,4 @@ I started this project thanks to the information I gathered from the community, 
 
 ## Acknowledgements
 
-Thanks to Microsoft's C++ Team and [@KevinCadieuxMS](https://twitter.com/KevinCadieuxMS) in particular for the C++ Build Insights SDK and [vcperf](https://github.com/microsoft/vcperf)!
+Thanks to Microsoft's C++ Team and [@KevinCadieuxMS](https://twitter.com/KevinCadieuxMS) in particular for the [C++ Build Insights SDK](https://docs.microsoft.com/cpp/build-insights/reference/sdk/overview) and [vcperf](https://github.com/microsoft/vcperf)!
