@@ -19,13 +19,16 @@ private:
 	struct DataPerFile
 	{
 		const std::string* filePath;
+		std::chrono::nanoseconds totalInclusionTime;
 		std::chrono::nanoseconds averageInclusionTime;
 		unsigned int occurrences;
 
 		DataPerFile(const std::string* filePath,
+					const std::chrono::nanoseconds& totalInclusionTime,
 					const std::chrono::nanoseconds& averageInclusionTime,
 					unsigned int occurrences)
 			: filePath(filePath)
+			, totalInclusionTime(totalInclusionTime)
 			, averageInclusionTime(averageInclusionTime)
 			, occurrences(occurrences)
 		{
