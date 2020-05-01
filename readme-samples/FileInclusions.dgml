@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="C:\Path\To\MSVC\include\xutility" />
+    <Node Id="C:\Path\To\MSVC\include\map" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\string.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\encodedstream.h" />
+    <Node Id="C:\Path\To\MSVC\include\vcruntime_new_debug.h" />
+    <Node Id="C:\Path\To\MSVC\include\sal.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\document.h" />
+    <Node Id="C:\Path\To\MSVC\include\vcruntime.h" />
+    <Node Id="C:\Path\To\MSVC\include\cfloat" />
+    <Node Id="C:\Path\To\WindowsSDK\shared\specstrings.h" />
+    <Node Id="C:\Path\To\MSVC\include\xmemory" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.h" />
+    <Node Id="C:\Path\To\MSVC\include\yvals_core.h" />
+    <Node Id="C:\Path\To\MSVC\include\unordered_map" />
+    <Node Id="C:\Path\To\MSVC\include\cstdlib" />
+    <Node Id="Z:\cpp-build-analyzer\src\ConsoleMain\Main.cpp" />
+    <Node Id="C:\Path\To\WindowsSDK\um\winsock.h" />
+    <Node Id="C:\Path\To\MSVC\include\climits" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\float.h" />
+    <Node Id="C:\Path\To\MSVC\include\xloctime" />
+    <Node Id="C:\Path\To\MSVC\include\chrono" />
+    <Node Id="C:\Path\To\MSVC\include\limits" />
+    <Node Id="C:\Path\To\MSVC\include\tmmintrin.h" />
+    <Node Id="C:\Path\To\MSVC\include\xlocinfo.h" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\corecrt_wstdio.h" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\wchar.h" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\stdio.h" />
+    <Node Id="C:\Path\To\MSVC\include\xstddef" />
+    <Node Id="C:\Path\To\MSVC\include\cwchar" />
+    <Node Id="C:\Path\To\MSVC\include\cstdio" />
+    <Node Id="C:\Path\To\WindowsSDK\shared\windef.h" />
+    <Node Id="C:\Path\To\WindowsSDK\shared\specstrings_strict.h" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\corecrt_memcpy_s.h" />
+    <Node Id="C:\Path\To\MSVC\include\ratio" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\corecrt_wio.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\winscard.h" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\sys\stat.h" />
+    <Node Id="C:\Path\To\MSVC\include\vcruntime_exception.h" />
+    <Node Id="C:\Path\To\MSVC\include\cstddef" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\reader.h" />
+    <Node Id="C:\Path\To\MSVC\include\xstring" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\math.h" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\stdlib.h" />
+    <Node Id="C:\Path\To\MSVC\include\eh.h" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\crtdbg.h" />
+    <Node Id="C:\Path\To\MSVC\include\yvals.h" />
+    <Node Id="C:\Path\To\MSVC\include\xiosbase" />
+    <Node Id="C:\Path\To\MSVC\include\xtimec.h" />
+    <Node Id="C:\Path\To\MSVC\include\memory" />
+    <Node Id="C:\Path\To\WindowsSDK\shared\wtypesbase.h" />
+    <Node Id="C:\Path\To\MSVC\include\exception" />
+    <Node Id="C:\Path\To\MSVC\include\new" />
+    <Node Id="C:\Path\To\WindowsSDK\um\winnt.h" />
+    <Node Id="C:\Path\To\MSVC\include\xatomic.h" />
+    <Node Id="C:\Path\To\MSVC\include\xlocinfo" />
+    <Node Id="C:\Path\To\MSVC\include\cstring" />
+    <Node Id="C:\Path\To\WindowsSDK\shared\minwindef.h" />
+    <Node Id="C:\Path\To\MSVC\include\vector" />
+    <Node Id="C:\Path\To\WindowsSDK\shared\rpcasync.h" />
+    <Node Id="C:\Path\To\MSVC\include\string" />
+    <Node Id="C:\Path\To\MSVC\include\cctype" />
+    <Node Id="C:\Path\To\MSVC\include\xhash" />
+    <Node Id="C:\Path\To\MSVC\include\cassert" />
+    <Node Id="C:\Path\To\MSVC\include\system_error" />
+    <Node Id="C:\Path\To\MSVC\include\typeinfo" />
+    <Node Id="C:\Path\To\MSVC\include\xlocale" />
+    <Node Id="C:\Path\To\MSVC\include\streambuf" />
+    <Node Id="C:\Path\To\MSVC\include\xlocbuf" />
+    <Node Id="C:\Path\To\MSVC\include\locale" />
+    <Node Id="C:\Path\To\MSVC\include\xlocmon" />
+    <Node Id="C:\Path\To\WindowsSDK\shared\winapifamily.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\Windows.h" />
+    <Node Id="C:\Path\To\WindowsSDK\shared\driverspecs.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\winbase.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\fileapifromapp.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\wingdi.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\winuser.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\winnls.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\stringapiset.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\wincon.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\winver.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\winreg.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\winnetwk.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\mmsyscom.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\mmsystem.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\mciapi.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\mmiscapi.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\mmiscapi2.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\cxxopts\cxxopts.hpp" />
+    <Node Id="C:\Path\To\WindowsSDK\um\playsoundapi.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\mmeapi.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.cpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\timeapi.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.cpp" />
+    <Node Id="C:\Path\To\WindowsSDK\um\joystickapi.h" />
+    <Node Id="C:\Path\To\WindowsSDK\shared\rpc.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.h" />
+    <Node Id="C:\Path\To\WindowsSDK\shared\rpcdce.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\winperf.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\wincrypt.h" />
+    <Node Id="C:\Path\To\WindowsSDK\shared\rpcndr.h" />
+    <Node Id="C:\Path\To\WindowsSDK\shared\wtypes.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\winioctl.h" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\corecrt_search.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\prsht.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\winspool.h" />
+    <Node Id="C:\Path\To\MSVC\include\cmath" />
+    <Node Id="C:\Path\To\WindowsSDK\um\ole2.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\stack.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\objbase.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\combaseapi.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\objidl.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\coml2api.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\propidlbase.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\urlmon.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionTimesExporter.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\oleauto.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\commdlg.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\imm.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\DbgHelp.h" />
+    <Node Id="C:\Path\To\WindowsSDK\um\minidumpapiset.h" />
+    <Node Id="Z:\cpp-build-analyzer\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\inc\CppBuildInsights.hpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\BuildAnalyzer\PCH\PCH.h" />
+    <Node Id="C:\Path\To\MSVC\include\cwctype" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.cpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\BuildTimeline.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\TimelineEntry.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.cpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\TimelineEntry.cpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.cpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\BuildTimeline.cpp" />
+    <Node Id="C:\Path\To\MSVC\include\iosfwd" />
+    <Node Id="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.cpp" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\corecrt_memory.h" />
+    <Node Id="C:\Path\To\MSVC\include\cstdint" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.h" />
+    <Node Id="C:\Path\To\MSVC\include\xlocnum" />
+    <Node Id="C:\Path\To\MSVC\include\ios" />
+    <Node Id="C:\Path\To\MSVC\include\ostream" />
+    <Node Id="C:\Path\To\MSVC\include\istream" />
+    <Node Id="C:\Path\To\MSVC\include\fstream" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\rapidjson.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\allocators.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\stream.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\memorystream.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\strtod.h" />
+    <Node Id="C:\Path\To\MSVC\include\intrin.h" />
+    <Node Id="C:\Path\To\MSVC\include\xmmintrin.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.h" />
+    <Node Id="C:\Path\To\MSVC\include\emmintrin.h" />
+    <Node Id="C:\Path\To\MSVC\include\iostream" />
+    <Node Id="C:\Path\To\MSVC\include\pmmintrin.h" />
+    <Node Id="C:\Path\To\MSVC\include\smmintrin.h" />
+    <Node Id="C:\Path\To\MSVC\include\nmmintrin.h" />
+    <Node Id="C:\Path\To\MSVC\include\wmmintrin.h" />
+    <Node Id="C:\Path\To\MSVC\include\immintrin.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\biginteger.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\strfunc.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\ostreamwrapper.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\writer.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\dtoa.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\stringbuffer.h" />
+    <Node Id="Z:\cpp-build-analyzer\external_libraries\rapidjson\prettywriter.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.cpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.cpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisData\FileCompilationDataPerFile.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.cpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisData\FileInclusionsPerFile.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisData\TimeElapsedPerOccurrencePerConcept.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionTimesExporter.cpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.cpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\BuildAnalyzer\PCH\PCH.cpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.cpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.h" />
+    <Node Id="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.cpp" />
+    <Node Id="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.cpp" />
+    <Node Id="C:\Path\To\WindowsSDK\ucrt\share.h" />
+    <Node Id="C:\Path\To\MSVC\include\cerrno" />
+    <Node Id="C:\Path\To\MSVC\include\type_traits" />
+    <Node Id="C:\Path\To\MSVC\include\stdexcept" />
+    <Node Id="C:\Path\To\MSVC\include\regex" />
+    <Node Id="C:\Path\To\MSVC\include\ctime" />
+  </Nodes>
+  <Links>
+    <Link Source="C:\Path\To\MSVC\include\xutility" Target="C:\Path\To\MSVC\include\utility" />
+    <Link Source="C:\Path\To\MSVC\include\xutility" Target="C:\Path\To\MSVC\include\cstring" />
+    <Link Source="C:\Path\To\MSVC\include\map" Target="C:\Path\To\MSVC\include\tuple" />
+    <Link Source="C:\Path\To\MSVC\include\map" Target="C:\Path\To\MSVC\include\xtree" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\string.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_memory.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\string.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_wstring.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\encodedstream.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\stream.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\encodedstream.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\memorystream.h" />
+    <Link Source="C:\Path\To\MSVC\include\vcruntime_new_debug.h" Target="C:\Path\To\MSVC\include\vcruntime_new.h" />
+    <Link Source="C:\Path\To\MSVC\include\sal.h" Target="C:\Path\To\MSVC\include\concurrencysal.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\document.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\reader.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\document.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\strfunc.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\document.h" Target="C:\Path\To\MSVC\include\iterator" />
+    <Link Source="C:\Path\To\MSVC\include\vcruntime.h" Target="C:\Path\To\MSVC\include\sal.h" />
+    <Link Source="C:\Path\To\MSVC\include\vcruntime.h" Target="C:\Path\To\MSVC\include\vadefs.h" />
+    <Link Source="C:\Path\To\MSVC\include\cfloat" Target="C:\Path\To\WindowsSDK\ucrt\float.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\specstrings.h" Target="C:\Path\To\WindowsSDK\shared\specstrings_strict.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\specstrings.h" Target="C:\Path\To\WindowsSDK\shared\driverspecs.h" />
+    <Link Source="C:\Path\To\MSVC\include\xmemory" Target="C:\Path\To\MSVC\include\xatomic.h" />
+    <Link Source="C:\Path\To\MSVC\include\xmemory" Target="C:\Path\To\MSVC\include\cstdint" />
+    <Link Source="C:\Path\To\MSVC\include\xmemory" Target="C:\Path\To\MSVC\include\xutility" />
+    <Link Source="C:\Path\To\MSVC\include\xmemory" Target="C:\Path\To\MSVC\include\new" />
+    <Link Source="C:\Path\To\MSVC\include\xmemory" Target="C:\Path\To\MSVC\include\limits" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.h" Target="C:\Path\To\MSVC\include\algorithm" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.h" Target="C:\Path\To\MSVC\include\unordered_map" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.h" Target="C:\Path\To\MSVC\include\vector" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.h" Target="C:\Path\To\MSVC\include\chrono" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.h" Target="C:\Path\To\MSVC\include\string" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.h" Target="C:\Path\To\MSVC\include\cassert" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.h" Target="C:\Path\To\MSVC\include\locale" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.h" Target="C:\Path\To\MSVC\include\codecvt" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.h" Target="C:\Path\To\WindowsSDK\um\Windows.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.h" Target="C:\Path\To\WindowsSDK\um\DbgHelp.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.h" Target="Z:\cpp-build-analyzer\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\inc\CppBuildInsights.hpp" />
+    <Link Source="C:\Path\To\MSVC\include\yvals_core.h" Target="C:\Path\To\MSVC\include\xkeycheck.h" />
+    <Link Source="C:\Path\To\MSVC\include\yvals_core.h" Target="C:\Path\To\MSVC\include\vcruntime.h" />
+    <Link Source="C:\Path\To\MSVC\include\unordered_map" Target="C:\Path\To\MSVC\include\xhash" />
+    <Link Source="C:\Path\To\MSVC\include\cstdlib" Target="C:\Path\To\WindowsSDK\ucrt\math.h" />
+    <Link Source="C:\Path\To\MSVC\include\cstdlib" Target="C:\Path\To\WindowsSDK\ucrt\stdlib.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\ConsoleMain\Main.cpp" Target="C:\Path\To\MSVC\include\iostream" />
+    <Link Source="Z:\cpp-build-analyzer\src\ConsoleMain\Main.cpp" Target="C:\Path\To\MSVC\include\string" />
+    <Link Source="Z:\cpp-build-analyzer\src\ConsoleMain\Main.cpp" Target="Z:\cpp-build-analyzer\external_libraries\cxxopts\cxxopts.hpp" />
+    <Link Source="Z:\cpp-build-analyzer\src\ConsoleMain\Main.cpp" Target="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winsock.h" Target="C:\Path\To\WindowsSDK\shared\inaddr.h" />
+    <Link Source="C:\Path\To\MSVC\include\climits" Target="C:\Path\To\MSVC\include\limits.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\float.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt.h" />
+    <Link Source="C:\Path\To\MSVC\include\xloctime" Target="C:\Path\To\MSVC\include\ctime" />
+    <Link Source="C:\Path\To\MSVC\include\chrono" Target="C:\Path\To\MSVC\include\yvals_core.h" />
+    <Link Source="C:\Path\To\MSVC\include\chrono" Target="C:\Path\To\MSVC\include\xtimec.h" />
+    <Link Source="C:\Path\To\MSVC\include\chrono" Target="C:\Path\To\MSVC\include\limits" />
+    <Link Source="C:\Path\To\MSVC\include\chrono" Target="C:\Path\To\MSVC\include\ratio" />
+    <Link Source="C:\Path\To\MSVC\include\chrono" Target="C:\Path\To\WindowsSDK\ucrt\time.h" />
+    <Link Source="C:\Path\To\MSVC\include\chrono" Target="C:\Path\To\MSVC\include\utility" />
+    <Link Source="C:\Path\To\MSVC\include\limits" Target="C:\Path\To\MSVC\include\cfloat" />
+    <Link Source="C:\Path\To\MSVC\include\limits" Target="C:\Path\To\MSVC\include\climits" />
+    <Link Source="C:\Path\To\MSVC\include\limits" Target="C:\Path\To\MSVC\include\xstddef" />
+    <Link Source="C:\Path\To\MSVC\include\limits" Target="C:\Path\To\MSVC\include\cwchar" />
+    <Link Source="C:\Path\To\MSVC\include\tmmintrin.h" Target="C:\Path\To\MSVC\include\pmmintrin.h" />
+    <Link Source="C:\Path\To\MSVC\include\xlocinfo.h" Target="C:\Path\To\WindowsSDK\ucrt\locale.h" />
+    <Link Source="C:\Path\To\MSVC\include\xlocinfo.h" Target="C:\Path\To\WindowsSDK\ucrt\ctype.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\corecrt_wstdio.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_stdio_config.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\wchar.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_wio.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\wchar.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_memcpy_s.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\wchar.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_wstdlib.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\wchar.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_wconio.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\wchar.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_wstring.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\wchar.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_wdirect.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\wchar.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_wctype.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\wchar.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_wprocess.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\wchar.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_wtime.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\wchar.h" Target="C:\Path\To\WindowsSDK\ucrt\sys\stat.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\stdio.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_wstdio.h" />
+    <Link Source="C:\Path\To\MSVC\include\xstddef" Target="C:\Path\To\MSVC\include\cstdlib" />
+    <Link Source="C:\Path\To\MSVC\include\xstddef" Target="C:\Path\To\MSVC\include\cstddef" />
+    <Link Source="C:\Path\To\MSVC\include\xstddef" Target="C:\Path\To\MSVC\include\initializer_list" />
+    <Link Source="C:\Path\To\MSVC\include\cwchar" Target="C:\Path\To\MSVC\include\cstdio" />
+    <Link Source="C:\Path\To\MSVC\include\cwchar" Target="C:\Path\To\WindowsSDK\ucrt\wchar.h" />
+    <Link Source="C:\Path\To\MSVC\include\cstdio" Target="C:\Path\To\WindowsSDK\ucrt\stdio.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\windef.h" Target="C:\Path\To\WindowsSDK\shared\minwindef.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\specstrings_strict.h" Target="C:\Path\To\WindowsSDK\shared\specstrings_undef.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\corecrt_memcpy_s.h" Target="C:\Path\To\MSVC\include\vcruntime_string.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\corecrt_memcpy_s.h" Target="C:\Path\To\WindowsSDK\ucrt\errno.h" />
+    <Link Source="C:\Path\To\MSVC\include\ratio" Target="C:\Path\To\MSVC\include\stdint.h" />
+    <Link Source="C:\Path\To\MSVC\include\ratio" Target="C:\Path\To\MSVC\include\type_traits" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\corecrt_wio.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_share.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winscard.h" Target="C:\Path\To\WindowsSDK\um\winioctl.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winscard.h" Target="C:\Path\To\WindowsSDK\shared\wtypes.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winscard.h" Target="C:\Path\To\WindowsSDK\shared\winsmcrd.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\sys\stat.h" Target="C:\Path\To\WindowsSDK\ucrt\sys\types.h" />
+    <Link Source="C:\Path\To\MSVC\include\vcruntime_exception.h" Target="C:\Path\To\MSVC\include\eh.h" />
+    <Link Source="C:\Path\To\MSVC\include\cstddef" Target="C:\Path\To\WindowsSDK\ucrt\stddef.h" />
+    <Link Source="C:\Path\To\MSVC\include\cstddef" Target="C:\Path\To\MSVC\include\xtr1common" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\reader.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\allocators.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\reader.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\stream.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\reader.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\meta.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\reader.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\encodedstream.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\reader.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\stack.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\reader.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\strtod.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\reader.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\error\error.h" />
+    <Link Source="C:\Path\To\MSVC\include\xstring" Target="C:\Path\To\MSVC\include\iosfwd" />
+    <Link Source="C:\Path\To\MSVC\include\xstring" Target="C:\Path\To\MSVC\include\xmemory" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\math.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_math.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\stdlib.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_search.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\stdlib.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_malloc.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\stdlib.h" Target="C:\Path\To\MSVC\include\limits.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\stdlib.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_wstdlib.h" />
+    <Link Source="C:\Path\To\MSVC\include\eh.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_terminate.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\crtdbg.h" Target="C:\Path\To\MSVC\include\vcruntime_new_debug.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\crtdbg.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt.h" />
+    <Link Source="C:\Path\To\MSVC\include\yvals.h" Target="C:\Path\To\WindowsSDK\ucrt\crtdbg.h" />
+    <Link Source="C:\Path\To\MSVC\include\yvals.h" Target="C:\Path\To\MSVC\include\crtdefs.h" />
+    <Link Source="C:\Path\To\MSVC\include\yvals.h" Target="C:\Path\To\MSVC\include\use_ansi.h" />
+    <Link Source="C:\Path\To\MSVC\include\xiosbase" Target="C:\Path\To\WindowsSDK\ucrt\share.h" />
+    <Link Source="C:\Path\To\MSVC\include\xiosbase" Target="C:\Path\To\MSVC\include\system_error" />
+    <Link Source="C:\Path\To\MSVC\include\xiosbase" Target="C:\Path\To\MSVC\include\xlocale" />
+    <Link Source="C:\Path\To\MSVC\include\xtimec.h" Target="C:\Path\To\MSVC\include\yvals.h" />
+    <Link Source="C:\Path\To\MSVC\include\memory" Target="C:\Path\To\MSVC\include\typeinfo" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\wtypesbase.h" Target="C:\Path\To\WindowsSDK\shared\guiddef.h" />
+    <Link Source="C:\Path\To\MSVC\include\exception" Target="C:\Path\To\WindowsSDK\ucrt\malloc.h" />
+    <Link Source="C:\Path\To\MSVC\include\exception" Target="C:\Path\To\MSVC\include\vcruntime_exception.h" />
+    <Link Source="C:\Path\To\MSVC\include\exception" Target="C:\Path\To\MSVC\include\type_traits" />
+    <Link Source="C:\Path\To\MSVC\include\new" Target="C:\Path\To\MSVC\include\exception" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winnt.h" Target="C:\Path\To\WindowsSDK\shared\kernelspecs.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winnt.h" Target="C:\Path\To\WindowsSDK\shared\basetsd.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winnt.h" Target="C:\Path\To\WindowsSDK\shared\guiddef.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winnt.h" Target="C:\Path\To\WindowsSDK\shared\pshpack4.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winnt.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winnt.h" Target="C:\Path\To\WindowsSDK\shared\pshpack2.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winnt.h" Target="C:\Path\To\WindowsSDK\shared\pshpack8.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winnt.h" Target="C:\Path\To\WindowsSDK\shared\pshpack1.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winnt.h" Target="C:\Path\To\WindowsSDK\shared\apiset.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winnt.h" Target="C:\Path\To\WindowsSDK\shared\ktmtypes.h" />
+    <Link Source="C:\Path\To\MSVC\include\xatomic.h" Target="C:\Path\To\MSVC\include\intrin0.h" />
+    <Link Source="C:\Path\To\MSVC\include\xlocinfo" Target="C:\Path\To\MSVC\include\xlocinfo.h" />
+    <Link Source="C:\Path\To\MSVC\include\cstring" Target="C:\Path\To\WindowsSDK\ucrt\string.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\minwindef.h" Target="C:\Path\To\WindowsSDK\um\winnt.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\minwindef.h" Target="C:\Path\To\WindowsSDK\shared\specstrings.h" />
+    <Link Source="C:\Path\To\MSVC\include\vector" Target="C:\Path\To\MSVC\include\xmemory" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\rpcasync.h" Target="C:\Path\To\WindowsSDK\shared\pshpack8.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\rpcasync.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\MSVC\include\string" Target="C:\Path\To\MSVC\include\xstring" />
+    <Link Source="C:\Path\To\MSVC\include\string" Target="C:\Path\To\MSVC\include\cctype" />
+    <Link Source="C:\Path\To\MSVC\include\string" Target="C:\Path\To\MSVC\include\yvals_core.h" />
+    <Link Source="C:\Path\To\MSVC\include\cctype" Target="C:\Path\To\WindowsSDK\ucrt\ctype.h" />
+    <Link Source="C:\Path\To\MSVC\include\xhash" Target="C:\Path\To\MSVC\include\cmath" />
+    <Link Source="C:\Path\To\MSVC\include\xhash" Target="C:\Path\To\MSVC\include\tuple" />
+    <Link Source="C:\Path\To\MSVC\include\xhash" Target="C:\Path\To\MSVC\include\list" />
+    <Link Source="C:\Path\To\MSVC\include\xhash" Target="C:\Path\To\MSVC\include\xbit_ops.h" />
+    <Link Source="C:\Path\To\MSVC\include\xhash" Target="C:\Path\To\MSVC\include\vector" />
+    <Link Source="C:\Path\To\MSVC\include\cassert" Target="C:\Path\To\WindowsSDK\ucrt\assert.h" />
+    <Link Source="C:\Path\To\MSVC\include\system_error" Target="C:\Path\To\MSVC\include\cerrno" />
+    <Link Source="C:\Path\To\MSVC\include\system_error" Target="C:\Path\To\MSVC\include\stdexcept" />
+    <Link Source="C:\Path\To\MSVC\include\system_error" Target="C:\Path\To\MSVC\include\xcall_once.h" />
+    <Link Source="C:\Path\To\MSVC\include\system_error" Target="C:\Path\To\MSVC\include\xerrc.h" />
+    <Link Source="C:\Path\To\MSVC\include\typeinfo" Target="C:\Path\To\MSVC\include\vcruntime_typeinfo.h" />
+    <Link Source="C:\Path\To\MSVC\include\xlocale" Target="C:\Path\To\MSVC\include\xfacet" />
+    <Link Source="C:\Path\To\MSVC\include\xlocale" Target="C:\Path\To\MSVC\include\memory" />
+    <Link Source="C:\Path\To\MSVC\include\xlocale" Target="C:\Path\To\MSVC\include\xlocinfo" />
+    <Link Source="C:\Path\To\MSVC\include\streambuf" Target="C:\Path\To\MSVC\include\xiosbase" />
+    <Link Source="C:\Path\To\MSVC\include\xlocbuf" Target="C:\Path\To\MSVC\include\streambuf" />
+    <Link Source="C:\Path\To\MSVC\include\locale" Target="C:\Path\To\MSVC\include\xlocbuf" />
+    <Link Source="C:\Path\To\MSVC\include\locale" Target="C:\Path\To\MSVC\include\xloctime" />
+    <Link Source="C:\Path\To\MSVC\include\locale" Target="C:\Path\To\MSVC\include\xlocmes" />
+    <Link Source="C:\Path\To\MSVC\include\locale" Target="C:\Path\To\MSVC\include\xlocmon" />
+    <Link Source="C:\Path\To\MSVC\include\xlocmon" Target="C:\Path\To\MSVC\include\xlocnum" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\winapifamily.h" Target="C:\Path\To\WindowsSDK\shared\winpackagefamily.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\winbase.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\MSVC\include\excpt.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\nb30.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\shared\winapifamily.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\commdlg.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\shared\sdkddkver.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\wingdi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\winreg.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\MSVC\include\stdarg.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\ole2.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\shared\windef.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\winuser.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\shared\cderr.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\winnls.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\dlgs.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\wincon.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\winver.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\winnetwk.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\dde.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\ddeml.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\lzexpand.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\mmsystem.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\shared\rpc.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\shellapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\winscard.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\winperf.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\winsock.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\wincrypt.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\winefs.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\winspool.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\imm.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\shared\stralign.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\winsvc.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\Windows.h" Target="C:\Path\To\WindowsSDK\um\mcx.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\driverspecs.h" Target="C:\Path\To\WindowsSDK\shared\sdv_driverspecs.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\shared\apisetcconv.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\minwinbase.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\heapapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\handleapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\apiquery2.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\processenv.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\utilapiset.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\shared\winerror.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\debugapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\fileapifromapp.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\errhandlingapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\jobapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\memoryapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\fibersapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\namedpipeapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\profileapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\ioapiset.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\synchapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\interlockedapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\processthreadsapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\sysinfoapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\enclaveapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\realtimeapiset.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\threadpoollegacyapiset.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\threadpoolapiset.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\jobapi2.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\wow64apiset.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\libloaderapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\securitybaseapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\namespaceapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\systemtopologyapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\processtopologyapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\securityappcontainer.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winbase.h" Target="C:\Path\To\WindowsSDK\um\timezoneapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\fileapifromapp.h" Target="C:\Path\To\WindowsSDK\um\fileapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\wingdi.h" Target="C:\Path\To\WindowsSDK\shared\pshpack1.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\wingdi.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\wingdi.h" Target="C:\Path\To\WindowsSDK\shared\pshpack2.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\wingdi.h" Target="C:\Path\To\WindowsSDK\shared\pshpack4.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winuser.h" Target="C:\Path\To\WindowsSDK\shared\pshpack2.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winuser.h" Target="C:\Path\To\WindowsSDK\shared\tvout.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winuser.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winnls.h" Target="C:\Path\To\WindowsSDK\um\datetimeapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winnls.h" Target="C:\Path\To\WindowsSDK\um\stringapiset.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\stringapiset.h" Target="C:\Path\To\WindowsSDK\um\winnls.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\wincon.h" Target="C:\Path\To\WindowsSDK\um\consoleapi2.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\wincon.h" Target="C:\Path\To\WindowsSDK\um\consoleapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\wincon.h" Target="C:\Path\To\WindowsSDK\um\wincontypes.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\wincon.h" Target="C:\Path\To\WindowsSDK\um\consoleapi3.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winver.h" Target="C:\Path\To\WindowsSDK\um\verrsrc.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winreg.h" Target="C:\Path\To\WindowsSDK\um\reason.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winnetwk.h" Target="C:\Path\To\WindowsSDK\shared\wnnc.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmsyscom.h" Target="C:\Path\To\WindowsSDK\shared\pshpack1.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmsyscom.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmsystem.h" Target="C:\Path\To\WindowsSDK\um\mmsyscom.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmsystem.h" Target="C:\Path\To\WindowsSDK\shared\pshpack1.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmsystem.h" Target="C:\Path\To\WindowsSDK\um\mciapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmsystem.h" Target="C:\Path\To\WindowsSDK\um\mmiscapi2.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmsystem.h" Target="C:\Path\To\WindowsSDK\um\mmiscapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmsystem.h" Target="C:\Path\To\WindowsSDK\um\timeapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmsystem.h" Target="C:\Path\To\WindowsSDK\um\mmeapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmsystem.h" Target="C:\Path\To\WindowsSDK\um\playsoundapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmsystem.h" Target="C:\Path\To\WindowsSDK\um\joystickapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmsystem.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mciapi.h" Target="C:\Path\To\WindowsSDK\um\mmsyscom.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmiscapi.h" Target="C:\Path\To\WindowsSDK\um\mmsyscom.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmiscapi2.h" Target="C:\Path\To\WindowsSDK\um\mmsyscom.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\cxxopts\cxxopts.hpp" Target="C:\Path\To\MSVC\include\map" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\cxxopts\cxxopts.hpp" Target="C:\Path\To\MSVC\include\regex" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\cxxopts\cxxopts.hpp" Target="C:\Path\To\MSVC\include\unordered_map" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\cxxopts\cxxopts.hpp" Target="C:\Path\To\MSVC\include\sstream" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\cxxopts\cxxopts.hpp" Target="C:\Path\To\MSVC\include\unordered_set" />
+    <Link Source="C:\Path\To\WindowsSDK\um\playsoundapi.h" Target="C:\Path\To\WindowsSDK\um\mmsyscom.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\mmeapi.h" Target="C:\Path\To\WindowsSDK\um\mmsyscom.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.cpp" Target="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.cpp" Target="C:\Path\To\MSVC\include\cassert" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionTimesExporter.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\FileInclusionsPerFile.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\TimeElapsedPerOccurrencePerConcept.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\timeapi.h" Target="C:\Path\To\WindowsSDK\um\mmsyscom.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\joystickapi.h" Target="C:\Path\To\WindowsSDK\um\mmsyscom.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\rpc.h" Target="C:\Path\To\WindowsSDK\um\rpcnsi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\rpc.h" Target="C:\Path\To\WindowsSDK\shared\pshpack8.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\rpc.h" Target="C:\Path\To\WindowsSDK\shared\rpcdce.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\rpc.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\rpc.h" Target="C:\Path\To\WindowsSDK\shared\rpcnterr.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\rpc.h" Target="C:\Path\To\WindowsSDK\shared\rpcasync.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\TimelineTypes.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\rpcdce.h" Target="C:\Path\To\WindowsSDK\shared\rpcdcep.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winperf.h" Target="C:\Path\To\WindowsSDK\shared\pshpack8.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winperf.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\wincrypt.h" Target="C:\Path\To\WindowsSDK\shared\bcrypt.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\wincrypt.h" Target="C:\Path\To\WindowsSDK\um\ncrypt.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\wincrypt.h" Target="C:\Path\To\WindowsSDK\um\dpapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\rpcndr.h" Target="C:\Path\To\WindowsSDK\shared\pshpack8.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\rpcndr.h" Target="C:\Path\To\WindowsSDK\um\rpcnsip.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\rpcndr.h" Target="C:\Path\To\WindowsSDK\shared\rpcsal.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\rpcndr.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\wtypes.h" Target="C:\Path\To\WindowsSDK\shared\rpcndr.h" />
+    <Link Source="C:\Path\To\WindowsSDK\shared\wtypes.h" Target="C:\Path\To\WindowsSDK\shared\wtypesbase.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winioctl.h" Target="C:\Path\To\WindowsSDK\shared\pshpack1.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winioctl.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\corecrt_search.h" Target="C:\Path\To\WindowsSDK\ucrt\stddef.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\prsht.h" Target="C:\Path\To\WindowsSDK\shared\pshpack8.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\prsht.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\winspool.h" Target="C:\Path\To\WindowsSDK\um\prsht.h" />
+    <Link Source="C:\Path\To\MSVC\include\cmath" Target="C:\Path\To\MSVC\include\yvals.h" />
+    <Link Source="C:\Path\To\MSVC\include\cmath" Target="C:\Path\To\MSVC\include\cstdlib" />
+    <Link Source="C:\Path\To\MSVC\include\cmath" Target="C:\Path\To\MSVC\include\xtr1common" />
+    <Link Source="C:\Path\To\WindowsSDK\um\ole2.h" Target="C:\Path\To\WindowsSDK\shared\pshpack8.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\ole2.h" Target="C:\Path\To\WindowsSDK\um\objbase.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\ole2.h" Target="C:\Path\To\WindowsSDK\um\oleauto.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\ole2.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\FileCompilationDataPerFile.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\stack.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\swap.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\objbase.h" Target="C:\Path\To\WindowsSDK\shared\pshpack8.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\objbase.h" Target="C:\Path\To\WindowsSDK\um\propidl.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\objbase.h" Target="C:\Path\To\WindowsSDK\um\combaseapi.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\objbase.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\objbase.h" Target="C:\Path\To\WindowsSDK\um\coml2api.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\objbase.h" Target="C:\Path\To\WindowsSDK\um\urlmon.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\combaseapi.h" Target="C:\Path\To\WindowsSDK\shared\pshpack8.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\combaseapi.h" Target="C:\Path\To\WindowsSDK\um\unknwnbase.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\combaseapi.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\combaseapi.h" Target="C:\Path\To\WindowsSDK\um\objidlbase.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\combaseapi.h" Target="C:\Path\To\WindowsSDK\shared\guiddef.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\combaseapi.h" Target="C:\Path\To\WindowsSDK\um\cguid.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\objidl.h" Target="C:\Path\To\WindowsSDK\um\unknwn.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\coml2api.h" Target="C:\Path\To\WindowsSDK\um\objidl.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\coml2api.h" Target="C:\Path\To\WindowsSDK\um\propidlbase.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\propidlbase.h" Target="C:\Path\To\WindowsSDK\um\oaidl.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\urlmon.h" Target="C:\Path\To\WindowsSDK\um\oleidl.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\urlmon.h" Target="C:\Path\To\WindowsSDK\um\servprov.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\urlmon.h" Target="C:\Path\To\WindowsSDK\um\msxml.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionTimesExporter.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\TimeElapsedPerOccurrencePerConcept.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\oleauto.h" Target="C:\Path\To\WindowsSDK\shared\pshpack8.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\oleauto.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\TimeElapsedPerOccurrencePerConcept.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h" Target="Z:\cpp-build-analyzer\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\inc\CppBuildInsights.hpp" />
+    <Link Source="C:\Path\To\WindowsSDK\um\commdlg.h" Target="C:\Path\To\WindowsSDK\um\prsht.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\imm.h" Target="C:\Path\To\WindowsSDK\um\ime_cmodes.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\DbgHelp.h" Target="C:\Path\To\WindowsSDK\shared\pshpack8.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\DbgHelp.h" Target="C:\Path\To\WindowsSDK\um\minidumpapiset.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\DbgHelp.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\minidumpapiset.h" Target="C:\Path\To\WindowsSDK\shared\pshpack4.h" />
+    <Link Source="C:\Path\To\WindowsSDK\um\minidumpapiset.h" Target="C:\Path\To\WindowsSDK\shared\poppack.h" />
+    <Link Source="Z:\cpp-build-analyzer\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\inc\CppBuildInsights.hpp" Target="C:\Path\To\MSVC\include\deque" />
+    <Link Source="Z:\cpp-build-analyzer\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\inc\CppBuildInsights.hpp" Target="Z:\cpp-build-analyzer\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\inc\CppBuildInsights.h" />
+    <Link Source="Z:\cpp-build-analyzer\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\inc\CppBuildInsights.hpp" Target="C:\Path\To\MSVC\include\cwctype" />
+    <Link Source="Z:\cpp-build-analyzer\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\inc\CppBuildInsights.hpp" Target="C:\Path\To\MSVC\include\memory" />
+    <Link Source="Z:\cpp-build-analyzer\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\inc\CppBuildInsights.hpp" Target="C:\Path\To\MSVC\include\chrono" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\PCH\PCH.h" Target="C:\Path\To\MSVC\include\string" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\PCH\PCH.h" Target="C:\Path\To\MSVC\include\chrono" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\PCH\PCH.h" Target="C:\Path\To\MSVC\include\unordered_map" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\PCH\PCH.h" Target="C:\Path\To\MSVC\include\cassert" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\PCH\PCH.h" Target="Z:\cpp-build-analyzer\packages\Microsoft.Cpp.BuildInsights.1.0.0\build\native\inc\CppBuildInsights.hpp" />
+    <Link Source="C:\Path\To\MSVC\include\cwctype" Target="C:\Path\To\WindowsSDK\ucrt\wctype.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\BuildTimeline.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\TimelineTypes.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\BuildTimeline.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\TimelineEntry.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\TimelineEntry.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\TimelineTypes.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\TimelineEntry.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\TimelineEntry.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\TimelineEntry.cpp" Target="C:\Path\To\MSVC\include\cassert" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.cpp" Target="C:\Path\To\MSVC\include\cassert" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\BuildTimeline.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\BuildTimeline.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\BuildTimeline.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\BuildTimeline.cpp" Target="C:\Path\To\MSVC\include\cassert" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\BuildTimeline.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.h" />
+    <Link Source="C:\Path\To\MSVC\include\iosfwd" Target="C:\Path\To\MSVC\include\yvals.h" />
+    <Link Source="C:\Path\To\MSVC\include\iosfwd" Target="C:\Path\To\MSVC\include\xstddef" />
+    <Link Source="C:\Path\To\MSVC\include\iosfwd" Target="C:\Path\To\MSVC\include\cwchar" />
+    <Link Source="C:\Path\To\MSVC\include\iosfwd" Target="C:\Path\To\MSVC\include\cstdio" />
+    <Link Source="C:\Path\To\MSVC\include\iosfwd" Target="C:\Path\To\MSVC\include\cstring" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.cpp" Target="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.cpp" Target="C:\Path\To\MSVC\include\cassert" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\corecrt_memory.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_memcpy_s.h" />
+    <Link Source="C:\Path\To\MSVC\include\cstdint" Target="C:\Path\To\MSVC\include\stdint.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\document.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.h" Target="C:\Path\To\MSVC\include\string" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.h" Target="C:\Path\To\MSVC\include\fstream" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.h" Target="C:\Path\To\MSVC\include\unordered_map" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\prettywriter.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.h" Target="C:\Path\To\MSVC\include\chrono" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.h" Target="C:\Path\To\MSVC\include\algorithm" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.h" Target="C:\Path\To\MSVC\include\cassert" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\ostreamwrapper.h" />
+    <Link Source="C:\Path\To\MSVC\include\xlocnum" Target="C:\Path\To\MSVC\include\cmath" />
+    <Link Source="C:\Path\To\MSVC\include\xlocnum" Target="C:\Path\To\MSVC\include\streambuf" />
+    <Link Source="C:\Path\To\MSVC\include\xlocnum" Target="C:\Path\To\MSVC\include\climits" />
+    <Link Source="C:\Path\To\MSVC\include\xlocnum" Target="C:\Path\To\MSVC\include\cstdio" />
+    <Link Source="C:\Path\To\MSVC\include\ios" Target="C:\Path\To\MSVC\include\xlocnum" />
+    <Link Source="C:\Path\To\MSVC\include\ostream" Target="C:\Path\To\MSVC\include\ios" />
+    <Link Source="C:\Path\To\MSVC\include\istream" Target="C:\Path\To\MSVC\include\ostream" />
+    <Link Source="C:\Path\To\MSVC\include\fstream" Target="C:\Path\To\MSVC\include\istream" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\rapidjson.h" Target="C:\Path\To\WindowsSDK\ucrt\inttypes.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\rapidjson.h" Target="C:\Path\To\MSVC\include\cassert" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\allocators.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\rapidjson.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\stream.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\encodings.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\memorystream.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\stream.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\strtod.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\diyfp.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\strtod.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\ieee754.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\strtod.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\biginteger.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\strtod.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\pow10.h" />
+    <Link Source="C:\Path\To\MSVC\include\intrin.h" Target="C:\Path\To\MSVC\include\setjmp.h" />
+    <Link Source="C:\Path\To\MSVC\include\intrin.h" Target="C:\Path\To\MSVC\include\ammintrin.h" />
+    <Link Source="C:\Path\To\MSVC\include\intrin.h" Target="C:\Path\To\MSVC\include\immintrin.h" />
+    <Link Source="C:\Path\To\MSVC\include\xmmintrin.h" Target="C:\Path\To\MSVC\include\mmintrin.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.h" Target="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.h" Target="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.h" Target="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.h" Target="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.h" />
+    <Link Source="C:\Path\To\MSVC\include\emmintrin.h" Target="C:\Path\To\MSVC\include\xmmintrin.h" />
+    <Link Source="C:\Path\To\MSVC\include\iostream" Target="C:\Path\To\MSVC\include\yvals_core.h" />
+    <Link Source="C:\Path\To\MSVC\include\iostream" Target="C:\Path\To\MSVC\include\istream" />
+    <Link Source="C:\Path\To\MSVC\include\pmmintrin.h" Target="C:\Path\To\MSVC\include\emmintrin.h" />
+    <Link Source="C:\Path\To\MSVC\include\smmintrin.h" Target="C:\Path\To\MSVC\include\tmmintrin.h" />
+    <Link Source="C:\Path\To\MSVC\include\nmmintrin.h" Target="C:\Path\To\MSVC\include\smmintrin.h" />
+    <Link Source="C:\Path\To\MSVC\include\wmmintrin.h" Target="C:\Path\To\MSVC\include\nmmintrin.h" />
+    <Link Source="C:\Path\To\MSVC\include\immintrin.h" Target="C:\Path\To\MSVC\include\wmmintrin.h" />
+    <Link Source="C:\Path\To\MSVC\include\immintrin.h" Target="C:\Path\To\MSVC\include\zmmintrin.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\biginteger.h" Target="C:\Path\To\MSVC\include\intrin.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\strfunc.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\stream.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\ostreamwrapper.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\stream.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\writer.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\stream.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\writer.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\dtoa.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\writer.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\stringbuffer.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\dtoa.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\internal\itoa.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\stringbuffer.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\stream.h" />
+    <Link Source="Z:\cpp-build-analyzer\external_libraries\rapidjson\prettywriter.h" Target="Z:\cpp-build-analyzer\external_libraries\rapidjson\writer.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\TimelineTypes.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\BuildTimeline.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\FileCompilationDataPerFile.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\FileCompilationData.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\FileInclusionsPerFile.h" Target="C:\Path\To\MSVC\include\unordered_set" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\FileInclusionsPerFile.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisData\TimeElapsedPerOccurrencePerConcept.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\TimeElapsedPerOcurrence.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionTimesExporter.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionTimesExporter.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\TimeElapsedPerOccurrencePerConcept.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\PCH\PCH.cpp" Target="Z:\cpp-build-analyzer\src\BuildAnalyzer\PCH\PCH.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\FileCompilationDataPerFile.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.cpp" Target="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.cpp" Target="C:\Path\To\MSVC\include\cassert" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.cpp" Target="Z:\cpp-build-analyzer\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.h" Target="Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\BuildTimeline.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.cpp" Target="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h" />
+    <Link Source="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.cpp" Target="Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.h" />
+    <Link Source="C:\Path\To\WindowsSDK\ucrt\share.h" Target="C:\Path\To\WindowsSDK\ucrt\corecrt_share.h" />
+    <Link Source="C:\Path\To\MSVC\include\cerrno" Target="C:\Path\To\WindowsSDK\ucrt\errno.h" />
+    <Link Source="C:\Path\To\MSVC\include\type_traits" Target="C:\Path\To\MSVC\include\xstddef" />
+    <Link Source="C:\Path\To\MSVC\include\stdexcept" Target="C:\Path\To\MSVC\include\xstring" />
+    <Link Source="C:\Path\To\MSVC\include\stdexcept" Target="C:\Path\To\MSVC\include\exception" />
+    <Link Source="C:\Path\To\MSVC\include\regex" Target="C:\Path\To\MSVC\include\vector" />
+    <Link Source="C:\Path\To\MSVC\include\regex" Target="C:\Path\To\MSVC\include\algorithm" />
+    <Link Source="C:\Path\To\MSVC\include\regex" Target="C:\Path\To\MSVC\include\iterator" />
+    <Link Source="C:\Path\To\MSVC\include\regex" Target="C:\Path\To\MSVC\include\locale" />
+    <Link Source="C:\Path\To\MSVC\include\ctime" Target="C:\Path\To\WindowsSDK\ucrt\time.h" />
+  </Links>
+</DirectedGraph>
