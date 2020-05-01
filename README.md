@@ -4,20 +4,20 @@ Leverage C++ Build Insights SDK to get interesting data from your builds.
 
 ## Features
 
-  * Lists file compilation times (`.csv`).
-  * Lists file inclusion times (`.csv`).
-  * Lists function compilation times (`.csv`).
-  * Generates file inclusion graphs (`.dgml`):
-    ![File inclusion graph, .dgml file](./readme-samples/file-inclusion-graph.png "File inclusion graph, .dgml file")
   * Generates flame graphs out of build execution (`.json`):
     ![Flame graph: CppBuildAnalyzer](./readme-samples/flame-graph.png "Flame graph: CppBuildAnalyzer")
     * Also processes template instantiations, if present:
       ![Flame graph: template instantiation](./readme-samples/flame-graph-template-instantiation.png "Flame graph: template instantiation")
+  * Generates file inclusion graphs (`.dgml`):
+    ![File inclusion graph, .dgml file](./readme-samples/file-inclusion-graph.png "File inclusion graph, .dgml file")
+  * Lists file compilation times (`.csv`).
+  * Lists file inclusion times (`.csv`).
+  * Lists function compilation times (`.csv`).
 
 ### Examples
 
-  * [File inclusion graph for `CppBuildAnalyzer`](./readme-samples/FileInclusionGraph.dgml) (edited to cut paths down).
-  * [Flame graph for `CppBuildAnalyzer`](./readme-samples/BuildTimeline.json) (edited to cut paths down). Open in Google Chrome trace viewer ([chrome://tracing](chrome://tracing)).
+  * [Flame graph for `CppBuildAnalyzer`](./readme-samples/BuildTimeline.json) (open in Google Chrome trace viewer ([chrome://tracing](chrome://tracing), edited to cut paths down).
+  * [File inclusion graph for `CppBuildAnalyzer`](./readme-samples/FileInclusions.dgml) (open in Visual Studio, edited to cut paths down).
 
 ## Getting started
 
