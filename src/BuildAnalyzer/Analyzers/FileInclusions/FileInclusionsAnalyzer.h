@@ -9,18 +9,18 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 class FileInclusionsAnalyzer : public CppBI::IAnalyzer
 {
 public:
-	FileInclusionsAnalyzer();
-	virtual ~FileInclusionsAnalyzer();
+    FileInclusionsAnalyzer();
+    virtual ~FileInclusionsAnalyzer();
 
-	CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
+    CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
 
-	inline const TTimeElapsedPerOccurrencePerConcept& GetTimeData() const { return m_fileInclusionTimes; }
-	inline const TFileInclusionsPerFile& GetFileInclusionsData() const { return m_fileInclusionsPerFile; }
+    inline const TTimeElapsedPerOccurrencePerConcept& GetTimeData() const { return m_fileInclusionTimes; }
+    inline const TFileInclusionsPerFile& GetFileInclusionsData() const { return m_fileInclusionsPerFile; }
 
 private:
-	TTimeElapsedPerOccurrencePerConcept m_fileInclusionTimes;
-	TFileInclusionsPerFile m_fileInclusionsPerFile;
+    TTimeElapsedPerOccurrencePerConcept m_fileInclusionTimes;
+    TFileInclusionsPerFile m_fileInclusionsPerFile;
 
-	void OnFileParsed(const CppBI::Activities::FrontEndFile& fromFile,
-					  const CppBI::Activities::FrontEndFile& includedFile);
+    void OnFileParsed(const CppBI::Activities::FrontEndFile& fromFile,
+                      const CppBI::Activities::FrontEndFile& includedFile);
 };

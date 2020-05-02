@@ -6,7 +6,7 @@
 #include "AnalysisData\Utilities\CppBuildInsightsDataConversion.h"
 
 FunctionCompilationsExporter::FunctionCompilationsExporter(const TTimeElapsedPerOccurrencePerConcept& data)
-	: m_data(data)
+    : m_data(data)
 {
 }
 
@@ -16,53 +16,53 @@ FunctionCompilationsExporter::~FunctionCompilationsExporter()
 
 bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
 {
-	std::ofstream out = std::ofstream(path);
-	if (!out)
-	{
-		return false;
-	}
+    std::ofstream out = std::ofstream(path);
+    if (!out)
+    {
+        return false;
+    }
 
-	// store aggregated data in this vector
-	std::vector<DataPerFunction> dataPerFunction;
+    // store aggregated data in this vector
+    std::vector<DataPerFunction> dataPerFunction;
 
-	// each function will have one entry with aggregated data
-	for (auto&& pair : m_data)
-	{
-		// calculate average time
-		std::chrono::nanoseconds averageTimeElapsed(0);
-		for (auto&& timeElapsed : pair.second)
-		{
-			averageTimeElapsed += timeElapsed;
-		}
-		averageTimeElapsed /= pair.second.size();
+    // each function will have one entry with aggregated data
+    for (auto&& pair : m_data)
+    {
+        // calculate average time
+        std::chrono::nanoseconds averageTimeElapsed(0);
+        for (auto&& timeElapsed : pair.second)
+        {
+            averageTimeElapsed += timeElapsed;
+        }
+        averageTimeElapsed /= pair.second.size();
 
-		// store data
-		dataPerFunction.emplace_back(&pair.first, averageTimeElapsed, static_cast<unsigned int>(pair.second.size()));
-	}
+        // store data
+        dataPerFunction.emplace_back(&pair.first, averageTimeElapsed, static_cast<unsigned int>(pair.second.size()));
+    }
 
-	// sort entries
-	std::sort(dataPerFunction.begin(), dataPerFunction.end(), [](const DataPerFunction& lhs, const DataPerFunction& rhs)
-	{
-		// slowest functions first
-		return lhs.averageCompilationTime > rhs.averageCompilationTime;
-	});
+    // sort entries
+    std::sort(dataPerFunction.begin(), dataPerFunction.end(), [](const DataPerFunction& lhs, const DataPerFunction& rhs)
+    {
+        // slowest functions first
+        return lhs.averageCompilationTime > rhs.averageCompilationTime;
+    });
 
-	// write data header to stream
-	out << "Decorated function name" << ";"
-		<< "Undecorated function name" << ";"
-		<< "Average elapsed time (nanoseconds)" << ";"
-		<< "Occurrences" << std::endl;
+    // write data header to stream
+    out << "Decorated function name" << ";"
+        << "Undecorated function name" << ";"
+        << "Average elapsed time (nanoseconds)" << ";"
+        << "Occurrences" << std::endl;
 
-	// write data to file
-	for (auto&& data : dataPerFunction)
-	{
-		// dump to stream
-		out << (*data.functionName) << ";"
-			<< Utilities::CppBuildInsightsDataConversion::UndecorateFunction(*data.functionName) << ";"
-			<< data.averageCompilationTime.count() << ";"
-			<< data.occurrences << std::endl;
-	}
+    // write data to file
+    for (auto&& data : dataPerFunction)
+    {
+        // dump to stream
+        out << (*data.functionName) << ";"
+            << Utilities::CppBuildInsightsDataConversion::UndecorateFunction(*data.functionName) << ";"
+            << data.averageCompilationTime.count() << ";"
+            << data.occurrences << std::endl;
+    }
 
-	out.close();
-	return true;
+    out.close();
+    return true;
 }

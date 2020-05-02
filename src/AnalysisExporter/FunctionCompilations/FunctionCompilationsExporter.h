@@ -8,29 +8,29 @@
 class FunctionCompilationsExporter
 {
 public:
-	FunctionCompilationsExporter(const TTimeElapsedPerOccurrencePerConcept& data);
-	~FunctionCompilationsExporter();
+    FunctionCompilationsExporter(const TTimeElapsedPerOccurrencePerConcept& data);
+    ~FunctionCompilationsExporter();
 
-	// exports to CSV format
-	bool ExportTo(const std::string& path) const;
+    // exports to CSV format
+    bool ExportTo(const std::string& path) const;
 
 private:
-	// to be exported
-	struct DataPerFunction
-	{
-		const std::string* functionName;
-		std::chrono::nanoseconds averageCompilationTime;
-		unsigned int occurrences;
+    // to be exported
+    struct DataPerFunction
+    {
+        const std::string* functionName;
+        std::chrono::nanoseconds averageCompilationTime;
+        unsigned int occurrences;
 
-		DataPerFunction(const std::string* functionName,
-						const std::chrono::nanoseconds& averageCompilationTime,
-						unsigned int occurrences)
-			: functionName(functionName)
-			, averageCompilationTime(averageCompilationTime)
-			, occurrences(occurrences)
-		{
-		}
-	};
+        DataPerFunction(const std::string* functionName,
+                        const std::chrono::nanoseconds& averageCompilationTime,
+                        unsigned int occurrences)
+            : functionName(functionName)
+            , averageCompilationTime(averageCompilationTime)
+            , occurrences(occurrences)
+        {
+        }
+    };
 
-	const TTimeElapsedPerOccurrencePerConcept& m_data;
+    const TTimeElapsedPerOccurrencePerConcept& m_data;
 };
