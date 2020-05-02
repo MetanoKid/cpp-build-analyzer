@@ -8,17 +8,17 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 class FileCompilationsAnalyzer : public CppBI::IAnalyzer
 {
 public:
-	FileCompilationsAnalyzer();
-	virtual ~FileCompilationsAnalyzer();
+    FileCompilationsAnalyzer();
+    virtual ~FileCompilationsAnalyzer();
 
-	CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
+    CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
 
-	inline const TFileCompilationDataPerFile& GetData() const { return m_fileCompilationsData; }
+    inline const TFileCompilationDataPerFile& GetData() const { return m_fileCompilationsData; }
 
 private:
-	TFileCompilationDataPerFile m_fileCompilationsData;
+    TFileCompilationDataPerFile m_fileCompilationsData;
 
-	void OnFrontEndPassCompleted(const CppBI::Activities::FrontEndPass& frontEndPass);
-	void OnBackEndPassCompleted(const CppBI::Activities::BackEndPass& backEndPass);
-	const wchar_t* GetFilePath(const CppBI::Activities::CompilerPass& compilerPass) const;
+    void OnFrontEndPassCompleted(const CppBI::Activities::FrontEndPass& frontEndPass);
+    void OnBackEndPassCompleted(const CppBI::Activities::BackEndPass& backEndPass);
+    const wchar_t* GetFilePath(const CppBI::Activities::CompilerPass& compilerPass) const;
 };

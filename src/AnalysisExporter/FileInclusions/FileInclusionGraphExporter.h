@@ -7,11 +7,11 @@
 class FileInclusionGraphExporter
 {
 public:
-	FileInclusionGraphExporter(const TFileInclusionsPerFile& data);
-	~FileInclusionGraphExporter();
+    FileInclusionGraphExporter(const TFileInclusionsPerFile& data);
+    ~FileInclusionGraphExporter();
 
-	bool ExportTo(const std::string& path) const;
+    bool ExportTo(const std::string& path) const;
 
 private:
-	const TFileInclusionsPerFile& m_data;
+    const TFileInclusionsPerFile& m_data;
 };

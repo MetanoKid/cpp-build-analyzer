@@ -8,15 +8,15 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 class FunctionCompilationsAnalyzer : public CppBI::IAnalyzer
 {
 public:
-	FunctionCompilationsAnalyzer();
-	virtual ~FunctionCompilationsAnalyzer();
+    FunctionCompilationsAnalyzer();
+    virtual ~FunctionCompilationsAnalyzer();
 
-	CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
+    CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
 
-	inline const TTimeElapsedPerOccurrencePerConcept& GetData() const { return m_functionCompilationsData; }
+    inline const TTimeElapsedPerOccurrencePerConcept& GetData() const { return m_functionCompilationsData; }
 
 private:
-	TTimeElapsedPerOccurrencePerConcept m_functionCompilationsData;
+    TTimeElapsedPerOccurrencePerConcept m_functionCompilationsData;
 
-	void OnFunctionCompiled(const CppBI::Activities::Function& function);
+    void OnFunctionCompiled(const CppBI::Activities::Function& function);
 };

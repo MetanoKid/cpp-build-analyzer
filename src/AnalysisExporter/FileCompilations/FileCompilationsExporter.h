@@ -7,12 +7,12 @@
 class FileCompilationsExporter
 {
 public:
-	FileCompilationsExporter(const TFileCompilationDataPerFile& data);
-	~FileCompilationsExporter();
+    FileCompilationsExporter(const TFileCompilationDataPerFile& data);
+    ~FileCompilationsExporter();
 
-	// exports to CSV
-	bool ExportTo(const std::string& path) const;
+    // exports to CSV
+    bool ExportTo(const std::string& path) const;
 
 private:
-	const TFileCompilationDataPerFile& m_data;
+    const TFileCompilationDataPerFile& m_data;
 };
