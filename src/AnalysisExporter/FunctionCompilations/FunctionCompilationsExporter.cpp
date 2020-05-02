@@ -34,10 +34,14 @@ bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
         {
             averageTimeElapsed += timeElapsed;
         }
+        const std::chrono::nanoseconds totalTimeElapsed = averageTimeElapsed;
         averageTimeElapsed /= pair.second.size();
 
         // store data
-        dataPerFunction.emplace_back(&pair.first, averageTimeElapsed, static_cast<unsigned int>(pair.second.size()));
+        dataPerFunction.emplace_back(&pair.first,
+                                     totalTimeElapsed,
+                                     averageTimeElapsed,
+                                     static_cast<unsigned int>(pair.second.size()));
     }
 
     // sort entries
@@ -50,6 +54,7 @@ bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
     // write data header to stream
     out << "Decorated function name" << ";"
         << "Undecorated function name" << ";"
+        << "Total elapsed time (nanoseconds)" << ";"
         << "Average elapsed time (nanoseconds)" << ";"
         << "Occurrences" << std::endl;
 
@@ -59,6 +64,7 @@ bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
         // dump to stream
         out << (*data.functionName) << ";"
             << Utilities::CppBuildInsightsDataConversion::UndecorateFunction(*data.functionName) << ";"
+            << data.totalCompilationTime.count() << ";"
             << data.averageCompilationTime.count() << ";"
             << data.occurrences << std::endl;
     }
