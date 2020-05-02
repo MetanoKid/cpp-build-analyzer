@@ -31,7 +31,7 @@ Previous screenshots were obtained by analyzing a `Rebuild` on `CppBuildAnalyzer
 
 **Requisites**:
 
-  * Install Visual Studio 2019 Community Edition.
+  * Install Visual Studio 2017 Community Edition.
   * Clone and build [vcperf](https://github.com/microsoft/vcperf).
   * Clone and build this repository.
 
