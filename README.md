@@ -79,4 +79,5 @@ I started this project thanks to the information I gathered from the community, 
 
 ## Acknowledgements
 
-Thanks to Microsoft's C++ Team and [@KevinCadieuxMS](https://twitter.com/KevinCadieuxMS) in particular for the [C++ Build Insights SDK](https://docs.microsoft.com/cpp/build-insights/reference/sdk/overview) and [vcperf](https://github.com/microsoft/vcperf)!
+  * Thanks to Microsoft's C++ Team and [@KevinCadieuxMS](https://twitter.com/KevinCadieuxMS) in particular for the [C++ Build Insights SDK](https://docs.microsoft.com/cpp/build-insights/reference/sdk/overview) and [vcperf](https://github.com/microsoft/vcperf)!
+  * Thanks to [@aras_p](https://twitter.com/aras_p), whose [blog post on flame charts for Clang](https://aras-p.info/blog/2019/01/16/time-trace-timeline-flame-chart-profiler-for-Clang/) served as the main inspiration for this tool!
