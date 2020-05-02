@@ -1,0 +1,19 @@
+File path;Compilation time (nanoseconds);Front-end time (nanoseconds);Back-end time (nanoseconds)
+Z:\cpp-build-analyzer\src\AnalysisData\PCH\PCH.cpp;4035975177;3614262478;417985905
+Z:\cpp-build-analyzer\src\ConsoleMain\Main.cpp;3602724936;2836736219;763003341
+Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.cpp;2166607961;1785316071;377809361
+Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\BuildTimeline.cpp;2145867561;1527007144;609891152
+Z:\cpp-build-analyzer\src\AnalysisExporter\PCH\PCH.cpp;1589331796;1493076818;92919420
+Z:\cpp-build-analyzer\src\AnalysisData\BuildTimeline\TimelineEntry.cpp;1514818500;1219237530;280864691
+Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.cpp;1422191377;982667822;435502411
+Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.cpp;1342796056;947097428;392064614
+Z:\cpp-build-analyzer\src\BuildAnalyzer\PCH\PCH.cpp;1200260358;1136766105;60766690
+Z:\cpp-build-analyzer\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.cpp;1123683327;721943746;397701195
+Z:\cpp-build-analyzer\src\BuildAnalyzer\BuildAnalyzer.cpp;1044346711;534950083;505673118
+Z:\cpp-build-analyzer\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.cpp;1022309036;494566632;524103464
+Z:\cpp-build-analyzer\src\AnalysisExporter\FileCompilations\FileCompilationsExporter.cpp;970399946;409648036;557197950
+Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.cpp;863279053;495344586;364853026
+Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionTimesExporter.cpp;816497487;359366289;453062432
+Z:\cpp-build-analyzer\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.cpp;785025416;488083949;292501582
+Z:\cpp-build-analyzer\src\AnalysisExporter\FileInclusions\FileInclusionGraphExporter.cpp;596325180;409682931;178186967
+Z:\cpp-build-analyzer\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.cpp;494085901;331930962;157201481

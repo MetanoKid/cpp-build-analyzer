@@ -1,23 +1,31 @@
 # C++ Build Analyzer
 
-Leverage [C++ Build Insights SDK](https://docs.microsoft.com/cpp/build-insights/reference/sdk/overview) to get interesting data from your builds.
+Leverage [C++ Build Insights SDK](https://docs.microsoft.com/cpp/build-insights/reference/sdk/overview) to get interesting data from your MSVC builds.
 
 ## Features
 
-  * Generates flame graphs out of build execution (`.json`):
-    ![Flame graph: CppBuildAnalyzer](./readme-samples/flame-graph.png "Flame graph: CppBuildAnalyzer")
+  * Generates flame graphs out of build execution:
+    ![Flame graph](./readme-samples/flame-graph.png "Flame graph")
     * Also shows template instantiations, if present:
       ![Flame graph: template instantiation](./readme-samples/flame-graph-template-instantiation.png "Flame graph: template instantiation")
-  * Generates file inclusion graphs (`.dgml`):
-    ![File inclusion graph, .dgml file](./readme-samples/file-inclusion-graph.png "File inclusion graph, .dgml file")
-  * Lists file compilation times (`.csv`).
-  * Lists file inclusion times (`.csv`).
-  * Lists function compilation times (`.csv`).
+  * Generates file inclusion graphs:
+    ![File inclusion graph](./readme-samples/file-inclusion-graph.png "File inclusion graph")
+  * Lists file compilation times:
+    ![File compilation times](./readme-samples/file-compilation-times.png "File compilation times")
+  * Lists file inclusion times:
+    ![File inclusion times](./readme-samples/file-inclusion-times.png "File inclusion times")
+  * Lists function compilation times:
+    ![Function compilation times](./readme-samples/function-compilation-times.png "Function compilation times")
 
 ### Interactive examples
 
-  * [Flame graph for `CppBuildAnalyzer`](./readme-samples/BuildTimeline.json) (open in Google Chrome trace viewer ([chrome://tracing](chrome://tracing), edited to cut paths down).
-  * [File inclusion graph for `CppBuildAnalyzer`](./readme-samples/FileInclusions.dgml) (open in Visual Studio, edited to cut paths down).
+Previous screenshots were obtained by analyzing a `Rebuild` on `CppBuildAnalyzer` in a `Debug|x64` configuration, within Visual Studio 16.4 (Visual Studio 2019). You can check the files here (they were edited to remove local paths):
+
+  * [Flame graph](./readme-samples/sample-output/BuildTimeline.json): open in Google Chrome trace viewer ([chrome://tracing](chrome://tracing).
+  * [File inclusion graph](./readme-samples/sample-output/FileInclusions.dgml): open in Visual Studio.
+  * [File compilation times](./readme-samples/sample-output/FileCompilations.csv).
+  * [File inclusion times](./readme-samples/sample-output/FileInclusionTimes.csv).
+  * [Function compilations](./readme-samples/sample-output/FunctionCompilations.csv).
 
 ## Getting started
 
