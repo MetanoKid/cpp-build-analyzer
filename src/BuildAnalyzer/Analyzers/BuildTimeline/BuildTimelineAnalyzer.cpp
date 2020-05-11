@@ -23,6 +23,7 @@ CppBI::AnalysisControl BuildTimelineAnalyzer::OnStartActivity(const CppBI::Event
     assert(processedBaseData);
 
     bool processedSpecificData =
+        CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnInvocation) ||
         CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnFrontEndPass) ||
         CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnFrontEndFile) ||
         CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnFunction) ||
@@ -67,6 +68,19 @@ void BuildTimelineAnalyzer::OnActivityFinished(const CppBI::Activities::Activity
 }
 
 // ----------------------------------------------------------------------------
+
+void BuildTimelineAnalyzer::OnInvocation(const CppBI::Activities::Invocation& invocation)
+{
+    if (invocation.ToolPath() != nullptr)
+    {
+        m_buildTimeline.AddEntryProperty(invocation.EventInstanceId(), "Tool Path",
+                                         Utilities::CppBuildInsightsDataConversion::WideStringToString(invocation.ToolPath()));
+    }
+
+    m_buildTimeline.AddEntryProperty(invocation.EventInstanceId(), "Tool Version", invocation.ToolVersionString());
+    m_buildTimeline.AddEntryProperty(invocation.EventInstanceId(), "Working Directory",
+                                     Utilities::CppBuildInsightsDataConversion::WideStringToString(invocation.WorkingDirectory()));
+}
 
 void BuildTimelineAnalyzer::OnFrontEndFile(const CppBI::Activities::FrontEndFile& frontEndFile)
 {

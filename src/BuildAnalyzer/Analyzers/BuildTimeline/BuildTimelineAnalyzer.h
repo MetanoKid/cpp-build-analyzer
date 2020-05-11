@@ -31,11 +31,11 @@ private:
     void OnActivityFinished(const CppBI::Activities::Activity& activity);
 
     // specific activity handling
+    void OnInvocation(const CppBI::Activities::Invocation& invocation);
     void OnFrontEndFile(const CppBI::Activities::FrontEndFile& frontEndFile);
     void OnFunction(const CppBI::Activities::Function& function);
     void OnTemplateInstantiation(const CppBI::Activities::FrontEndPass& frontEndPass,
                                  const CppBI::Activities::TemplateInstantiation& templateInstantiation);
-
     void OnFrontEndPass(const CppBI::Activities::FrontEndPass& frontEndPass);
     void OnFrontEndPassFinished(const CppBI::Activities::FrontEndPass& frontEndPass);
 

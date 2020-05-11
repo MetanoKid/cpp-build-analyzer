@@ -7,7 +7,7 @@ namespace Utilities
 {
     namespace CppBuildInsightsDataConversion
     {
-        std::string FilePath(const wchar_t* filePath);
+        std::string WideStringToString(const wchar_t* wchar);
         std::chrono::nanoseconds Timestamp(long long timestamp, long long fromTickFrequency);
         std::string UndecorateFunction(const std::string& functionName);
     }

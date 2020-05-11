@@ -63,6 +63,14 @@ void BuildTimeline::UpdateEntryName(const TEventInstanceId& id, const std::strin
     entry->SetName(name);
 }
 
+void BuildTimeline::AddEntryProperty(const TEventInstanceId& id, const std::string& key, const std::string& value)
+{
+    TimelineEntry* entry = GetEntry(id);
+    assert(entry != nullptr);
+
+    entry->AddProperty(key, value);
+}
+
 TimelineEntry* BuildTimeline::GetEntry(const TEventInstanceId& id)
 {
     auto itEntry = m_entries.find(id);

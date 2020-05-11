@@ -20,7 +20,7 @@ namespace Utilities
 {
     namespace CppBuildInsightsDataConversion
     {
-        std::string FilePath(const wchar_t* filePath)
+        std::string WideStringToString(const wchar_t* filePath)
         {
             std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
             return converter.to_bytes(filePath);
