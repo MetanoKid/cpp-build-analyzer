@@ -139,9 +139,9 @@ void BuildTimelineAnalyzer::OnSymbolNameEvent(const CppBI::Activities::FrontEndP
     }
 }
 
-void BuildTimelineAnalyzer::OnCommandLineEvent(const CppBI::Activities::Invocation& invocation,
+void BuildTimelineAnalyzer::OnCommandLineEvent(const CppBI::Activities::Activity& parent,
                                                const CppBI::SimpleEvents::CommandLine& commandLine)
 {
-    m_buildTimeline.AddEntryProperty(invocation.EventInstanceId(), "Command Line",
+    m_buildTimeline.AddEntryProperty(parent.EventInstanceId(), "Command Line",
                                      Utilities::CppBuildInsightsDataConversion::WideStringToString(commandLine.Value()));
 }

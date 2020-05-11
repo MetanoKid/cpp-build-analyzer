@@ -42,6 +42,6 @@ private:
     // specific event handling
     void OnSymbolNameEvent(const CppBI::Activities::FrontEndPass& frontEndPass,
                            const CppBI::SimpleEvents::SymbolName& event);
-    void OnCommandLineEvent(const CppBI::Activities::Invocation& invocation,
+    void OnCommandLineEvent(const CppBI::Activities::Activity& parent,
                             const CppBI::SimpleEvents::CommandLine& commandLine);
 };
