@@ -35,6 +35,7 @@ public:
     void FinishEntry(const CppBI::Activities::Activity& activity);
 
     void UpdateEntryName(const TEventInstanceId& id, const std::string& name);
+    void AddEntryProperty(const TEventInstanceId& id, const std::string& key, const std::string& value);
 
     inline const std::vector<TimelineEntry*>& GetRoots() const { return m_roots; }
 

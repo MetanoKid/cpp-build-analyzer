@@ -18,6 +18,7 @@ TimelineEntry::TimelineEntry(const TEventInstanceId& id,
     , m_processorIndex(processorIndex)
     , m_parent(nullptr)
     , m_children()
+    , m_properties()
 {
     assert(startTimestamp <= finishTimestamp);
 }
@@ -57,4 +58,10 @@ bool TimelineEntry::OverlapsWith(const TimelineEntry* entry) const
 {
     return m_startTimestamp < entry->GetFinishTimestamp() &&
            entry->GetStartTimestamp() < m_finishTimestamp;
+}
+
+bool TimelineEntry::AddProperty(const std::string& key, const std::string& value)
+{
+    auto result = m_properties.try_emplace(key, value);
+    return result.second;
 }

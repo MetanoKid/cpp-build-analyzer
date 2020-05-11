@@ -23,6 +23,7 @@ CppBI::AnalysisControl BuildTimelineAnalyzer::OnStartActivity(const CppBI::Event
     assert(processedBaseData);
 
     bool processedSpecificData =
+        CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnInvocation) ||
         CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnFrontEndPass) ||
         CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnFrontEndFile) ||
         CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnFunction) ||
@@ -45,7 +46,9 @@ CppBI::AnalysisControl BuildTimelineAnalyzer::OnStopActivity(const CppBI::EventS
 
 CppBI::AnalysisControl BuildTimelineAnalyzer::OnSimpleEvent(const CppBI::EventStack& eventStack)
 {
-    bool processed = CppBI::MatchEventStackInMemberFunction(eventStack, this, &BuildTimelineAnalyzer::OnSymbolNameEvent);
+    bool processed =
+        CppBI::MatchEventStackInMemberFunction(eventStack, this, &BuildTimelineAnalyzer::OnSymbolNameEvent) ||
+        CppBI::MatchEventStackInMemberFunction(eventStack, this, &BuildTimelineAnalyzer::OnCommandLineEvent);
     
     return CppBI::AnalysisControl::CONTINUE;
 }
@@ -67,6 +70,19 @@ void BuildTimelineAnalyzer::OnActivityFinished(const CppBI::Activities::Activity
 }
 
 // ----------------------------------------------------------------------------
+
+void BuildTimelineAnalyzer::OnInvocation(const CppBI::Activities::Invocation& invocation)
+{
+    if (invocation.ToolPath() != nullptr)
+    {
+        m_buildTimeline.AddEntryProperty(invocation.EventInstanceId(), "Tool Path",
+                                         Utilities::CppBuildInsightsDataConversion::WideStringToString(invocation.ToolPath()));
+    }
+
+    m_buildTimeline.AddEntryProperty(invocation.EventInstanceId(), "Tool Version", invocation.ToolVersionString());
+    m_buildTimeline.AddEntryProperty(invocation.EventInstanceId(), "Working Directory",
+                                     Utilities::CppBuildInsightsDataConversion::WideStringToString(invocation.WorkingDirectory()));
+}
 
 void BuildTimelineAnalyzer::OnFrontEndFile(const CppBI::Activities::FrontEndFile& frontEndFile)
 {
@@ -121,4 +137,11 @@ void BuildTimelineAnalyzer::OnSymbolNameEvent(const CppBI::Activities::FrontEndP
 
         itFrontEndPass->second.erase(itUnresolvedTemplateInstantiation);
     }
+}
+
+void BuildTimelineAnalyzer::OnCommandLineEvent(const CppBI::Activities::Activity& parent,
+                                               const CppBI::SimpleEvents::CommandLine& commandLine)
+{
+    m_buildTimeline.AddEntryProperty(parent.EventInstanceId(), "Command Line",
+                                     Utilities::CppBuildInsightsDataConversion::WideStringToString(commandLine.Value()));
 }

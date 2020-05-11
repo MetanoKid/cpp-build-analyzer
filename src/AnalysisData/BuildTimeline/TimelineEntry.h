@@ -3,6 +3,7 @@
 #include <chrono>
 #include <string>
 #include <vector>
+#include <unordered_map>
 
 #include "AnalysisData\BuildTimeline\TimelineTypes.h"
 
@@ -20,6 +21,7 @@ public:
 
     void AddChild(TimelineEntry* entry);
     void SetParent(TimelineEntry* entry);
+    bool AddProperty(const std::string& key, const std::string& value);
 
     void SetName(const std::string& name);
     void SetFinishTimestamp(const std::chrono::nanoseconds& timestamp);
@@ -33,6 +35,7 @@ public:
     inline const TProcessId& GetProcessId() const { return m_processId; }
     inline const TThreadId& GetThreadId() const { return m_threadId; }
     inline const std::vector<TimelineEntry*>& GetChildren() const { return m_children; }
+    inline const std::unordered_map<std::string, std::string>& GetProperties() const { return m_properties; }
 
 private:
     TEventInstanceId m_id;
@@ -45,4 +48,5 @@ private:
 
     TimelineEntry* m_parent;
     std::vector<TimelineEntry*> m_children;
+    std::unordered_map<std::string, std::string> m_properties;
 };

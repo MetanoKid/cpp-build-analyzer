@@ -78,6 +78,19 @@ void BuildTimelineExporter::AddEntry(const TimelineEntry* entry, rapidjson::Valu
         event.AddMember("ts", std::chrono::duration_cast<std::chrono::microseconds>(entry->GetStartTimestamp()).count(), document.GetAllocator());
         event.AddMember("dur", std::chrono::duration_cast<std::chrono::microseconds>(entry->GetFinishTimestamp() - entry->GetStartTimestamp()).count(), document.GetAllocator());
 
+        // adds properties as "args"
+        if (!entry->GetProperties().empty())
+        {
+            rapidjson::Value args(rapidjson::kObjectType);
+
+            for (auto&& pair : entry->GetProperties())
+            {
+                args.AddMember(rapidjson::StringRef(pair.first), pair.second, document.GetAllocator());
+            }
+
+            event.AddMember("args", args, document.GetAllocator());
+        }
+
         traceEvents.PushBack(event, document.GetAllocator());
     }
     else
@@ -93,6 +106,18 @@ void BuildTimelineExporter::AddEntry(const TimelineEntry* entry, rapidjson::Valu
             // time in microseconds
             event.AddMember("ts", std::chrono::duration_cast<std::chrono::microseconds>(entry->GetStartTimestamp()).count(), document.GetAllocator());
 
+            // adds properties as "args"
+        if (!entry->GetProperties().empty())
+        {
+            rapidjson::Value args(rapidjson::kObjectType);
+
+            for (auto&& pair : entry->GetProperties())
+            {
+                args.AddMember(rapidjson::StringRef(pair.first), pair.second, document.GetAllocator());
+            }
+
+            event.AddMember("args", args, document.GetAllocator());
+        }
             traceEvents.PushBack(event, document.GetAllocator());
         }
         
