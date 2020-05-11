@@ -109,7 +109,6 @@ void BuildTimelineExporter::AddEntry(const TimelineEntry* entry, rapidjson::Valu
             event.AddMember("ph", "E", document.GetAllocator());
             event.AddMember("pid", static_cast<uint64_t>(processId), document.GetAllocator());
             event.AddMember("tid", static_cast<uint64_t>(threadId), document.GetAllocator());
-            event.AddMember("name", entry->GetName(), document.GetAllocator());
             // time in microseconds
             event.AddMember("ts", std::chrono::duration_cast<std::chrono::microseconds>(entry->GetFinishTimestamp()).count(), document.GetAllocator());
 
