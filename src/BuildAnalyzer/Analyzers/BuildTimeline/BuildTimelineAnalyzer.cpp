@@ -46,7 +46,9 @@ CppBI::AnalysisControl BuildTimelineAnalyzer::OnStopActivity(const CppBI::EventS
 
 CppBI::AnalysisControl BuildTimelineAnalyzer::OnSimpleEvent(const CppBI::EventStack& eventStack)
 {
-    bool processed = CppBI::MatchEventStackInMemberFunction(eventStack, this, &BuildTimelineAnalyzer::OnSymbolNameEvent);
+    bool processed =
+        CppBI::MatchEventStackInMemberFunction(eventStack, this, &BuildTimelineAnalyzer::OnSymbolNameEvent) ||
+        CppBI::MatchEventStackInMemberFunction(eventStack, this, &BuildTimelineAnalyzer::OnCommandLineEvent);
     
     return CppBI::AnalysisControl::CONTINUE;
 }
@@ -135,4 +137,11 @@ void BuildTimelineAnalyzer::OnSymbolNameEvent(const CppBI::Activities::FrontEndP
 
         itFrontEndPass->second.erase(itUnresolvedTemplateInstantiation);
     }
+}
+
+void BuildTimelineAnalyzer::OnCommandLineEvent(const CppBI::Activities::Invocation& invocation,
+                                               const CppBI::SimpleEvents::CommandLine& commandLine)
+{
+    m_buildTimeline.AddEntryProperty(invocation.EventInstanceId(), "Command Line",
+                                     Utilities::CppBuildInsightsDataConversion::WideStringToString(commandLine.Value()));
 }
