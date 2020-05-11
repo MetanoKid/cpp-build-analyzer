@@ -5,27 +5,27 @@ Leverage [C++ Build Insights SDK](https://docs.microsoft.com/cpp/build-insights/
 ## Features
 
   * Generates flame graphs out of build execution:
-    ![Flame graph](./readme-samples/flame-graph.png "Flame graph")
+    ![Flame graph](./readme_samples/flame-graph.png "Flame graph")
     * Also shows template instantiations, if present:
-      ![Flame graph: template instantiation](./readme-samples/flame-graph-template-instantiation.png "Flame graph: template instantiation")
+      ![Flame graph: template instantiation](./readme_samples/flame-graph-template-instantiation.png "Flame graph: template instantiation")
   * Generates file inclusion graphs:
-    ![File inclusion graph](./readme-samples/file-inclusion-graph.png "File inclusion graph")
+    ![File inclusion graph](./readme_samples/file-inclusion-graph.png "File inclusion graph")
   * Lists file compilation times:
-    ![File compilation times](./readme-samples/file-compilation-times.png "File compilation times")
+    ![File compilation times](./readme_samples/file-compilation-times.png "File compilation times")
   * Lists file inclusion times:
-    ![File inclusion times](./readme-samples/file-inclusion-times.png "File inclusion times")
+    ![File inclusion times](./readme_samples/file-inclusion-times.png "File inclusion times")
   * Lists function compilation times:
-    ![Function compilation times](./readme-samples/function-compilation-times.png "Function compilation times")
+    ![Function compilation times](./readme_samples/function-compilation-times.png "Function compilation times")
 
 ### Interactive examples
 
 Previous screenshots were obtained by analyzing a `Rebuild` on `CppBuildAnalyzer` in a `Debug|x64` configuration, within Visual Studio 16.4 (Visual Studio 2019). You can check the files here (they were edited to remove local paths):
 
-  * [Flame graph](./readme-samples/sample-output/BuildTimeline.json): open in Google Chrome trace viewer ([chrome://tracing](chrome://tracing).
-  * [File inclusion graph](./readme-samples/sample-output/FileInclusions.dgml): open in Visual Studio.
-  * [File compilation times](./readme-samples/sample-output/FileCompilations.csv).
-  * [File inclusion times](./readme-samples/sample-output/FileInclusionTimes.csv).
-  * [Function compilations](./readme-samples/sample-output/FunctionCompilations.csv).
+  * [Flame graph](./readme_samples/sample_output/BuildTimeline.json): open in Google Chrome trace viewer ([chrome://tracing](chrome://tracing).
+  * [File inclusion graph](./readme_samples/sample_output/FileInclusions.dgml): open in Visual Studio.
+  * [File compilation times](./readme_samples/sample_output/FileCompilations.csv).
+  * [File inclusion times](./readme_samples/sample_output/FileInclusionTimes.csv).
+  * [Function compilations](./readme_samples/sample_output/FunctionCompilations.csv).
 
 ## Getting started
 
