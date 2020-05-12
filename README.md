@@ -66,6 +66,7 @@ Previous screenshots were obtained by analyzing a `Rebuild` on `CppBuildAnalyzer
         --analyze_build_timeline               Analyzes trace and creates a timeline from it
 
         --timeline_ignore_functions_under arg  Ignores all functions under the given milliseconds
+        --timeline_ignore_templates_under arg  Ignores all templates under the given milliseconds
 
         --out_function_compilations arg        Path to output function compilations data
         --out_file_inclusion_times arg         Path to output file inclusion times
