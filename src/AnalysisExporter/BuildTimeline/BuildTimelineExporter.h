@@ -4,28 +4,6 @@
 
 #include "AnalysisData\BuildTimeline\IgnoredEntries.h"
 
-// forward declare rapidjson::Value and rapidjson::Document
-namespace rapidjson
-{
-    class CrtAllocator;
-
-    template <typename BaseAllocator>
-    class MemoryPoolAllocator;
-
-    template <typename Encoding, typename Allocator, typename StackAllocator>
-    class GenericDocument;
-
-    template<typename CharType>
-    struct UTF8;
-
-    typedef GenericDocument<UTF8<char>, MemoryPoolAllocator<CrtAllocator>, CrtAllocator> Document;
-
-    template <typename Encoding, typename Allocator>
-    class GenericValue;
-
-    typedef GenericValue<UTF8<char>, MemoryPoolAllocator<CrtAllocator>> Value;
-}
-
 class BuildTimeline;
 class TimelineEntry;
 class ProcessIdThreadIdRecalculation;
@@ -42,7 +20,4 @@ public:
 private:
     const BuildTimeline& m_timeline;
     const TIgnoredEntries& m_ignoredEntries;
-
-    void AddEntry(const TimelineEntry* entry, rapidjson::Value& traceEvents,
-                  rapidjson::Document& document, const ProcessIdThreadIdRecalculation& processThreadRemappings) const;
 };
