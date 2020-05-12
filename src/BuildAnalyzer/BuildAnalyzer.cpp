@@ -23,6 +23,7 @@ BuildAnalyzer::BuildAnalyzer(const std::string& traceFilePath, const AnalysisOpt
     , m_fileInclusions()
     , m_fileCompilations()
     , m_buildTimeline()
+    , m_filterTimeline(analysisOptions.timelineIgnoreFunctionsUnder)
     , m_analysisPerformed(false)
 {
 }
@@ -71,6 +72,7 @@ std::vector<CppBI::IAnalyzer*> BuildAnalyzer::BuildAnalyzerList(const AnalysisOp
     if (options.buildTimeline)
     {
         analyzers.push_back(&m_buildTimeline);
+        analyzers.push_back(&m_filterTimeline);
     }
 
     return analyzers;
@@ -112,6 +114,6 @@ bool BuildAnalyzer::ExportBuildTimeline(const std::string& path) const
 {
     assert(m_analysisPerformed);
 
-    BuildTimelineExporter exporter(m_buildTimeline.GetTimeline());
+    BuildTimelineExporter exporter(m_buildTimeline.GetTimeline(), m_filterTimeline.GetIgnoredEntries());
     return exporter.ExportTo(path);
 }

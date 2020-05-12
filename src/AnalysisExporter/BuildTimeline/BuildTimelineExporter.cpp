@@ -10,8 +10,9 @@
 #include "AnalysisData\BuildTimeline\BuildTimeline.h"
 #include "AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.h"
 
-BuildTimelineExporter::BuildTimelineExporter(const BuildTimeline& timeline)
+BuildTimelineExporter::BuildTimelineExporter(const BuildTimeline& timeline, const TIgnoredEntries& ignoredEntries)
     : m_timeline(timeline)
+    , m_ignoredEntries(ignoredEntries)
 {
 }
 
@@ -61,6 +62,12 @@ bool BuildTimelineExporter::ExportTo(const std::string& path) const
 void BuildTimelineExporter::AddEntry(const TimelineEntry* entry, rapidjson::Value& traceEvents,
                                      rapidjson::Document& document, const ProcessIdThreadIdRecalculation& processThreadRemappings) const
 {
+    // apply filtering
+    if (m_ignoredEntries.find(entry->GetId()) != m_ignoredEntries.end())
+    {
+        return;
+    }
+
     const ProcessIdThreadIdRecalculation::TProcessThreadPair* remap = processThreadRemappings.GetRemapFor(entry->GetId());
     const TProcessId& processId = remap != nullptr ? remap->first : entry->GetProcessId();
     const TThreadId& threadId = remap != nullptr ? remap->second : entry->GetThreadId();

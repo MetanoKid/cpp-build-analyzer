@@ -35,6 +35,9 @@
     <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.h">
       <Filter>BuildTimeline</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\IgnoredEntries.h">
+      <Filter>BuildTimeline</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisData\PCH\PCH.cpp">
