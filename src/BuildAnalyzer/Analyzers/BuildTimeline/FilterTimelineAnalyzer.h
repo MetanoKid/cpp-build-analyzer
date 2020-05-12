@@ -11,7 +11,8 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 class FilterTimelineAnalyzer : public CppBI::IAnalyzer
 {
 public:
-    FilterTimelineAnalyzer(const std::chrono::milliseconds& ignoreFunctionsUnder);
+    FilterTimelineAnalyzer(const std::chrono::milliseconds& ignoreFunctionsUnder,
+                           const std::chrono::milliseconds& ignoreTemplatesUnder);
     virtual ~FilterTimelineAnalyzer();
 
     CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
@@ -21,6 +22,8 @@ public:
 private:
     TIgnoredEntries m_ignoredActivities;
     std::chrono::nanoseconds m_ignoreFunctionsUnder;
+    std::chrono::nanoseconds m_ignoreTemplatesUnder;
 
     void FilterFunction(const CppBI::Activities::Function& function);
+    void FilterTemplateInstantiation(const CppBI::Activities::TemplateInstantiation& templateInstantiation);
 };

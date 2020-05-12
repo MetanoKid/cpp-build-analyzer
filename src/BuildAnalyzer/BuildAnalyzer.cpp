@@ -23,7 +23,7 @@ BuildAnalyzer::BuildAnalyzer(const std::string& traceFilePath, const AnalysisOpt
     , m_fileInclusions()
     , m_fileCompilations()
     , m_buildTimeline()
-    , m_filterTimeline(analysisOptions.timelineIgnoreFunctionsUnder)
+    , m_filterTimeline(analysisOptions.timelineIgnoreFunctionsUnder, analysisOptions.timelineIgnoreTemplatesUnder)
     , m_analysisPerformed(false)
 {
 }

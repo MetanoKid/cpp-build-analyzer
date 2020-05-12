@@ -20,6 +20,7 @@ public:
     struct AnalysisOptions
     {
         std::chrono::milliseconds timelineIgnoreFunctionsUnder = std::chrono::milliseconds(0);
+        std::chrono::milliseconds timelineIgnoreTemplatesUnder = std::chrono::milliseconds(0);
         bool functionCompilations = true;
         bool fileInclusionTimes = true;
         bool fileInclusionGraph = true;
