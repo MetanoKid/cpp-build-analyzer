@@ -48,7 +48,7 @@ int main(int argc, char** argv)
         ("analyze_file_compilations", "Analyzes file compilations (i.e. how long did front-end and back-end take)", cxxopts::value(analyzeFileCompilations))
         ("analyze_build_timeline", "Analyzes trace and creates a timeline from it", cxxopts::value(createBuildTimeline))
         // option tuning
-        ("timeline_ignore_functions_under", "Ignores all Function under the given milliseconds", cxxopts::value(timelineIgnoreFunctionsUnderMs))
+        ("timeline_ignore_functions_under", "Ignores all functions under the given milliseconds", cxxopts::value(timelineIgnoreFunctionsUnderMs))
         // outputs
         ("out_function_compilations", "Path to output function compilations data", cxxopts::value(outputPathFunctionCompilations))
         ("out_file_inclusion_times", "Path to output file inclusion times", cxxopts::value(outputPathFileInclusionTimes))
