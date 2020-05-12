@@ -16,16 +16,19 @@ Leverage [C++ Build Insights SDK](https://docs.microsoft.com/cpp/build-insights/
     ![File inclusion times](./readme_samples/file-inclusion-times.png "File inclusion times")
   * Lists function compilation times:
     ![Function compilation times](./readme_samples/function-compilation-times.png "Function compilation times")
+  * Lists template instantiation times:
+    ![Template instantiation times](./readme_samples/template-instantiation-times.png)
 
 ### Interactive examples
 
 Previous screenshots were obtained by analyzing a `Rebuild` on `CppBuildAnalyzer` in a `Debug|x64` configuration, within Visual Studio 16.4 (Visual Studio 2019). You can check the files here (they were edited to remove local paths):
 
-  * [Flame graph](./readme_samples/sample_output/BuildTimeline.json): open in Google Chrome trace viewer ([chrome://tracing](chrome://tracing).
+  * [Flame graph](./readme_samples/sample_output/BuildTimeline.json): open in Google Chrome trace viewer ([chrome://tracing](chrome://tracing)).
   * [File inclusion graph](./readme_samples/sample_output/FileInclusions.dgml): open in Visual Studio.
   * [File compilation times](./readme_samples/sample_output/FileCompilations.csv).
   * [File inclusion times](./readme_samples/sample_output/FileInclusionTimes.csv).
   * [Function compilations](./readme_samples/sample_output/FunctionCompilations.csv).
+  * [Template instantiations](./readme_samples/sample_output/TemplateInstantiations.csv).
 
 ## Getting started
 
