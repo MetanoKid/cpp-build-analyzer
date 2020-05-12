@@ -16,6 +16,9 @@
     <Filter Include="BuildTimeline">
       <UniqueIdentifier>{7c5a8211-50bf-434c-9479-69c3407e8356}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TemplateInstantiations">
+      <UniqueIdentifier>{c4dbc116-fa0a-4abe-aa27-e1a1c87c6941}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\AnalysisExporter\PCH\PCH.h">
@@ -36,6 +39,9 @@
     <ClInclude Include="..\..\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.h">
       <Filter>BuildTimeline</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\AnalysisExporter\TemplateInstantiations\TemplateInstantiationsExporter.h">
+      <Filter>TemplateInstantiations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisExporter\PCH\PCH.cpp">
@@ -55,6 +61,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.cpp">
       <Filter>BuildTimeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\AnalysisExporter\TemplateInstantiations\TemplateInstantiationsExporter.cpp">
+      <Filter>TemplateInstantiations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

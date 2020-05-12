@@ -31,6 +31,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNoPCH|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNoPCH|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="..\..\src\AnalysisData\SymbolKey.h" />
+    <ClInclude Include="..\..\src\AnalysisData\SymbolNames.h" />
+    <ClInclude Include="..\..\src\AnalysisData\TemplateInstantiationData.h" />
     <ClInclude Include="..\..\src\AnalysisData\TimeElapsedPerOccurrencePerConcept.h" />
     <ClInclude Include="..\..\src\AnalysisData\TimeElapsedPerOcurrence.h" />
     <ClInclude Include="..\..\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.h" />

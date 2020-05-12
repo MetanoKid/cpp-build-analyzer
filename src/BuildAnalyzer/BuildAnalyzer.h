@@ -9,6 +9,7 @@
 #include "BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.h"
 #include "BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.h"
 #include "BuildAnalyzer\Analyzers\BuildTimeline\FilterTimelineAnalyzer.h"
+#include "BuildAnalyzer\Analyzers\TemplateInstantiations\TemplateInstantiationsAnalyzer.h"
 
 namespace Microsoft { namespace Cpp { namespace BuildInsights {
     class IAnalyzer;
@@ -26,6 +27,7 @@ public:
         bool fileInclusionGraph = true;
         bool fileCompilations = true;
         bool buildTimeline = true;
+        bool templateInstantiations = true;
     };
 
 public:
@@ -40,6 +42,7 @@ public:
     bool ExportFileInclusionGraph(const std::string& path) const;
     bool ExportFileCompilationsData(const std::string& path) const;
     bool ExportBuildTimeline(const std::string& path) const;
+    bool ExportTemplateInstantiationsData(const std::string& path) const;
 
 private:
     std::string m_traceFilePath;
@@ -50,6 +53,7 @@ private:
     FileCompilationsAnalyzer m_fileCompilations;
     BuildTimelineAnalyzer m_buildTimeline;
     FilterTimelineAnalyzer m_filterTimeline;
+    TemplateInstantiationsAnalyzer m_templateInstantiations;
 
     bool m_analysisPerformed;
 

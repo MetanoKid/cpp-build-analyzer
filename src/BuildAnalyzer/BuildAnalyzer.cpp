@@ -10,6 +10,7 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 #include "AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h"
 #include "AnalysisExporter\FileCompilations\FileCompilationsExporter.h"
 #include "AnalysisExporter\BuildTimeline\BuildTimelineExporter.h"
+#include "AnalysisExporter\TemplateInstantiations\TemplateInstantiationsExporter.h"
 
 namespace
 {
@@ -25,6 +26,7 @@ BuildAnalyzer::BuildAnalyzer(const std::string& traceFilePath, const AnalysisOpt
     , m_buildTimeline()
     , m_filterTimeline(analysisOptions.timelineIgnoreFunctionsUnder, analysisOptions.timelineIgnoreTemplatesUnder)
     , m_analysisPerformed(false)
+    , m_templateInstantiations()
 {
 }
 
@@ -75,6 +77,11 @@ std::vector<CppBI::IAnalyzer*> BuildAnalyzer::BuildAnalyzerList(const AnalysisOp
         analyzers.push_back(&m_filterTimeline);
     }
 
+    if (options.templateInstantiations)
+    {
+        analyzers.push_back(&m_templateInstantiations);
+    }
+
     return analyzers;
 }
 
@@ -115,5 +122,14 @@ bool BuildAnalyzer::ExportBuildTimeline(const std::string& path) const
     assert(m_analysisPerformed);
 
     BuildTimelineExporter exporter(m_buildTimeline.GetTimeline(), m_filterTimeline.GetIgnoredEntries());
+    return exporter.ExportTo(path);
+}
+
+bool BuildAnalyzer::ExportTemplateInstantiationsData(const std::string& path) const
+{
+    assert(m_analysisPerformed);
+
+    TemplateInstantiationsExporter exporter(m_templateInstantiations.GetSymbolNames(),
+                                            m_templateInstantiations.GetTemplateInstantiations());
     return exporter.ExportTo(path);
 }
