@@ -28,6 +28,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNoPCH|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h" />
+    <ClInclude Include="..\..\src\AnalysisExporter\TemplateInstantiations\TemplateInstantiationsExporter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.cpp" />
@@ -47,6 +48,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNoPCH|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.cpp" />
+    <ClCompile Include="..\..\src\AnalysisExporter\TemplateInstantiations\TemplateInstantiationsExporter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AnalysisData\AnalysisData.vcxproj">

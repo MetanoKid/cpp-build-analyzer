@@ -39,6 +39,8 @@
       <Filter>BuildTimeline</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\AnalysisData\TemplateInstantiationData.h" />
+    <ClInclude Include="..\..\src\AnalysisData\SymbolKey.h" />
+    <ClInclude Include="..\..\src\AnalysisData\SymbolNames.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisData\PCH\PCH.cpp">

@@ -8,6 +8,7 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 
 #include "AnalysisData\BuildTimeline\TimelineTypes.h"
 #include "AnalysisData\TemplateInstantiationData.h"
+#include "AnalysisData\SymbolNames.h"
 
 class TemplateInstantiationsAnalyzer : public CppBI::IAnalyzer
 {
@@ -15,14 +16,15 @@ public:
     TemplateInstantiationsAnalyzer();
     virtual ~TemplateInstantiationsAnalyzer();
 
-    CppBI::AnalysisControl OnStartActivity(const CppBI::EventStack& eventStack) override;
+    CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
     CppBI::AnalysisControl OnSimpleEvent(const CppBI::EventStack& eventStack) override;
 
-private:
-    typedef unsigned long long TSymbolKey;
-    std::unordered_map<TSymbolKey, std::string> m_symbolNames;
+    inline const TSymbolNames& GetSymbolNames() const { return m_symbolNames; }
+    inline const TTemplateInstantiationDataPerOccurrence& GetTemplateInstantiations() const { return m_templateInstantiationData; }
 
-    std::unordered_map<TEventInstanceId, TemplateInstantiationData> m_templateInstantiationData;
+private:
+    TSymbolNames m_symbolNames;
+    TTemplateInstantiationDataPerOccurrence m_templateInstantiationData;
 
     void OnTemplateInstantiation(const CppBI::Activities::TemplateInstantiation& templateInstantiation);
     void OnSymbolName(const CppBI::SimpleEvents::SymbolName& symbolName);

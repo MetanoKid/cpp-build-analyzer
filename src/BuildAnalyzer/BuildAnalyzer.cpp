@@ -10,6 +10,7 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 #include "AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h"
 #include "AnalysisExporter\FileCompilations\FileCompilationsExporter.h"
 #include "AnalysisExporter\BuildTimeline\BuildTimelineExporter.h"
+#include "AnalysisExporter\TemplateInstantiations\TemplateInstantiationsExporter.h"
 
 namespace
 {
@@ -128,5 +129,7 @@ bool BuildAnalyzer::ExportTemplateInstantiationsData(const std::string& path) co
 {
     assert(m_analysisPerformed);
 
-    return false;
+    TemplateInstantiationsExporter exporter(m_templateInstantiations.GetSymbolNames(),
+                                            m_templateInstantiations.GetTemplateInstantiations());
+    return exporter.ExportTo(path);
 }

@@ -11,7 +11,7 @@ TemplateInstantiationsAnalyzer::~TemplateInstantiationsAnalyzer()
 {
 }
 
-CppBI::AnalysisControl TemplateInstantiationsAnalyzer::OnStartActivity(const CppBI::EventStack& eventStack)
+CppBI::AnalysisControl TemplateInstantiationsAnalyzer::OnStopActivity(const CppBI::EventStack& eventStack)
 {
     CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &TemplateInstantiationsAnalyzer::OnTemplateInstantiation);
 
@@ -32,6 +32,7 @@ void TemplateInstantiationsAnalyzer::OnTemplateInstantiation(const CppBI::Activi
     TemplateInstantiationData data;
     data.Primary = templateInstantiation.PrimaryTemplateSymbolKey();
     data.Specialization = templateInstantiation.SpecializationSymbolKey();
+    data.Duration = std::chrono::nanoseconds(templateInstantiation.Duration());
 
     auto result = m_templateInstantiationData.try_emplace(templateInstantiation.EventInstanceId(), data);
     assert(result.second);
