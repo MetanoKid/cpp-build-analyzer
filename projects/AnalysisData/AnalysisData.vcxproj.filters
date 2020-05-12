@@ -38,6 +38,7 @@
     <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\IgnoredEntries.h">
       <Filter>BuildTimeline</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\AnalysisData\TemplateInstantiationData.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisData\PCH\PCH.cpp">

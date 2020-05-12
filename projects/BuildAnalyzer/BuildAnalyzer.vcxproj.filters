@@ -19,6 +19,9 @@
     <Filter Include="Analyzers\BuildTimeline">
       <UniqueIdentifier>{422afbb5-bb78-41c5-8f9d-010a548cc801}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Analyzers\TemplateInstantiations">
+      <UniqueIdentifier>{24413659-86e8-42d1-b6a4-df3cf244d543}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h" />
@@ -40,6 +43,9 @@
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\FilterTimelineAnalyzer.h">
       <Filter>Analyzers\BuildTimeline</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\TemplateInstantiations\TemplateInstantiationsAnalyzer.h">
+      <Filter>Analyzers\TemplateInstantiations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp" />
@@ -60,6 +66,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\FilterTimelineAnalyzer.cpp">
       <Filter>Analyzers\BuildTimeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\TemplateInstantiations\TemplateInstantiationsAnalyzer.cpp">
+      <Filter>Analyzers\TemplateInstantiations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
