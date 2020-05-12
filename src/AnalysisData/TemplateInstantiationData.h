@@ -2,6 +2,6 @@
 
 struct TemplateInstantiationData
 {
-    std::string Primary;
-    std::string Specialization;
+    unsigned long long Primary;
+    unsigned long long Specialization;
 };
