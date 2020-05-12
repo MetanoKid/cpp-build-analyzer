@@ -37,6 +37,9 @@
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.h">
       <Filter>Analyzers\BuildTimeline</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\FilterTimelineAnalyzer.h">
+      <Filter>Analyzers\BuildTimeline</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp" />
@@ -53,6 +56,9 @@
       <Filter>Analyzers\FunctionCompilations</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.cpp">
+      <Filter>Analyzers\BuildTimeline</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\FilterTimelineAnalyzer.cpp">
       <Filter>Analyzers\BuildTimeline</Filter>
     </ClCompile>
   </ItemGroup>

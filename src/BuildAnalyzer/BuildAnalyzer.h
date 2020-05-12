@@ -2,11 +2,13 @@
 
 #include <string>
 #include <vector>
+#include <chrono>
 
 #include "BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h"
 #include "BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.h"
 #include "BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.h"
 #include "BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.h"
+#include "BuildAnalyzer\Analyzers\BuildTimeline\FilterTimelineAnalyzer.h"
 
 namespace Microsoft { namespace Cpp { namespace BuildInsights {
     class IAnalyzer;
@@ -17,6 +19,8 @@ class BuildAnalyzer
 public:
     struct AnalysisOptions
     {
+        std::chrono::milliseconds timelineIgnoreFunctionsUnder = std::chrono::milliseconds(0);
+        std::chrono::milliseconds timelineIgnoreTemplatesUnder = std::chrono::milliseconds(0);
         bool functionCompilations = true;
         bool fileInclusionTimes = true;
         bool fileInclusionGraph = true;
@@ -45,6 +49,7 @@ private:
     FileInclusionsAnalyzer m_fileInclusions;
     FileCompilationsAnalyzer m_fileCompilations;
     BuildTimelineAnalyzer m_buildTimeline;
+    FilterTimelineAnalyzer m_filterTimeline;
 
     bool m_analysisPerformed;
 

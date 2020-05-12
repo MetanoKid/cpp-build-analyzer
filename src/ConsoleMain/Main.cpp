@@ -11,6 +11,9 @@ namespace
     const std::string s_defaultOutputPathFileInclusionGraph = "FileInclusions.dgml";
     const std::string s_defaultOutputPathFileCompilations = "FileCompilations.csv";
     const std::string s_defaultOutputPathBuildTimeline = "BuildTimeline.json";
+
+    const unsigned int s_defaultTimelineIgnoreFunctionsUnderMs = 10;
+    const unsigned int s_defaultTimelineIgnoreTemplatesUnderMs = 10;
 }
 
 int main(int argc, char** argv)
@@ -30,6 +33,8 @@ int main(int argc, char** argv)
     std::string outputPathFileInclusionGraph = s_defaultOutputPathFileInclusionGraph;
     std::string outputPathFileCompilations = s_defaultOutputPathFileCompilations;
     std::string outputPathBuildTimeline = s_defaultOutputPathBuildTimeline;
+    unsigned int timelineIgnoreFunctionsUnderMs = s_defaultTimelineIgnoreFunctionsUnderMs;
+    unsigned int timelineIgnoreTemplatesUnderMs = s_defaultTimelineIgnoreTemplatesUnderMs;
 
     // configure options
     commandLineOptions.add_options()
@@ -44,6 +49,9 @@ int main(int argc, char** argv)
         ("analyze_file_inclusion_graph", "Creates a file inclusion graph (i.e. directed graph from include clauses)", cxxopts::value(createFileInclusionGraph))
         ("analyze_file_compilations", "Analyzes file compilations (i.e. how long did front-end and back-end take)", cxxopts::value(analyzeFileCompilations))
         ("analyze_build_timeline", "Analyzes trace and creates a timeline from it", cxxopts::value(createBuildTimeline))
+        // option tuning
+        ("timeline_ignore_functions_under", "Ignores all functions under the given milliseconds", cxxopts::value(timelineIgnoreFunctionsUnderMs))
+        ("timeline_ignore_templates_under", "Ignores all templates under the given milliseconds", cxxopts::value(timelineIgnoreTemplatesUnderMs))
         // outputs
         ("out_function_compilations", "Path to output function compilations data", cxxopts::value(outputPathFunctionCompilations))
         ("out_file_inclusion_times", "Path to output file inclusion times", cxxopts::value(outputPathFileInclusionTimes))
@@ -87,6 +95,8 @@ int main(int argc, char** argv)
     analysisOptions.fileInclusionGraph = analyzeAll || createFileInclusionGraph;
     analysisOptions.fileCompilations = analyzeAll || analyzeFileCompilations;
     analysisOptions.buildTimeline = analyzeAll || createBuildTimeline;
+    analysisOptions.timelineIgnoreFunctionsUnder = std::chrono::milliseconds(timelineIgnoreFunctionsUnderMs);
+    analysisOptions.timelineIgnoreTemplatesUnder = std::chrono::milliseconds(timelineIgnoreTemplatesUnderMs);
 
     // analyze trace
     std::cout << "Analyzing..." << std::endl;

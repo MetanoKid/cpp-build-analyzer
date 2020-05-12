@@ -57,19 +57,22 @@ Previous screenshots were obtained by analyzing a `Rebuild` on `CppBuildAnalyzer
 
 **Optional**:
     
-    -h, --help                             Show help
+    -h, --help                                 Show help
     
-        --analyze_function_compilations    Analyzes function compilations (i.e. how long did each one take)
-        --analyze_file_inclusion_times     Analyzes file inclusion times (i.e. how long did each one take)
-        --analyze_file_inclusion_graph     Creates a file inclusion graph (i.e. directed graph from include clauses)
-        --analyze_file_compilations        Analyzes file compilations (i.e. how long did front-end and back-end take)
-        --analyze_build_timeline           Analyzes trace and creates a timeline from it
+        --analyze_function_compilations        Analyzes function compilations (i.e. how long did each one take)
+        --analyze_file_inclusion_times         Analyzes file inclusion times (i.e. how long did each one take)
+        --analyze_file_inclusion_graph         Creates a file inclusion graph (i.e. directed graph from include clauses)
+        --analyze_file_compilations            Analyzes file compilations (i.e. how long did front-end and back-end take)
+        --analyze_build_timeline               Analyzes trace and creates a timeline from it
 
-        --out_function_compilations arg    Path to output function compilations data
-        --out_file_inclusion_times arg     Path to output file inclusion times
-        --out_file_inclusion_graph arg     Path to output file inclusion graph
-        --out_file_compilations arg        Path to output file compilations data
-        --out_build_timeline arg           Path to output build timeline
+        --timeline_ignore_functions_under arg  Ignores all functions under the given milliseconds
+        --timeline_ignore_templates_under arg  Ignores all templates under the given milliseconds
+
+        --out_function_compilations arg        Path to output function compilations data
+        --out_file_inclusion_times arg         Path to output file inclusion times
+        --out_file_inclusion_graph arg         Path to output file inclusion graph
+        --out_file_compilations arg            Path to output file compilations data
+        --out_build_timeline arg               Path to output build timeline
 
 ## License
 

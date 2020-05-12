@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include "AnalysisData\BuildTimeline\IgnoredEntries.h"
+
 // forward declare rapidjson::Value and rapidjson::Document
 namespace rapidjson
 {
@@ -31,7 +33,7 @@ class ProcessIdThreadIdRecalculation;
 class BuildTimelineExporter
 {
 public:
-    BuildTimelineExporter(const BuildTimeline& timeline);
+    BuildTimelineExporter(const BuildTimeline& timeline, const TIgnoredEntries& ignoredEntries);
     ~BuildTimelineExporter();
 
     // exports to Google Chrome trace format
@@ -39,6 +41,7 @@ public:
 
 private:
     const BuildTimeline& m_timeline;
+    const TIgnoredEntries& m_ignoredEntries;
 
     void AddEntry(const TimelineEntry* entry, rapidjson::Value& traceEvents,
                   rapidjson::Document& document, const ProcessIdThreadIdRecalculation& processThreadRemappings) const;
