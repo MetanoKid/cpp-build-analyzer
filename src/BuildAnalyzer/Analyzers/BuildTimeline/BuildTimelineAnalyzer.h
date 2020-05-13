@@ -16,6 +16,7 @@ public:
     CppBI::AnalysisControl OnStartActivity(const CppBI::EventStack& eventStack) override;
     CppBI::AnalysisControl OnStopActivity(const CppBI::EventStack& eventStack) override;
     CppBI::AnalysisControl OnSimpleEvent(const CppBI::EventStack& eventStack) override;
+    CppBI::AnalysisControl OnEndAnalysis() override;
 
     inline const BuildTimeline& GetTimeline() const { return m_buildTimeline; }
 

@@ -21,7 +21,8 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\BuildTimeline.h" />
     <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\IgnoredEntries.h" />
-    <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.h" />
+    <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\ProcessThreadRemapping\PackedProcessThreadRemapper.h" />
+    <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\ProcessThreadRemapping\ProcessThreadRemapping.h" />
     <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\TimelineEntry.h" />
     <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\TimelineTypes.h" />
     <ClInclude Include="..\..\src\AnalysisData\FileCompilationData.h" />
@@ -40,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisData\BuildTimeline\BuildTimeline.cpp" />
-    <ClCompile Include="..\..\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.cpp" />
+    <ClCompile Include="..\..\src\AnalysisData\BuildTimeline\ProcessThreadRemapping\PackedProcessThreadRemapper.cpp" />
     <ClCompile Include="..\..\src\AnalysisData\BuildTimeline\TimelineEntry.cpp" />
     <ClCompile Include="..\..\src\AnalysisData\PCH\PCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
