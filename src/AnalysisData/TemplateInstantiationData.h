@@ -8,9 +8,9 @@
 
 struct TemplateInstantiationData
 {
-    TSymbolKey Primary;
-    TSymbolKey Specialization;
-    std::chrono::nanoseconds Duration;
+    TSymbolKey Primary = 0;
+    TSymbolKey Specialization = 0;
+    std::chrono::nanoseconds Duration = std::chrono::nanoseconds(0);
 };
 
 typedef std::unordered_map<TEventInstanceId, TemplateInstantiationData> TTemplateInstantiationDataPerOccurrence;

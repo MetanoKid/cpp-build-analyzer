@@ -18,9 +18,9 @@ public:
 private:
     struct DataPerTemplate
     {
-        const std::string* primaryTemplateKey;
-        std::chrono::nanoseconds totalInstantiationTime;
-        std::vector<std::chrono::nanoseconds> occurrences;
+        const std::string* PrimaryTemplateKey = nullptr;
+        std::chrono::nanoseconds TotalInstantiationTime = std::chrono::nanoseconds(0);
+        std::vector<std::chrono::nanoseconds> Occurrences;
     };
 
     const TSymbolNames& m_symbolNames;
