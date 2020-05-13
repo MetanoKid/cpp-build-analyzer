@@ -95,14 +95,14 @@ int main(int argc, char** argv)
 
     // what to build
     BuildAnalyzer::AnalysisOptions analysisOptions;
-    analysisOptions.functionCompilations = analyzeAll || analyzeFunctionCompilations;
-    analysisOptions.fileInclusionTimes = analyzeAll || analyzeFileInclusionTimes;
-    analysisOptions.fileInclusionGraph = analyzeAll || createFileInclusionGraph;
-    analysisOptions.fileCompilations = analyzeAll || analyzeFileCompilations;
-    analysisOptions.buildTimeline = analyzeAll || createBuildTimeline;
-    analysisOptions.templateInstantiations = analyzeAll || analyzeTemplateInstantiations;
-    analysisOptions.timelineIgnoreFunctionsUnder = std::chrono::milliseconds(timelineIgnoreFunctionsUnderMs);
-    analysisOptions.timelineIgnoreTemplatesUnder = std::chrono::milliseconds(timelineIgnoreTemplatesUnderMs);
+    analysisOptions.FunctionCompilations = analyzeAll || analyzeFunctionCompilations;
+    analysisOptions.FileInclusionTimes = analyzeAll || analyzeFileInclusionTimes;
+    analysisOptions.FileInclusionGraph = analyzeAll || createFileInclusionGraph;
+    analysisOptions.FileCompilations = analyzeAll || analyzeFileCompilations;
+    analysisOptions.BuildTimeline = analyzeAll || createBuildTimeline;
+    analysisOptions.TemplateInstantiations = analyzeAll || analyzeTemplateInstantiations;
+    analysisOptions.TimelineIgnoreFunctionsUnder = std::chrono::milliseconds(timelineIgnoreFunctionsUnderMs);
+    analysisOptions.TimelineIgnoreTemplatesUnder = std::chrono::milliseconds(timelineIgnoreTemplatesUnderMs);
 
     // analyze trace
     std::cout << "Analyzing..." << std::endl;
@@ -112,7 +112,7 @@ int main(int argc, char** argv)
     // export data
     if (succeeded)
     {
-        if (analysisOptions.functionCompilations)
+        if (analysisOptions.FunctionCompilations)
         {
             std::cout << "Exporting function compilations..." << std::endl;
             
@@ -126,7 +126,7 @@ int main(int argc, char** argv)
             }
         }
 
-        if (analysisOptions.fileInclusionTimes)
+        if (analysisOptions.FileInclusionTimes)
         {
             std::cout << "Exporting file inclusion times..." << std::endl;
 
@@ -140,7 +140,7 @@ int main(int argc, char** argv)
             }
         }
         
-        if (analysisOptions.fileInclusionGraph)
+        if (analysisOptions.FileInclusionGraph)
         {
             std::cout << "Exporting file inclusion graph..." << std::endl;
 
@@ -154,7 +154,7 @@ int main(int argc, char** argv)
             }
         }
         
-        if (analysisOptions.fileCompilations)
+        if (analysisOptions.FileCompilations)
         {
             std::cout << "Exporting file compilations..." << std::endl;
 
@@ -168,7 +168,7 @@ int main(int argc, char** argv)
             }
         }
         
-        if (analysisOptions.buildTimeline)
+        if (analysisOptions.BuildTimeline)
         {
             std::cout << "Exporting build timeline..." << std::endl;
             
@@ -182,7 +182,7 @@ int main(int argc, char** argv)
             }
         }
 
-        if (analysisOptions.templateInstantiations)
+        if (analysisOptions.TemplateInstantiations)
         {
             std::cout << "Exporting template instantiations..." << std::endl;
 

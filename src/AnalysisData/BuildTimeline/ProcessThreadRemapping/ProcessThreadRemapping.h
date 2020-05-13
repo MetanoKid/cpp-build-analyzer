@@ -6,8 +6,8 @@
 
 struct ProcessThreadRemap
 {
-    TProcessId ProcessId;
-    TThreadId ThreadId;
+    TProcessId ProcessId = 0;
+    TThreadId ThreadId = 0;
 };
 
 typedef std::unordered_map<TEventInstanceId, ProcessThreadRemap> TProcessThreadRemappings;

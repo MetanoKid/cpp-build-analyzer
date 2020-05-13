@@ -39,11 +39,11 @@ bool TemplateInstantiationsExporter::ExportTo(const std::string& path) const
             auto itPrimaryTemplateName = m_symbolNames.find(pair.second.Primary);
             assert(itPrimaryTemplateName != m_symbolNames.end());
 
-            result.first->second.primaryTemplateKey = &itPrimaryTemplateName->second;
+            result.first->second.PrimaryTemplateKey = &itPrimaryTemplateName->second;
         }
 
-        result.first->second.occurrences.push_back(pair.second.Duration);
-        result.first->second.totalInstantiationTime += pair.second.Duration;
+        result.first->second.Occurrences.push_back(pair.second.Duration);
+        result.first->second.TotalInstantiationTime += pair.second.Duration;
     }
 
     // sort
@@ -57,7 +57,7 @@ bool TemplateInstantiationsExporter::ExportTo(const std::string& path) const
     std::sort(sortedAggregatedData.begin(), sortedAggregatedData.end(), [](const TAggregatedData::value_type* lhs,
                                                                            const TAggregatedData::value_type* rhs)
     {
-        return lhs->second.totalInstantiationTime > rhs->second.totalInstantiationTime;
+        return lhs->second.TotalInstantiationTime > rhs->second.TotalInstantiationTime;
     });
 
     // write data header to stream
@@ -71,10 +71,10 @@ bool TemplateInstantiationsExporter::ExportTo(const std::string& path) const
     for (auto&& data : sortedAggregatedData)
     {
         out << data->first << ";"
-            << *data->second.primaryTemplateKey << ";"
-            << data->second.totalInstantiationTime.count() << ";"
-            << (data->second.totalInstantiationTime / data->second.occurrences.size()).count() << ";"
-            << data->second.occurrences.size() << std::endl;
+            << *data->second.PrimaryTemplateKey << ";"
+            << data->second.TotalInstantiationTime.count() << ";"
+            << (data->second.TotalInstantiationTime / data->second.Occurrences.size()).count() << ";"
+            << data->second.Occurrences.size() << std::endl;
     }
 
     out.close();

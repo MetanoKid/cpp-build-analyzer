@@ -18,21 +18,10 @@ private:
     // to be exported
     struct DataPerFile
     {
-        const std::string* filePath;
-        std::chrono::nanoseconds totalInclusionTime;
-        std::chrono::nanoseconds averageInclusionTime;
-        unsigned int occurrences;
-
-        DataPerFile(const std::string* filePath,
-                    const std::chrono::nanoseconds& totalInclusionTime,
-                    const std::chrono::nanoseconds& averageInclusionTime,
-                    unsigned int occurrences)
-            : filePath(filePath)
-            , totalInclusionTime(totalInclusionTime)
-            , averageInclusionTime(averageInclusionTime)
-            , occurrences(occurrences)
-        {
-        }
+        const std::string* FilePath = nullptr;
+        std::chrono::nanoseconds TotalInclusionTime = std::chrono::nanoseconds(0);
+        std::chrono::nanoseconds AverageInclusionTime = std::chrono::nanoseconds(0);
+        unsigned int Occurrences = 0;
     };
 
     const TTimeElapsedPerOccurrencePerConcept& m_data;
