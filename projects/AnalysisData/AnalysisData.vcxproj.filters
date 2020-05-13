@@ -10,6 +10,9 @@
     <Filter Include="Utilities">
       <UniqueIdentifier>{4266d23d-6a55-45a3-9458-b7556bf2f801}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BuildTimeline\ProcessThreadRemapping">
+      <UniqueIdentifier>{1edaca86-7a97-4021-929c-b7db38a4d33c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\AnalysisData\PCH\PCH.h">
@@ -32,15 +35,18 @@
     <ClInclude Include="..\..\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.h">
-      <Filter>BuildTimeline</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\IgnoredEntries.h">
       <Filter>BuildTimeline</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\AnalysisData\TemplateInstantiationData.h" />
     <ClInclude Include="..\..\src\AnalysisData\SymbolKey.h" />
     <ClInclude Include="..\..\src\AnalysisData\SymbolNames.h" />
+    <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\ProcessThreadRemapping\PackedProcessThreadRemapper.h">
+      <Filter>BuildTimeline\ProcessThreadRemapping</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\ProcessThreadRemapping\ProcessThreadRemapping.h">
+      <Filter>BuildTimeline\ProcessThreadRemapping</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisData\PCH\PCH.cpp">
@@ -55,8 +61,8 @@
     <ClCompile Include="..\..\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.cpp">
-      <Filter>BuildTimeline</Filter>
+    <ClCompile Include="..\..\src\AnalysisData\BuildTimeline\ProcessThreadRemapping\PackedProcessThreadRemapper.cpp">
+      <Filter>BuildTimeline\ProcessThreadRemapping</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

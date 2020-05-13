@@ -8,12 +8,12 @@
 
 #include "AnalysisData\BuildTimeline\TimelineTypes.h"
 #include "AnalysisData\BuildTimeline\BuildTimeline.h"
-#include "AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.h"
+#include "AnalysisData\BuildTimeline\ProcessThreadRemapping\ProcessThreadRemapping.h"
 
 namespace
 {
     void AddEntry(const TimelineEntry* entry, rapidjson::Value& traceEvents, rapidjson::Document& document,
-                  const ProcessIdThreadIdRecalculation& processThreadRemappings, const TIgnoredEntries& ignoredEntries)
+                  const TProcessThreadRemappings& remappings, const TIgnoredEntries& ignoredEntries)
     {
         // apply filtering
         if (ignoredEntries.find(entry->GetId()) != ignoredEntries.end())
@@ -21,9 +21,9 @@ namespace
             return;
         }
 
-        const ProcessIdThreadIdRecalculation::TProcessThreadPair* remap = processThreadRemappings.GetRemapFor(entry->GetId());
-        const TProcessId& processId = remap != nullptr ? remap->first : entry->GetProcessId();
-        const TThreadId& threadId = remap != nullptr ? remap->second : entry->GetThreadId();
+        auto itRemap = remappings.find(entry->GetId());
+        const TProcessId& processId = itRemap != remappings.end() ? itRemap->second.ProcessId : entry->GetProcessId();
+        const TThreadId& threadId = itRemap != remappings.end() ? itRemap->second.ThreadId : entry->GetThreadId();
 
         if (entry->GetChildren().size() == 0)
         {
@@ -84,7 +84,7 @@ namespace
             // write children entries
             for (auto&& child : entry->GetChildren())
             {
-                AddEntry(child, traceEvents, document, processThreadRemappings, ignoredEntries);
+                AddEntry(child, traceEvents, document, remappings, ignoredEntries);
             }
 
             // write "end" event
@@ -121,9 +121,6 @@ bool BuildTimelineExporter::ExportTo(const std::string& path) const
         return false;
     }
 
-    ProcessIdThreadIdRecalculation processIdThreadIdRecalculation(m_timeline);
-    processIdThreadIdRecalculation.Calculate();
-
     rapidjson::Document document(rapidjson::kObjectType);
     
     // although this is the default time unit representation, make it explicit
@@ -137,7 +134,7 @@ bool BuildTimelineExporter::ExportTo(const std::string& path) const
         rapidjson::Value traceEvents(rapidjson::kArrayType);
         for (auto&& root : m_timeline.GetRoots())
         {
-            AddEntry(root, traceEvents, document, processIdThreadIdRecalculation, m_ignoredEntries);
+            AddEntry(root, traceEvents, document, m_timeline.GetProcessThreadRemappings(), m_ignoredEntries);
         }
         document.AddMember("traceEvents", traceEvents, document.GetAllocator());
     }

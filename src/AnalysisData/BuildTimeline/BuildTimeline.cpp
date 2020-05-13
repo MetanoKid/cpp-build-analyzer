@@ -6,6 +6,9 @@
 #include "AnalysisData\Utilities\CppBuildInsightsDataConversion.h"
 
 BuildTimeline::BuildTimeline()
+    : m_entries()
+    , m_roots()
+    , m_remapper()
 {
 }
 
@@ -53,6 +56,15 @@ void BuildTimeline::FinishEntry(const CppBI::Activities::Activity& activity)
     assert(entry != nullptr);
 
     entry->SetFinishTimestamp(Utilities::CppBuildInsightsDataConversion::Timestamp(activity.StopTimestamp(), activity.TickFrequency()));
+
+    m_remapper.CalculateLocalChildrenData(entry);
+}
+
+void BuildTimeline::FinishTimeline()
+{
+    assert(m_remapper.GetRemappings().empty());
+
+    m_remapper.Calculate(this);
 }
 
 void BuildTimeline::UpdateEntryName(const TEventInstanceId& id, const std::string& name)

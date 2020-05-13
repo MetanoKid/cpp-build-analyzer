@@ -16,7 +16,6 @@ TimelineEntry::TimelineEntry(const TEventInstanceId& id,
     , m_processId(processId)
     , m_threadId(threadId)
     , m_processorIndex(processorIndex)
-    , m_parent(nullptr)
     , m_children()
     , m_properties()
 {
@@ -32,14 +31,6 @@ void TimelineEntry::AddChild(TimelineEntry* entry)
     assert(std::find(m_children.begin(), m_children.end(), entry) == m_children.end());
 
     m_children.push_back(entry);
-    entry->SetParent(this);
-}
-
-void TimelineEntry::SetParent(TimelineEntry* entry)
-{
-    assert(m_parent == nullptr);
-
-    m_parent = entry;
 }
 
 void TimelineEntry::SetName(const std::string& name)

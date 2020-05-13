@@ -20,7 +20,6 @@ public:
     ~TimelineEntry();
 
     void AddChild(TimelineEntry* entry);
-    void SetParent(TimelineEntry* entry);
     bool AddProperty(const std::string& key, const std::string& value);
 
     void SetName(const std::string& name);
@@ -46,7 +45,6 @@ private:
     TThreadId m_threadId;
     TProcessorIndex m_processorIndex;
 
-    TimelineEntry* m_parent;
     std::vector<TimelineEntry*> m_children;
     std::unordered_map<std::string, std::string> m_properties;
 };

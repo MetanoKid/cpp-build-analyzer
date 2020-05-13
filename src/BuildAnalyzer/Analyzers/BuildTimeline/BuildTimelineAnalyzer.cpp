@@ -50,6 +50,15 @@ CppBI::AnalysisControl BuildTimelineAnalyzer::OnSimpleEvent(const CppBI::EventSt
     return CppBI::AnalysisControl::CONTINUE;
 }
 
+CppBI::AnalysisControl BuildTimelineAnalyzer::OnEndAnalysis()
+{
+    m_buildTimeline.FinishTimeline();
+
+    return CppBI::AnalysisControl::CONTINUE;
+}
+
+// ----------------------------------------------------------------------------
+
 void BuildTimelineAnalyzer::OnActivityStartRoot(const CppBI::Activities::Activity& activity)
 {
     m_buildTimeline.AddRootEntry(activity);
