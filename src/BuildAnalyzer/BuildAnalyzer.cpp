@@ -10,6 +10,7 @@ namespace CppBI = Microsoft::Cpp::BuildInsights;
 #include "AnalysisExporter\FileInclusions\FileInclusionGraphExporter.h"
 #include "AnalysisExporter\FileCompilations\FileCompilationsExporter.h"
 #include "AnalysisExporter\BuildTimeline\BuildTimelineExporter.h"
+#include "AnalysisExporter\TemplateInstantiations\TemplateInstantiationsExporter.h"
 
 namespace
 {
@@ -23,7 +24,9 @@ BuildAnalyzer::BuildAnalyzer(const std::string& traceFilePath, const AnalysisOpt
     , m_fileInclusions()
     , m_fileCompilations()
     , m_buildTimeline()
+    , m_filterTimeline(analysisOptions.TimelineIgnoreFunctionsUnder, analysisOptions.TimelineIgnoreTemplatesUnder)
     , m_analysisPerformed(false)
+    , m_templateInstantiations()
 {
 }
 
@@ -53,24 +56,30 @@ std::vector<CppBI::IAnalyzer*> BuildAnalyzer::BuildAnalyzerList(const AnalysisOp
 {
     std::vector<CppBI::IAnalyzer*> analyzers;
 
-    if (options.functionCompilations)
+    if (options.FunctionCompilations)
     {
         analyzers.push_back(&m_functionCompilations);
     }
 
-    if (options.fileInclusionTimes || options.fileInclusionGraph)
+    if (options.FileInclusionTimes || options.FileInclusionGraph)
     {
         analyzers.push_back(&m_fileInclusions);
     }
 
-    if (options.fileCompilations)
+    if (options.FileCompilations)
     {
         analyzers.push_back(&m_fileCompilations);
     }
 
-    if (options.buildTimeline)
+    if (options.BuildTimeline)
     {
         analyzers.push_back(&m_buildTimeline);
+        analyzers.push_back(&m_filterTimeline);
+    }
+
+    if (options.TemplateInstantiations)
+    {
+        analyzers.push_back(&m_templateInstantiations);
     }
 
     return analyzers;
@@ -112,6 +121,15 @@ bool BuildAnalyzer::ExportBuildTimeline(const std::string& path) const
 {
     assert(m_analysisPerformed);
 
-    BuildTimelineExporter exporter(m_buildTimeline.GetTimeline());
+    BuildTimelineExporter exporter(m_buildTimeline.GetTimeline(), m_filterTimeline.GetIgnoredEntries());
+    return exporter.ExportTo(path);
+}
+
+bool BuildAnalyzer::ExportTemplateInstantiationsData(const std::string& path) const
+{
+    assert(m_analysisPerformed);
+
+    TemplateInstantiationsExporter exporter(m_templateInstantiations.GetSymbolNames(),
+                                            m_templateInstantiations.GetTemplateInstantiations());
     return exporter.ExportTo(path);
 }

@@ -23,7 +23,7 @@ CppBI::AnalysisControl FileCompilationsAnalyzer::OnStopActivity(const CppBI::Eve
 
 void FileCompilationsAnalyzer::OnFrontEndPassCompleted(const CppBI::Activities::FrontEndPass& frontEndPass)
 {
-    auto result = m_fileCompilationsData.try_emplace(Utilities::CppBuildInsightsDataConversion::FilePath(GetFilePath(frontEndPass)), FileCompilationData());
+    auto result = m_fileCompilationsData.try_emplace(Utilities::CppBuildInsightsDataConversion::WideStringToString(GetFilePath(frontEndPass)), FileCompilationData());
     FileCompilationData::Pass& frontEndData = result.first->second.FrontEnd;
 
     frontEndData.Start = Utilities::CppBuildInsightsDataConversion::Timestamp(frontEndPass.StartTimestamp(), frontEndPass.TickFrequency());
@@ -32,7 +32,7 @@ void FileCompilationsAnalyzer::OnFrontEndPassCompleted(const CppBI::Activities::
 
 void FileCompilationsAnalyzer::OnBackEndPassCompleted(const CppBI::Activities::BackEndPass& backEndPass)
 {
-    auto result = m_fileCompilationsData.try_emplace(Utilities::CppBuildInsightsDataConversion::FilePath(GetFilePath(backEndPass)), FileCompilationData());
+    auto result = m_fileCompilationsData.try_emplace(Utilities::CppBuildInsightsDataConversion::WideStringToString(GetFilePath(backEndPass)), FileCompilationData());
     FileCompilationData::Pass& backEndData = result.first->second.BackEnd;
 
     backEndData.Start = Utilities::CppBuildInsightsDataConversion::Timestamp(backEndPass.StartTimestamp(), backEndPass.TickFrequency());

@@ -8,10 +8,104 @@
 
 #include "AnalysisData\BuildTimeline\TimelineTypes.h"
 #include "AnalysisData\BuildTimeline\BuildTimeline.h"
-#include "AnalysisData\BuildTimeline\ProcessIdThreadIdRecalculation.h"
+#include "AnalysisData\BuildTimeline\ProcessThreadRemapping\ProcessThreadRemapping.h"
 
-BuildTimelineExporter::BuildTimelineExporter(const BuildTimeline& timeline)
+namespace
+{
+    void AddEntry(const TimelineEntry* entry, rapidjson::Value& traceEvents, rapidjson::Document& document,
+                  const TProcessThreadRemappings& remappings, const TIgnoredEntries& ignoredEntries)
+    {
+        // apply filtering
+        if (ignoredEntries.find(entry->GetId()) != ignoredEntries.end())
+        {
+            return;
+        }
+
+        auto itRemap = remappings.find(entry->GetId());
+        const TProcessId& processId = itRemap != remappings.end() ? itRemap->second.ProcessId : entry->GetProcessId();
+        const TThreadId& threadId = itRemap != remappings.end() ? itRemap->second.ThreadId : entry->GetThreadId();
+
+        if (entry->GetChildren().size() == 0)
+        {
+            // leaf entries only write one event
+            rapidjson::Value event(rapidjson::kObjectType);
+
+            event.AddMember("ph", "X", document.GetAllocator());
+            event.AddMember("pid", static_cast<uint64_t>(processId), document.GetAllocator());
+            event.AddMember("tid", static_cast<uint64_t>(threadId), document.GetAllocator());
+            event.AddMember("name", entry->GetName(), document.GetAllocator());
+            // times in microseconds
+            event.AddMember("ts", std::chrono::duration_cast<std::chrono::microseconds>(entry->GetStartTimestamp()).count(), document.GetAllocator());
+            event.AddMember("dur", std::chrono::duration_cast<std::chrono::microseconds>(entry->GetFinishTimestamp() - entry->GetStartTimestamp()).count(), document.GetAllocator());
+
+            // adds properties as "args"
+            if (!entry->GetProperties().empty())
+            {
+                rapidjson::Value args(rapidjson::kObjectType);
+
+                for (auto&& pair : entry->GetProperties())
+                {
+                    args.AddMember(rapidjson::StringRef(pair.first), pair.second, document.GetAllocator());
+                }
+
+                event.AddMember("args", args, document.GetAllocator());
+            }
+
+            traceEvents.PushBack(event, document.GetAllocator());
+        }
+        else
+        {
+            // write "begin" event
+            {
+                rapidjson::Value event(rapidjson::kObjectType);
+
+                event.AddMember("ph", "B", document.GetAllocator());
+                event.AddMember("pid", static_cast<uint64_t>(processId), document.GetAllocator());
+                event.AddMember("tid", static_cast<uint64_t>(threadId), document.GetAllocator());
+                event.AddMember("name", entry->GetName(), document.GetAllocator());
+                // time in microseconds
+                event.AddMember("ts", std::chrono::duration_cast<std::chrono::microseconds>(entry->GetStartTimestamp()).count(), document.GetAllocator());
+
+                // adds properties as "args"
+                if (!entry->GetProperties().empty())
+                {
+                    rapidjson::Value args(rapidjson::kObjectType);
+
+                    for (auto&& pair : entry->GetProperties())
+                    {
+                        args.AddMember(rapidjson::StringRef(pair.first), pair.second, document.GetAllocator());
+                    }
+
+                    event.AddMember("args", args, document.GetAllocator());
+                }
+                traceEvents.PushBack(event, document.GetAllocator());
+            }
+
+            // write children entries
+            for (auto&& child : entry->GetChildren())
+            {
+                AddEntry(child, traceEvents, document, remappings, ignoredEntries);
+            }
+
+            // write "end" event
+            {
+                rapidjson::Value event(rapidjson::kObjectType);
+
+                event.AddMember("ph", "E", document.GetAllocator());
+                event.AddMember("pid", static_cast<uint64_t>(processId), document.GetAllocator());
+                event.AddMember("tid", static_cast<uint64_t>(threadId), document.GetAllocator());
+                // time in microseconds
+                event.AddMember("ts", std::chrono::duration_cast<std::chrono::microseconds>(entry->GetFinishTimestamp()).count(), document.GetAllocator());
+
+                traceEvents.PushBack(event, document.GetAllocator());
+            }
+        }
+    }
+}
+
+BuildTimelineExporter::BuildTimelineExporter(const BuildTimeline& timeline, const TIgnoredEntries& ignoredEntries)
     : m_timeline(timeline)
+    , m_ignoredEntries(ignoredEntries)
 {
 }
 
@@ -27,9 +121,6 @@ bool BuildTimelineExporter::ExportTo(const std::string& path) const
         return false;
     }
 
-    ProcessIdThreadIdRecalculation processIdThreadIdRecalculation(m_timeline);
-    processIdThreadIdRecalculation.Calculate();
-
     rapidjson::Document document(rapidjson::kObjectType);
     
     // although this is the default time unit representation, make it explicit
@@ -43,7 +134,7 @@ bool BuildTimelineExporter::ExportTo(const std::string& path) const
         rapidjson::Value traceEvents(rapidjson::kArrayType);
         for (auto&& root : m_timeline.GetRoots())
         {
-            AddEntry(root, traceEvents, document, processIdThreadIdRecalculation);
+            AddEntry(root, traceEvents, document, m_timeline.GetProcessThreadRemappings(), m_ignoredEntries);
         }
         document.AddMember("traceEvents", traceEvents, document.GetAllocator());
     }
@@ -56,64 +147,4 @@ bool BuildTimelineExporter::ExportTo(const std::string& path) const
 
     out.close();
     return true;
-}
-
-void BuildTimelineExporter::AddEntry(const TimelineEntry* entry, rapidjson::Value& traceEvents,
-                                     rapidjson::Document& document, const ProcessIdThreadIdRecalculation& processThreadRemappings) const
-{
-    const ProcessIdThreadIdRecalculation::TProcessThreadPair* remap = processThreadRemappings.GetRemapFor(entry->GetId());
-    const TProcessId& processId = remap != nullptr ? remap->first : entry->GetProcessId();
-    const TThreadId& threadId = remap != nullptr ? remap->second : entry->GetThreadId();
-
-    if (entry->GetChildren().size() == 0)
-    {
-        // leaf entries only write one event
-        rapidjson::Value event(rapidjson::kObjectType);
-
-        event.AddMember("ph", "X", document.GetAllocator());
-        event.AddMember("pid", static_cast<uint64_t>(processId), document.GetAllocator());
-        event.AddMember("tid", static_cast<uint64_t>(threadId), document.GetAllocator());
-        event.AddMember("name", entry->GetName(), document.GetAllocator());
-        // times in microseconds
-        event.AddMember("ts", std::chrono::duration_cast<std::chrono::microseconds>(entry->GetStartTimestamp()).count(), document.GetAllocator());
-        event.AddMember("dur", std::chrono::duration_cast<std::chrono::microseconds>(entry->GetFinishTimestamp() - entry->GetStartTimestamp()).count(), document.GetAllocator());
-
-        traceEvents.PushBack(event, document.GetAllocator());
-    }
-    else
-    {
-        // write "begin" event
-        {
-            rapidjson::Value event(rapidjson::kObjectType);
-
-            event.AddMember("ph", "B", document.GetAllocator());
-            event.AddMember("pid", static_cast<uint64_t>(processId), document.GetAllocator());
-            event.AddMember("tid", static_cast<uint64_t>(threadId), document.GetAllocator());
-            event.AddMember("name", entry->GetName(), document.GetAllocator());
-            // time in microseconds
-            event.AddMember("ts", std::chrono::duration_cast<std::chrono::microseconds>(entry->GetStartTimestamp()).count(), document.GetAllocator());
-
-            traceEvents.PushBack(event, document.GetAllocator());
-        }
-        
-        // write children entries
-        for (auto&& child : entry->GetChildren())
-        {
-            AddEntry(child, traceEvents, document, processThreadRemappings);
-        }
-
-        // write "end" event
-        {
-            rapidjson::Value event(rapidjson::kObjectType);
-
-            event.AddMember("ph", "E", document.GetAllocator());
-            event.AddMember("pid", static_cast<uint64_t>(processId), document.GetAllocator());
-            event.AddMember("tid", static_cast<uint64_t>(threadId), document.GetAllocator());
-            event.AddMember("name", entry->GetName(), document.GetAllocator());
-            // time in microseconds
-            event.AddMember("ts", std::chrono::duration_cast<std::chrono::microseconds>(entry->GetFinishTimestamp()).count(), document.GetAllocator());
-
-            traceEvents.PushBack(event, document.GetAllocator());
-        }
-    }
 }

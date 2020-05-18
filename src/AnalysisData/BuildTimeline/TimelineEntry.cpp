@@ -16,8 +16,8 @@ TimelineEntry::TimelineEntry(const TEventInstanceId& id,
     , m_processId(processId)
     , m_threadId(threadId)
     , m_processorIndex(processorIndex)
-    , m_parent(nullptr)
     , m_children()
+    , m_properties()
 {
     assert(startTimestamp <= finishTimestamp);
 }
@@ -31,14 +31,6 @@ void TimelineEntry::AddChild(TimelineEntry* entry)
     assert(std::find(m_children.begin(), m_children.end(), entry) == m_children.end());
 
     m_children.push_back(entry);
-    entry->SetParent(this);
-}
-
-void TimelineEntry::SetParent(TimelineEntry* entry)
-{
-    assert(m_parent == nullptr);
-
-    m_parent = entry;
 }
 
 void TimelineEntry::SetName(const std::string& name)
@@ -57,4 +49,10 @@ bool TimelineEntry::OverlapsWith(const TimelineEntry* entry) const
 {
     return m_startTimestamp < entry->GetFinishTimestamp() &&
            entry->GetStartTimestamp() < m_finishTimestamp;
+}
+
+bool TimelineEntry::AddProperty(const std::string& key, const std::string& value)
+{
+    auto result = m_properties.try_emplace(key, value);
+    return result.second;
 }

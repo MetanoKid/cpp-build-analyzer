@@ -28,6 +28,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='DebugNoPCH|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.h" />
+    <ClInclude Include="..\..\src\AnalysisExporter\TemplateInstantiations\TemplateInstantiationsExporter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\AnalysisExporter\BuildTimeline\BuildTimelineExporter.cpp" />
@@ -47,11 +48,15 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNoPCH|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\src\AnalysisExporter\FunctionCompilations\FunctionCompilationsExporter.cpp" />
+    <ClCompile Include="..\..\src\AnalysisExporter\TemplateInstantiations\TemplateInstantiationsExporter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AnalysisData\AnalysisData.vcxproj">
       <Project>{a0cc94e3-cea0-4f2c-94d5-920fa1369245}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -142,7 +147,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)src;$(SolutionDir)external_libraries\%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -162,7 +167,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)src;$(SolutionDir)external_libraries\%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -184,7 +189,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)src;$(SolutionDir)external_libraries\%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -208,7 +213,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>$(SolutionDir)src\$(ProjectName)\PCH\PCH.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>$(SolutionDir)src;$(SolutionDir)external_libraries\%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -223,5 +228,12 @@
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\..\packages\tencent.rapidjson.1.1.1\build\tencent.rapidjson.targets" Condition="Exists('..\..\packages\tencent.rapidjson.1.1.1\build\tencent.rapidjson.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\tencent.rapidjson.1.1.1\build\tencent.rapidjson.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\tencent.rapidjson.1.1.1\build\tencent.rapidjson.targets'))" />
+  </Target>
 </Project>

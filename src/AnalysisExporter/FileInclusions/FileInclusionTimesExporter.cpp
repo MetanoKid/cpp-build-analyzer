@@ -34,18 +34,21 @@ bool FileInclusionTimesExporter::ExportTo(const std::string& path) const
         std::chrono::nanoseconds totalTimeElapsed = averageTimeElapsed;
         averageTimeElapsed /= pair.second.size();
 
+        DataPerFile data;
+        data.FilePath = &pair.first;
+        data.TotalInclusionTime = totalTimeElapsed;
+        data.AverageInclusionTime = averageTimeElapsed;
+        data.Occurrences = static_cast<unsigned int>(pair.second.size());
+
         // store data
-        dataPerFile.emplace_back(&pair.first,
-                                 totalTimeElapsed,
-                                 averageTimeElapsed,
-                                 static_cast<unsigned int>(pair.second.size()));
+        dataPerFile.emplace_back(data);
     }
 
     // sort entries
     std::sort(dataPerFile.begin(), dataPerFile.end(), [](const DataPerFile& lhs, const DataPerFile& rhs)
     {
         // slowest inclusions first
-        return lhs.totalInclusionTime > rhs.totalInclusionTime;
+        return lhs.TotalInclusionTime > rhs.TotalInclusionTime;
     });
 
     // write data header to stream
@@ -57,10 +60,10 @@ bool FileInclusionTimesExporter::ExportTo(const std::string& path) const
     // write data to stream
     for (auto&& data : dataPerFile)
     {
-        out << (*data.filePath) << ";"
-            << data.totalInclusionTime.count() << ";"
-            << data.averageInclusionTime.count() << ";"
-            << data.occurrences << std::endl;
+        out << (*data.FilePath) << ";"
+            << data.TotalInclusionTime.count() << ";"
+            << data.AverageInclusionTime.count() << ";"
+            << data.Occurrences << std::endl;
     }
 
     out.close();

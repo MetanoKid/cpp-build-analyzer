@@ -18,21 +18,10 @@ private:
     // to be exported
     struct DataPerFunction
     {
-        const std::string* functionName;
-        std::chrono::nanoseconds totalCompilationTime;
-        std::chrono::nanoseconds averageCompilationTime;
-        unsigned int occurrences;
-
-        DataPerFunction(const std::string* functionName,
-                        const std::chrono::nanoseconds& totalCompilationTime,
-                        const std::chrono::nanoseconds& averageCompilationTime,
-                        unsigned int occurrences)
-            : functionName(functionName)
-            , totalCompilationTime(totalCompilationTime)
-            , averageCompilationTime(averageCompilationTime)
-            , occurrences(occurrences)
-        {
-        }
+        const std::string* FunctionName = nullptr;
+        std::chrono::nanoseconds TotalCompilationTime = std::chrono::nanoseconds(0);
+        std::chrono::nanoseconds AverageCompilationTime = std::chrono::nanoseconds(0);
+        unsigned int Occurrences = 0;
     };
 
     const TTimeElapsedPerOccurrencePerConcept& m_data;

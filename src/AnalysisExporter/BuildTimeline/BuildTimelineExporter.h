@@ -2,27 +2,7 @@
 
 #include <string>
 
-// forward declare rapidjson::Value and rapidjson::Document
-namespace rapidjson
-{
-    class CrtAllocator;
-
-    template <typename BaseAllocator>
-    class MemoryPoolAllocator;
-
-    template <typename Encoding, typename Allocator, typename StackAllocator>
-    class GenericDocument;
-
-    template<typename CharType>
-    struct UTF8;
-
-    typedef GenericDocument<UTF8<char>, MemoryPoolAllocator<CrtAllocator>, CrtAllocator> Document;
-
-    template <typename Encoding, typename Allocator>
-    class GenericValue;
-
-    typedef GenericValue<UTF8<char>, MemoryPoolAllocator<CrtAllocator>> Value;
-}
+#include "AnalysisData\BuildTimeline\IgnoredEntries.h"
 
 class BuildTimeline;
 class TimelineEntry;
@@ -31,7 +11,7 @@ class ProcessIdThreadIdRecalculation;
 class BuildTimelineExporter
 {
 public:
-    BuildTimelineExporter(const BuildTimeline& timeline);
+    BuildTimelineExporter(const BuildTimeline& timeline, const TIgnoredEntries& ignoredEntries);
     ~BuildTimelineExporter();
 
     // exports to Google Chrome trace format
@@ -39,7 +19,5 @@ public:
 
 private:
     const BuildTimeline& m_timeline;
-
-    void AddEntry(const TimelineEntry* entry, rapidjson::Value& traceEvents,
-                  rapidjson::Document& document, const ProcessIdThreadIdRecalculation& processThreadRemappings) const;
+    const TIgnoredEntries& m_ignoredEntries;
 };

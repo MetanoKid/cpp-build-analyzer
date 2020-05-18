@@ -20,9 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.h" />
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\FilterTimelineAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.h" />
+    <ClInclude Include="..\..\src\BuildAnalyzer\Analyzers\TemplateInstantiations\TemplateInstantiationsAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\BuildAnalyzer.h" />
     <ClInclude Include="..\..\src\BuildAnalyzer\PCH\PCH.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseNoPCH|x64'">true</ExcludedFromBuild>
@@ -31,9 +33,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.cpp" />
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\BuildTimeline\FilterTimelineAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\FunctionCompilations\FunctionCompilationsAnalyzer.cpp" />
+    <ClCompile Include="..\..\src\BuildAnalyzer\Analyzers\TemplateInstantiations\TemplateInstantiationsAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\BuildAnalyzer.cpp" />
     <ClCompile Include="..\..\src\BuildAnalyzer\PCH\PCH.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

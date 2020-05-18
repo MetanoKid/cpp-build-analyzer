@@ -11,6 +11,10 @@ namespace
     const std::string s_defaultOutputPathFileInclusionGraph = "FileInclusions.dgml";
     const std::string s_defaultOutputPathFileCompilations = "FileCompilations.csv";
     const std::string s_defaultOutputPathBuildTimeline = "BuildTimeline.json";
+    const std::string s_defaultOutputPathTemplateInstantiations = "TemplateInstantiations.csv";
+
+    const unsigned int s_defaultTimelineIgnoreFunctionsUnderMs = 10;
+    const unsigned int s_defaultTimelineIgnoreTemplatesUnderMs = 10;
 }
 
 int main(int argc, char** argv)
@@ -25,11 +29,15 @@ int main(int argc, char** argv)
     bool createFileInclusionGraph = false;
     bool analyzeFileCompilations = false;
     bool createBuildTimeline = false;
+    bool analyzeTemplateInstantiations = false;
     std::string outputPathFunctionCompilations = s_defaultOutputPathFunctionCompilations;
     std::string outputPathFileInclusionTimes = s_defaultoutputPathFileInclusionTimes;
     std::string outputPathFileInclusionGraph = s_defaultOutputPathFileInclusionGraph;
     std::string outputPathFileCompilations = s_defaultOutputPathFileCompilations;
     std::string outputPathBuildTimeline = s_defaultOutputPathBuildTimeline;
+    std::string outputPathTemplateInstantiations = s_defaultOutputPathTemplateInstantiations;
+    unsigned int timelineIgnoreFunctionsUnderMs = s_defaultTimelineIgnoreFunctionsUnderMs;
+    unsigned int timelineIgnoreTemplatesUnderMs = s_defaultTimelineIgnoreTemplatesUnderMs;
 
     // configure options
     commandLineOptions.add_options()
@@ -44,12 +52,17 @@ int main(int argc, char** argv)
         ("analyze_file_inclusion_graph", "Creates a file inclusion graph (i.e. directed graph from include clauses)", cxxopts::value(createFileInclusionGraph))
         ("analyze_file_compilations", "Analyzes file compilations (i.e. how long did front-end and back-end take)", cxxopts::value(analyzeFileCompilations))
         ("analyze_build_timeline", "Analyzes trace and creates a timeline from it", cxxopts::value(createBuildTimeline))
+        ("analyze_template_instantiations", "Analyzes template instantiations (i.e. how long did each template take to instantiate)", cxxopts::value(analyzeTemplateInstantiations))
+        // option tuning
+        ("timeline_ignore_functions_under", "Ignores all functions under the given milliseconds", cxxopts::value(timelineIgnoreFunctionsUnderMs))
+        ("timeline_ignore_templates_under", "Ignores all templates under the given milliseconds", cxxopts::value(timelineIgnoreTemplatesUnderMs))
         // outputs
         ("out_function_compilations", "Path to output function compilations data", cxxopts::value(outputPathFunctionCompilations))
         ("out_file_inclusion_times", "Path to output file inclusion times", cxxopts::value(outputPathFileInclusionTimes))
         ("out_file_inclusion_graph", "Path to output file inclusion graph", cxxopts::value(outputPathFileInclusionGraph))
         ("out_file_compilations", "Path to output file compilations data", cxxopts::value(outputPathFileCompilations))
-        ("out_build_timeline", "Path to output build timeline", cxxopts::value(outputPathBuildTimeline));
+        ("out_build_timeline", "Path to output build timeline", cxxopts::value(outputPathBuildTimeline))
+        ("out_template_instantiations", "Path to output template instantiations data", cxxopts::value(outputPathTemplateInstantiations));
 
     // parse command line
     cxxopts::ParseResult result = commandLineOptions.parse(argc, argv);
@@ -82,11 +95,14 @@ int main(int argc, char** argv)
 
     // what to build
     BuildAnalyzer::AnalysisOptions analysisOptions;
-    analysisOptions.functionCompilations = analyzeAll || analyzeFunctionCompilations;
-    analysisOptions.fileInclusionTimes = analyzeAll || analyzeFileInclusionTimes;
-    analysisOptions.fileInclusionGraph = analyzeAll || createFileInclusionGraph;
-    analysisOptions.fileCompilations = analyzeAll || analyzeFileCompilations;
-    analysisOptions.buildTimeline = analyzeAll || createBuildTimeline;
+    analysisOptions.FunctionCompilations = analyzeAll || analyzeFunctionCompilations;
+    analysisOptions.FileInclusionTimes = analyzeAll || analyzeFileInclusionTimes;
+    analysisOptions.FileInclusionGraph = analyzeAll || createFileInclusionGraph;
+    analysisOptions.FileCompilations = analyzeAll || analyzeFileCompilations;
+    analysisOptions.BuildTimeline = analyzeAll || createBuildTimeline;
+    analysisOptions.TemplateInstantiations = analyzeAll || analyzeTemplateInstantiations;
+    analysisOptions.TimelineIgnoreFunctionsUnder = std::chrono::milliseconds(timelineIgnoreFunctionsUnderMs);
+    analysisOptions.TimelineIgnoreTemplatesUnder = std::chrono::milliseconds(timelineIgnoreTemplatesUnderMs);
 
     // analyze trace
     std::cout << "Analyzing..." << std::endl;
@@ -96,7 +112,7 @@ int main(int argc, char** argv)
     // export data
     if (succeeded)
     {
-        if (analysisOptions.functionCompilations)
+        if (analysisOptions.FunctionCompilations)
         {
             std::cout << "Exporting function compilations..." << std::endl;
             
@@ -110,7 +126,7 @@ int main(int argc, char** argv)
             }
         }
 
-        if (analysisOptions.fileInclusionTimes)
+        if (analysisOptions.FileInclusionTimes)
         {
             std::cout << "Exporting file inclusion times..." << std::endl;
 
@@ -124,7 +140,7 @@ int main(int argc, char** argv)
             }
         }
         
-        if (analysisOptions.fileInclusionGraph)
+        if (analysisOptions.FileInclusionGraph)
         {
             std::cout << "Exporting file inclusion graph..." << std::endl;
 
@@ -138,7 +154,7 @@ int main(int argc, char** argv)
             }
         }
         
-        if (analysisOptions.fileCompilations)
+        if (analysisOptions.FileCompilations)
         {
             std::cout << "Exporting file compilations..." << std::endl;
 
@@ -152,13 +168,27 @@ int main(int argc, char** argv)
             }
         }
         
-        if (analysisOptions.buildTimeline)
+        if (analysisOptions.BuildTimeline)
         {
             std::cout << "Exporting build timeline..." << std::endl;
             
             if (!outputPathBuildTimeline.empty())
             {
                 analyzer.ExportBuildTimeline(outputPathBuildTimeline);
+            }
+            else
+            {
+                std::cout << "  Output path can't be empty!" << std::endl;
+            }
+        }
+
+        if (analysisOptions.TemplateInstantiations)
+        {
+            std::cout << "Exporting template instantiations..." << std::endl;
+
+            if (!outputPathTemplateInstantiations.empty())
+            {
+                analyzer.ExportTemplateInstantiationsData(outputPathTemplateInstantiations);
             }
             else
             {
