@@ -1,7 +1,10 @@
+#include <Windows.h>
+
 #include <iostream>
 #include <string>
 #include <cxxopts\cxxopts.hpp>
 
+#include "AnalysisData\Utilities\MiniDumpGeneration.h"
 #include "BuildAnalyzer\BuildAnalyzer.h"
 
 namespace
@@ -19,6 +22,9 @@ namespace
 
 int main(int argc, char** argv)
 {
+    // capture exceptions and generate a minidump for further investigation
+    SetUnhandledExceptionFilter(GenerateMiniDump);
+
     cxxopts::Options commandLineOptions = cxxopts::Options(argv[0], "Analyzes C++ builds");
 
     // variables to populate from options
