@@ -43,15 +43,15 @@ void PackedProcessThreadRemapper::CalculateChildrenRawLocalThreadId(const Timeli
 
     const std::vector<TimelineEntry*>& children = entry->GetChildren();
     std::vector<TThreadId> overlappingLocalThreadId;
-    for (int childIndex = 0; childIndex < children.size(); ++childIndex)
+    for (auto itChild = children.begin(); itChild != children.end(); ++itChild)
     {
-        const TimelineEntry* child = children[childIndex];
+        const TimelineEntry* child = *itChild;
         overlappingLocalThreadId.clear();
         
         // children are sorted by start time, so we only have to check previous siblings for overlaps
-        for (int precedingSiblingIndex = childIndex - 1; precedingSiblingIndex >= 0; --precedingSiblingIndex)
+        for (auto itPrecedingSibling = std::make_reverse_iterator(itChild); itPrecedingSibling != children.rend(); ++itPrecedingSibling)
         {
-            const TimelineEntry* precedingSibling = children[precedingSiblingIndex];
+            const TimelineEntry* precedingSibling = *itPrecedingSibling;
 
             if (child->OverlapsWith(precedingSibling))
             {
@@ -158,15 +158,15 @@ void PackedProcessThreadRemapper::CalculateRootProcessIdRemappings(const BuildTi
 {
     const std::vector<TimelineEntry*>& roots = timeline->GetRoots();
     std::vector<TProcessId> overlappingProcessId;
-    for (int rootIndex = 0; rootIndex < roots.size(); ++rootIndex)
+    for (auto itRoot = roots.begin(); itRoot != roots.end(); ++itRoot)
     {
-        const TimelineEntry* root = roots[rootIndex];
+        const TimelineEntry* root = *itRoot;
         overlappingProcessId.clear();
 
         // roots are sorted by start time, so we only have to check previous siblings for overlaps
-        for (int precedingSiblingIndex = rootIndex - 1; precedingSiblingIndex >= 0; --precedingSiblingIndex)
+        for (auto itPrecedingSibling = std::make_reverse_iterator(itRoot); itPrecedingSibling != roots.rend(); ++itPrecedingSibling)
         {
-            const TimelineEntry* precedingSibling = roots[precedingSiblingIndex];
+            const TimelineEntry* precedingSibling = *itRoot;
 
             if (root->OverlapsWith(precedingSibling))
             {
