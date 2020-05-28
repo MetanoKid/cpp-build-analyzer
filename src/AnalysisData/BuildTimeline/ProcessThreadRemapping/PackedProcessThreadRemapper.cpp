@@ -166,7 +166,7 @@ void PackedProcessThreadRemapper::CalculateRootProcessIdRemappings(const BuildTi
         // roots are sorted by start time, so we only have to check previous siblings for overlaps
         for (auto itPrecedingSibling = std::make_reverse_iterator(itRoot); itPrecedingSibling != roots.rend(); ++itPrecedingSibling)
         {
-            const TimelineEntry* precedingSibling = *itRoot;
+            const TimelineEntry* precedingSibling = *itPrecedingSibling;
 
             if (root->OverlapsWith(precedingSibling))
             {
