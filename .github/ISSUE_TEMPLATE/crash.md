@@ -11,7 +11,7 @@ assignees: ''
 Thank you for reporting this crash and helping us improve the program.
 Please ensure all fields are provided.
 -->
-- [ ] I have checked [issue tracker](../) for possible duplicates.
+- [ ] I have checked [issue tracker](../issues) for possible duplicates.
 
 ### Crash context
 * Commit hash: <!-- Enter it here -->
