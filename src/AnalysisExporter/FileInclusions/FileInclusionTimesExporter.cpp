@@ -41,7 +41,6 @@ bool FileInclusionTimesExporter::ExportTo(const std::string& path) const
         DataPerFile data;
         data.FilePath = &pair.first;
         data.Occurrences = static_cast<unsigned int>(pair.second.size());
-        data.AverageInclusionTime = std::chrono::nanoseconds(0);
         data.MinimumInclusionTime = pair.second[0];
         data.MaximumInclusionTime = pair.second[0];
 
