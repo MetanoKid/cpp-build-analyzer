@@ -71,19 +71,28 @@ int main(int argc, char** argv)
         ("out_template_instantiations", "Path to output template instantiations data", cxxopts::value(outputPathTemplateInstantiations));
 
     // parse command line
-    cxxopts::ParseResult result = commandLineOptions.parse(argc, argv);
-    
-    // display help
-    if (result.count("help") > 0)
+    try
     {
-        std::cout << commandLineOptions.help() << std::endl;
-        exit(0);
-    }
+        cxxopts::ParseResult result = commandLineOptions.parse(argc, argv);
 
-    // requires input file
-    if (result.count("input") == 0)
+        // display help
+        if (result.count("help") > 0)
+        {
+            std::cout << commandLineOptions.help() << std::endl;
+            exit(0);
+        }
+
+        // requires input file
+        if (result.count("input") == 0)
+        {
+            std::cout << "Missing input file option (try \"-i TraceFile.etl\")" << std::endl;
+            exit(-1);
+        }
+    }
+    catch (const std::exception& exception)
     {
-        std::cout << "Missing input file option (try \"-i TraceFile.etl\")" << std::endl;
+        std::cout << exception.what() << std::endl;
+        std::cout << "Please invoke with -h or --help option to list accepted options" << std::endl;
         exit(-1);
     }
 
