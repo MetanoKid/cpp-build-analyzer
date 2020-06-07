@@ -2,9 +2,7 @@
 name: Crash
 about: Use this to report a crash in the program
 title: "[CRASH] <Your title here>"
-labels:
-  - bug
-  - crash
+labels: bug, crash
 assignees: ''
 
 ---
