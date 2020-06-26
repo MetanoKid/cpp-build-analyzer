@@ -84,8 +84,7 @@ bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
     });
 
     // write data header to stream
-    out << "Decorated function name" << ";"
-        << "Undecorated function name" << ";"
+    out << "Undecorated function name" << ";"
         << "Average elapsed time (nanoseconds)" << ";"
         << "Minimum elapsed time (nanoseconds)" << ";"
         << "Maximum elapsed time (nanoseconds)" << ";"
@@ -96,8 +95,7 @@ bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
     for (auto&& data : dataPerFunction)
     {
         // dump to stream
-        out << (*data.FunctionName) << ";"
-            << Utilities::CppBuildInsightsDataConversion::UndecorateFunction(*data.FunctionName) << ";"
+        out << Utilities::CppBuildInsightsDataConversion::UndecorateFunction(*data.FunctionName) << ";"
             << data.AverageCompilationTime.count() << ";"
             << data.MinimumCompilationTime.count() << ";"
             << data.MaximumCompilationTime.count() << ";"
