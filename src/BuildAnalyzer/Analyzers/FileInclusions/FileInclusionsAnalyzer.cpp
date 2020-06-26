@@ -1,5 +1,8 @@
 #include "FileInclusionsAnalyzer.h"
 
+#include <algorithm>
+#include <cctype>
+
 FileInclusionsAnalyzer::FileInclusionsAnalyzer()
     : CppBI::IAnalyzer()
     , m_fileInclusionTimes()
@@ -21,7 +24,8 @@ CppBI::AnalysisControl FileInclusionsAnalyzer::OnStopActivity(const CppBI::Event
 void FileInclusionsAnalyzer::OnFileParsed(const CppBI::Activities::FrontEndFile& fromFile,
                                           const CppBI::Activities::FrontEndFile& includedFile)
 {
-    const std::string includedFilePath = includedFile.Path();
+    std::string includedFilePath = includedFile.Path();
+    std::transform(includedFilePath.begin(), includedFilePath.end(), includedFilePath.begin(), std::tolower);
 
     // store timing
     {
