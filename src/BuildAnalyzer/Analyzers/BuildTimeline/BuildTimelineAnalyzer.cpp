@@ -27,7 +27,8 @@ CppBI::AnalysisControl BuildTimelineAnalyzer::OnStartActivity(const CppBI::Event
         CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnInvocation) ||
         CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnFrontEndFile) ||
         CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnFunction) ||
-        CppBI::MatchEventStackInMemberFunction(eventStack,   this, &BuildTimelineAnalyzer::OnTemplateInstantiation);
+        CppBI::MatchEventStackInMemberFunction(eventStack,   this, &BuildTimelineAnalyzer::OnTemplateInstantiation) ||
+        CppBI::MatchEventStackInMemberFunction(eventStack,   this, &BuildTimelineAnalyzer::OnThread);
 
     return CppBI::AnalysisControl::CONTINUE;
 }
@@ -111,6 +112,11 @@ void BuildTimelineAnalyzer::OnTemplateInstantiation(const CppBI::Activities::Tem
     auto result = m_unresolvedTemplateInstantiationsPerSymbol.try_emplace(templateInstantiation.SpecializationSymbolKey(),
                                                                             TUnresolvedTemplateInstantiations());
     result.first->second.push_back(templateInstantiation.EventInstanceId());
+}
+
+void BuildTimelineAnalyzer::OnThread(const CppBI::Activities::Activity& parent, const CppBI::Activities::Thread& thread)
+{
+    m_buildTimeline.UpdateEntryName(thread.EventInstanceId(), std::string(parent.EventName()) + std::string(thread.EventName()));
 }
 
 // ----------------------------------------------------------------------------
