@@ -35,9 +35,6 @@
     <ClInclude Include="..\..\src\AnalysisData\Utilities\CppBuildInsightsDataConversion.h">
       <Filter>Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\IgnoredEntries.h">
-      <Filter>BuildTimeline</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\AnalysisData\TemplateInstantiationData.h" />
     <ClInclude Include="..\..\src\AnalysisData\SymbolKey.h" />
     <ClInclude Include="..\..\src\AnalysisData\SymbolNames.h" />

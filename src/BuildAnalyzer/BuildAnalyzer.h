@@ -8,7 +8,6 @@
 #include "BuildAnalyzer\Analyzers\FileInclusions\FileInclusionsAnalyzer.h"
 #include "BuildAnalyzer\Analyzers\FileCompilations\FileCompilationsAnalyzer.h"
 #include "BuildAnalyzer\Analyzers\BuildTimeline\BuildTimelineAnalyzer.h"
-#include "BuildAnalyzer\Analyzers\BuildTimeline\FilterTimelineAnalyzer.h"
 #include "BuildAnalyzer\Analyzers\TemplateInstantiations\TemplateInstantiationsAnalyzer.h"
 
 namespace Microsoft { namespace Cpp { namespace BuildInsights {
@@ -52,7 +51,6 @@ private:
     FileInclusionsAnalyzer m_fileInclusions;
     FileCompilationsAnalyzer m_fileCompilations;
     BuildTimelineAnalyzer m_buildTimeline;
-    FilterTimelineAnalyzer m_filterTimeline;
     TemplateInstantiationsAnalyzer m_templateInstantiations;
 
     bool m_analysisPerformed;

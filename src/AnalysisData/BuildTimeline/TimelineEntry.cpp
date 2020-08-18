@@ -33,6 +33,17 @@ void TimelineEntry::AddChild(TimelineEntry* entry)
     m_children.push_back(entry);
 }
 
+void TimelineEntry::RemoveChild(const TEventInstanceId& id)
+{
+    auto it = std::find_if(m_children.begin(), m_children.end(), [&](const TimelineEntry* child)
+    {
+        return child->GetId() == id;
+    });
+    assert(it != m_children.end());
+
+    m_children.erase(it);
+}
+
 void TimelineEntry::SetName(const std::string& name)
 {
     m_name = name;

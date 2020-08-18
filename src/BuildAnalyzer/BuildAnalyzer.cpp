@@ -23,8 +23,7 @@ BuildAnalyzer::BuildAnalyzer(const std::string& traceFilePath, const AnalysisOpt
     , m_functionCompilations()
     , m_fileInclusions()
     , m_fileCompilations()
-    , m_buildTimeline()
-    , m_filterTimeline(analysisOptions.TimelineIgnoreFunctionsUnder, analysisOptions.TimelineIgnoreTemplatesUnder)
+    , m_buildTimeline(FilterTimeline::Options { analysisOptions.TimelineIgnoreFunctionsUnder, analysisOptions.TimelineIgnoreTemplatesUnder })
     , m_analysisPerformed(false)
     , m_templateInstantiations()
 {
@@ -74,7 +73,6 @@ std::vector<CppBI::IAnalyzer*> BuildAnalyzer::BuildAnalyzerList(const AnalysisOp
     if (options.BuildTimeline)
     {
         analyzers.push_back(&m_buildTimeline);
-        analyzers.push_back(&m_filterTimeline);
     }
 
     if (options.TemplateInstantiations)
@@ -121,7 +119,7 @@ bool BuildAnalyzer::ExportBuildTimeline(const std::string& path) const
 {
     assert(m_analysisPerformed);
 
-    BuildTimelineExporter exporter(m_buildTimeline.GetTimeline(), m_filterTimeline.GetIgnoredEntries());
+    BuildTimelineExporter exporter(m_buildTimeline.GetTimeline());
     return exporter.ExportTo(path);
 }
 

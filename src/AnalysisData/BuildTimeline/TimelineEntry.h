@@ -20,6 +20,7 @@ public:
     ~TimelineEntry();
 
     void AddChild(TimelineEntry* entry);
+    void RemoveChild(const TEventInstanceId& id);
     bool AddProperty(const std::string& key, const std::string& value);
 
     void SetName(const std::string& name);
