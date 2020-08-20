@@ -39,6 +39,7 @@ private:
     void OnFrontEndFile(const CppBI::Activities::FrontEndFile& frontEndFile);
     void OnFunction(const CppBI::Activities::Function& function);
     void OnTemplateInstantiation(const CppBI::Activities::TemplateInstantiation& templateInstantiation);
+    void OnThread(const CppBI::Activities::Activity& parent, const CppBI::Activities::Thread& thread);
 
     // specific event handling
     void OnSymbolNameEvent(const CppBI::SimpleEvents::SymbolName& event);
