@@ -43,6 +43,7 @@ private:
     void OnFunctionFinished(const CppBI::Activities::Activity& parent, const CppBI::Activities::Function& function);
     void OnTemplateInstantiation(const CppBI::Activities::TemplateInstantiation& templateInstantiation);
     void OnTemplateInstantiationFinished(const CppBI::Activities::Activity& parent, const CppBI::Activities::TemplateInstantiation& templateInstantiation);
+    void OnThread(const CppBI::Activities::Activity& parent, const CppBI::Activities::Thread& thread);
 
     // specific event handling
     void OnSymbolNameEvent(const CppBI::SimpleEvents::SymbolName& event);
