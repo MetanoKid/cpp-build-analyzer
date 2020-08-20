@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\BuildTimeline.h" />
-    <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\IgnoredEntries.h" />
     <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\ProcessThreadRemapping\PackedProcessThreadRemapper.h" />
     <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\ProcessThreadRemapping\ProcessThreadRemapping.h" />
     <ClInclude Include="..\..\src\AnalysisData\BuildTimeline\TimelineEntry.h" />

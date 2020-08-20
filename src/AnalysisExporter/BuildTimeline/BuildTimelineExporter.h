@@ -2,8 +2,6 @@
 
 #include <string>
 
-#include "AnalysisData\BuildTimeline\IgnoredEntries.h"
-
 class BuildTimeline;
 class TimelineEntry;
 class ProcessIdThreadIdRecalculation;
@@ -11,7 +9,7 @@ class ProcessIdThreadIdRecalculation;
 class BuildTimelineExporter
 {
 public:
-    BuildTimelineExporter(const BuildTimeline& timeline, const TIgnoredEntries& ignoredEntries);
+    BuildTimelineExporter(const BuildTimeline& timeline);
     ~BuildTimelineExporter();
 
     // exports to Google Chrome trace format
@@ -19,5 +17,4 @@ public:
 
 private:
     const BuildTimeline& m_timeline;
-    const TIgnoredEntries& m_ignoredEntries;
 };

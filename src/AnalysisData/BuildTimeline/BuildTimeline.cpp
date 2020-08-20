@@ -60,6 +60,32 @@ void BuildTimeline::FinishEntry(const CppBI::Activities::Activity& activity)
     m_remapper.CalculateLocalChildrenData(entry);
 }
 
+void BuildTimeline::RemoveHierarchy(const TEventInstanceId& parentId, const TEventInstanceId& id)
+{
+    TimelineEntry* parentEntry = GetEntry(parentId);
+    assert(parentEntry != nullptr);
+
+    // ensure parent no longer points to it
+    parentEntry->RemoveChild(id);
+
+    // remove entry from the hierarchy (no need to ensure intermediate parents don't point to intermediate children, because the full hierarchy will be deleted)
+    RemoveEntry(id);
+}
+
+void BuildTimeline::RemoveEntry(const TEventInstanceId& id)
+{
+    TimelineEntry* entry = GetEntry(id);
+    if (entry != nullptr)
+    {
+        for (TimelineEntry* child : entry->GetChildren())
+        {
+            RemoveEntry(child->GetId());
+        }
+
+        m_entries.erase(id);
+    }
+}
+
 void BuildTimeline::FinishTimeline()
 {
     assert(m_remapper.GetRemappings().empty());

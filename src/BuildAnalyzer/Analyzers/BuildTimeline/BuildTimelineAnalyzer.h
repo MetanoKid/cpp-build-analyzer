@@ -5,12 +5,13 @@
 #include <CppBuildInsights.hpp>
 namespace CppBI = Microsoft::Cpp::BuildInsights;
 
+#include "BuildAnalyzer\Analyzers\BuildTimeline\FilterTimeline.h"
 #include "AnalysisData\BuildTimeline\BuildTimeline.h"
 
 class BuildTimelineAnalyzer : public CppBI::IAnalyzer
 {
 public:
-    BuildTimelineAnalyzer();
+    BuildTimelineAnalyzer(const FilterTimeline& filter);
     virtual ~BuildTimelineAnalyzer();
 
     CppBI::AnalysisControl OnStartActivity(const CppBI::EventStack& eventStack) override;
@@ -22,6 +23,7 @@ public:
 
 private:
     BuildTimeline m_buildTimeline;
+    FilterTimeline m_filter;
     
     typedef unsigned long long TSymbolKey;
     std::unordered_map<TSymbolKey, std::string> m_symbolNames;
@@ -38,7 +40,9 @@ private:
     void OnInvocation(const CppBI::Activities::Invocation& invocation);
     void OnFrontEndFile(const CppBI::Activities::FrontEndFile& frontEndFile);
     void OnFunction(const CppBI::Activities::Function& function);
+    void OnFunctionFinished(const CppBI::Activities::Activity& parent, const CppBI::Activities::Function& function);
     void OnTemplateInstantiation(const CppBI::Activities::TemplateInstantiation& templateInstantiation);
+    void OnTemplateInstantiationFinished(const CppBI::Activities::Activity& parent, const CppBI::Activities::TemplateInstantiation& templateInstantiation);
     void OnThread(const CppBI::Activities::Activity& parent, const CppBI::Activities::Thread& thread);
 
     // specific event handling

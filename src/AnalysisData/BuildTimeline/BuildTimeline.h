@@ -34,6 +34,7 @@ public:
     void AddNestedEntry(const CppBI::Activities::Activity& parent,
                         const CppBI::Activities::Activity& activity);
     void FinishEntry(const CppBI::Activities::Activity& activity);
+    void RemoveHierarchy(const TEventInstanceId& parentId, const TEventInstanceId& id);
     void FinishTimeline();
 
     void UpdateEntryName(const TEventInstanceId& id, const std::string& name);
@@ -48,5 +49,6 @@ private:
     PackedProcessThreadRemapper m_remapper;
 
     TimelineEntry* AddEntry(const CppBI::Activities::Activity& activity);
+    void RemoveEntry(const TEventInstanceId& id);
     TimelineEntry* GetEntry(const TEventInstanceId& id);
 };

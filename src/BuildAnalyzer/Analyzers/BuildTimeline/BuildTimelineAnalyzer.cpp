@@ -1,12 +1,14 @@
 #include "BuildTimelineAnalyzer.h"
 
 #include <cassert>
+#include <algorithm>
 
 #include "AnalysisData\Utilities\CppBuildInsightsDataConversion.h"
 
-BuildTimelineAnalyzer::BuildTimelineAnalyzer()
+BuildTimelineAnalyzer::BuildTimelineAnalyzer(const FilterTimeline& filter)
     : CppBI::IAnalyzer()
     , m_buildTimeline()
+    , m_filter(filter)
     , m_symbolNames()
     , m_unresolvedTemplateInstantiationsPerSymbol()
 {
@@ -36,6 +38,8 @@ CppBI::AnalysisControl BuildTimelineAnalyzer::OnStartActivity(const CppBI::Event
 CppBI::AnalysisControl BuildTimelineAnalyzer::OnStopActivity(const CppBI::EventStack& eventStack)
 {
     bool processed =
+        CppBI::MatchEventStackInMemberFunction(eventStack,   this, &BuildTimelineAnalyzer::OnFunctionFinished) ||
+        CppBI::MatchEventStackInMemberFunction(eventStack,   this, &BuildTimelineAnalyzer::OnTemplateInstantiationFinished) ||
         CppBI::MatchEventInMemberFunction(eventStack.Back(), this, &BuildTimelineAnalyzer::OnActivityFinished);
     assert(processed);
 
@@ -101,6 +105,19 @@ void BuildTimelineAnalyzer::OnFunction(const CppBI::Activities::Function& functi
     m_buildTimeline.UpdateEntryName(function.EventInstanceId(), Utilities::CppBuildInsightsDataConversion::UndecorateFunction(function.Name()));
 }
 
+void BuildTimelineAnalyzer::OnFunctionFinished(const CppBI::Activities::Activity& parent, const CppBI::Activities::Function& function)
+{
+    if (m_filter.Passes(function))
+    {
+        OnActivityFinished(function);
+    }
+    else
+    {
+        // remove from timeline
+        m_buildTimeline.RemoveHierarchy(parent.EventInstanceId(), function.EventInstanceId());
+    }
+}
+
 void BuildTimelineAnalyzer::OnTemplateInstantiation(const CppBI::Activities::TemplateInstantiation& templateInstantiation)
 {
     // from the docs: "Type keys are unique within the trace being analyzed. [...]
@@ -112,6 +129,28 @@ void BuildTimelineAnalyzer::OnTemplateInstantiation(const CppBI::Activities::Tem
     auto result = m_unresolvedTemplateInstantiationsPerSymbol.try_emplace(templateInstantiation.SpecializationSymbolKey(),
                                                                             TUnresolvedTemplateInstantiations());
     result.first->second.push_back(templateInstantiation.EventInstanceId());
+}
+
+void BuildTimelineAnalyzer::OnTemplateInstantiationFinished(const CppBI::Activities::Activity& parent, const CppBI::Activities::TemplateInstantiation& templateInstantiation)
+{
+    if (m_filter.Passes(templateInstantiation))
+    {
+        OnActivityFinished(templateInstantiation);
+    }
+    else
+    {
+        // remove subscription
+        auto itSubscriptionsForCurrentSpecialization = m_unresolvedTemplateInstantiationsPerSymbol.find(templateInstantiation.SpecializationSymbolKey());
+        assert(itSubscriptionsForCurrentSpecialization != m_unresolvedTemplateInstantiationsPerSymbol.end());
+
+        auto itSubscription = std::find(itSubscriptionsForCurrentSpecialization->second.begin(),
+                                        itSubscriptionsForCurrentSpecialization->second.end(),
+                                        templateInstantiation.EventInstanceId());
+        itSubscriptionsForCurrentSpecialization->second.erase(itSubscription);
+
+        // remove from timeline
+        m_buildTimeline.RemoveHierarchy(parent.EventInstanceId(), templateInstantiation.EventInstanceId());
+    }
 }
 
 void BuildTimelineAnalyzer::OnThread(const CppBI::Activities::Activity& parent, const CppBI::Activities::Thread& thread)

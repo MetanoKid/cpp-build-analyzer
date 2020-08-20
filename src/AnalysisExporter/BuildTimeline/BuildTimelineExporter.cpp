@@ -13,14 +13,8 @@
 namespace
 {
     void AddEntry(const TimelineEntry* entry, rapidjson::Value& traceEvents, rapidjson::Document& document,
-                  const TProcessThreadRemappings& remappings, const TIgnoredEntries& ignoredEntries)
+                  const TProcessThreadRemappings& remappings)
     {
-        // apply filtering
-        if (ignoredEntries.find(entry->GetId()) != ignoredEntries.end())
-        {
-            return;
-        }
-
         auto itRemap = remappings.find(entry->GetId());
         const TProcessId& processId = itRemap != remappings.end() ? itRemap->second.ProcessId : entry->GetProcessId();
         const TThreadId& threadId = itRemap != remappings.end() ? itRemap->second.ThreadId : entry->GetThreadId();
@@ -84,7 +78,7 @@ namespace
             // write children entries
             for (auto&& child : entry->GetChildren())
             {
-                AddEntry(child, traceEvents, document, remappings, ignoredEntries);
+                AddEntry(child, traceEvents, document, remappings);
             }
 
             // write "end" event
@@ -103,9 +97,8 @@ namespace
     }
 }
 
-BuildTimelineExporter::BuildTimelineExporter(const BuildTimeline& timeline, const TIgnoredEntries& ignoredEntries)
+BuildTimelineExporter::BuildTimelineExporter(const BuildTimeline& timeline)
     : m_timeline(timeline)
-    , m_ignoredEntries(ignoredEntries)
 {
 }
 
@@ -134,7 +127,7 @@ bool BuildTimelineExporter::ExportTo(const std::string& path) const
         rapidjson::Value traceEvents(rapidjson::kArrayType);
         for (auto&& root : m_timeline.GetRoots())
         {
-            AddEntry(root, traceEvents, document, m_timeline.GetProcessThreadRemappings(), m_ignoredEntries);
+            AddEntry(root, traceEvents, document, m_timeline.GetProcessThreadRemappings());
         }
         document.AddMember("traceEvents", traceEvents, document.GetAllocator());
     }
