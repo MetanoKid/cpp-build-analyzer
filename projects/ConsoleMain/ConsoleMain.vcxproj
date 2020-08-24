@@ -29,6 +29,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\ConsoleMain\Version.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ConsoleMain.rc" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{3CC756EB-2FD1-44A2-82B6-61BAD37D327D}</ProjectGuid>
