@@ -18,6 +18,15 @@ Please ensure all fields are provided.
 <!-- Any relevant information about the crash? -->
 
 ### Crash context
+
+<!-- If it's a release from the repository, please use this block -->
+
+* Version: <!-- i.e. `v1.0.0` -->
+* Configuration <!-- `Debug`, `Release`? -->
+* Crash files (`.dmp`): <!-- Upload here -->
+
+<!-- If it's a version you've compiled yourself, please use this block -->
+
 * Commit hash: <!-- Enter it here -->
 * Configuration: <!-- `Debug`, `Release`? -->
 * Crash files (`.dmp`, `.exe`, `.pdb`): <!-- Upload here -->
