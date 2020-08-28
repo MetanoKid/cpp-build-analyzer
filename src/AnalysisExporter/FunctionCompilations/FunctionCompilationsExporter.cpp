@@ -27,6 +27,7 @@ FunctionCompilationsExporter::~FunctionCompilationsExporter()
 {
 }
 
+template<typename T>
 bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
 {
     std::ofstream out = std::ofstream(path);
@@ -83,12 +84,24 @@ bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
         return lhs.AverageCompilationTime > rhs.AverageCompilationTime;
     });
 
+
+    std::string timeType = "nanoseconds";
+
+    if (std::is_same<T, std::chrono::seconds>::value)
+    {
+        timeType = "seconds";
+    }
+    else if (std::is_same<T, std::chrono::milliseconds>::value)
+    {
+        timeType = "miliseconds";
+    }
+
     // write data header to stream
     out << "Undecorated function name" << ";"
-        << "Average elapsed time (nanoseconds)" << ";"
-        << "Minimum elapsed time (nanoseconds)" << ";"
-        << "Maximum elapsed time (nanoseconds)" << ";"
-        << "Standard deviation (nanoseconds)" << ";"
+        << "Average elapsed time (" << timeType << ")" << ";"
+        << "Minimum elapsed time (" << timeType << ")" << ";"
+        << "Maximum elapsed time (" << timeType << ")" << ";"
+        << "Standard deviation (" << timeType << ")" << ";"
         << "Occurrences" << std::endl;
 
     // write data to file
@@ -96,9 +109,9 @@ bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
     {
         // dump to stream
         out << Utilities::CppBuildInsightsDataConversion::UndecorateFunction(*data.FunctionName) << ";"
-            << data.AverageCompilationTime.count() << ";"
-            << data.MinimumCompilationTime.count() << ";"
-            << data.MaximumCompilationTime.count() << ";"
+            << std::chrono::duration_cast<T>(data.AverageCompilationTime).count() << ";"
+            << std::chrono::duration_cast<T>(data.MinimumCompilationTime).count() << ";"
+            << std::chrono::duration_cast<T>(data.MaximumCompilationTime).count() << ";"
             << data.StandardDeviation.count() << ";"
             << data.Occurrences << std::endl;
     }
@@ -106,3 +119,13 @@ bool FunctionCompilationsExporter::ExportTo(const std::string& path) const
     out.close();
     return true;
 }
+
+template
+bool FunctionCompilationsExporter::ExportTo<std::chrono::seconds>(const std::string& path) const;
+
+template
+bool FunctionCompilationsExporter::ExportTo<std::chrono::milliseconds>(const std::string& path) const;
+
+template
+bool FunctionCompilationsExporter::ExportTo<std::chrono::nanoseconds>(const std::string& path) const;
+

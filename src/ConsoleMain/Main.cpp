@@ -15,6 +15,7 @@ namespace
     const std::string s_defaultOutputPathFileCompilations = "FileCompilations.csv";
     const std::string s_defaultOutputPathBuildTimeline = "BuildTimeline.json";
     const std::string s_defaultOutputPathTemplateInstantiations = "TemplateInstantiations.csv";
+    const std::string s_defaultTimingDisplay = "ns";
 
     const unsigned int s_defaultTimelineIgnoreFunctionsUnderMs = 10;
     const unsigned int s_defaultTimelineIgnoreTemplatesUnderMs = 10;
@@ -42,6 +43,7 @@ int main(int argc, char** argv)
     std::string outputPathFileCompilations = s_defaultOutputPathFileCompilations;
     std::string outputPathBuildTimeline = s_defaultOutputPathBuildTimeline;
     std::string outputPathTemplateInstantiations = s_defaultOutputPathTemplateInstantiations;
+    std::string timingDisplay = s_defaultTimingDisplay;
     unsigned int timelineIgnoreFunctionsUnderMs = s_defaultTimelineIgnoreFunctionsUnderMs;
     unsigned int timelineIgnoreTemplatesUnderMs = s_defaultTimelineIgnoreTemplatesUnderMs;
 
@@ -68,7 +70,10 @@ int main(int argc, char** argv)
         ("out_file_inclusion_graph", "Path to output file inclusion graph", cxxopts::value(outputPathFileInclusionGraph))
         ("out_file_compilations", "Path to output file compilations data", cxxopts::value(outputPathFileCompilations))
         ("out_build_timeline", "Path to output build timeline", cxxopts::value(outputPathBuildTimeline))
-        ("out_template_instantiations", "Path to output template instantiations data", cxxopts::value(outputPathTemplateInstantiations));
+        ("out_template_instantiations", "Path to output template instantiations data", cxxopts::value(outputPathTemplateInstantiations))
+        //timing display
+        ("timing", "defaults to ns, can use ms(miliseconds) or s(seconds)", cxxopts::value(timingDisplay))
+        ;
 
     // parse command line
     try
@@ -108,6 +113,7 @@ int main(int argc, char** argv)
         exit(-1);
     }
 
+ 
     // what to build
     BuildAnalyzer::AnalysisOptions analysisOptions;
     analysisOptions.FunctionCompilations = analyzeAll || analyzeFunctionCompilations;
@@ -118,6 +124,15 @@ int main(int argc, char** argv)
     analysisOptions.TemplateInstantiations = analyzeAll || analyzeTemplateInstantiations;
     analysisOptions.TimelineIgnoreFunctionsUnder = std::chrono::milliseconds(timelineIgnoreFunctionsUnderMs);
     analysisOptions.TimelineIgnoreTemplatesUnder = std::chrono::milliseconds(timelineIgnoreTemplatesUnderMs);
+
+    if (timingDisplay == "ms")
+    {
+        analysisOptions.TimeDisplay = BuildAnalyzer::TimeDisplayEnum::Mili;
+    }
+    else if (timingDisplay == "s")
+    {
+        analysisOptions.TimeDisplay = BuildAnalyzer::TimeDisplayEnum::Sec;
+    }
 
     // analyze trace
     std::cout << "Analyzing..." << std::endl;
@@ -133,7 +148,7 @@ int main(int argc, char** argv)
             
             if (!outputPathFunctionCompilations.empty())
             {
-                analyzer.ExportFunctionCompilationsData(outputPathFunctionCompilations);
+                analyzer.ExportFunctionCompilationsData(outputPathFunctionCompilations, analysisOptions.TimeDisplay);
             }
             else
             {
@@ -147,7 +162,7 @@ int main(int argc, char** argv)
 
             if (!outputPathFileInclusionTimes.empty())
             {
-                analyzer.ExportFileInclusionTimesData(outputPathFileInclusionTimes);
+                analyzer.ExportFileInclusionTimesData(outputPathFileInclusionTimes, analysisOptions.TimeDisplay);
             }
             else
             {
@@ -175,7 +190,7 @@ int main(int argc, char** argv)
 
             if (!outputPathFileCompilations.empty())
             {
-                analyzer.ExportFileCompilationsData(outputPathFileCompilations);
+                analyzer.ExportFileCompilationsData(outputPathFileCompilations, analysisOptions.TimeDisplay);
             }
             else
             {

@@ -11,6 +11,7 @@ public:
     ~FileCompilationsExporter();
 
     // exports to CSV
+    template<typename T>
     bool ExportTo(const std::string& path) const;
 
 private:

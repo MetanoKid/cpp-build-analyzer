@@ -25,6 +25,7 @@ FileInclusionTimesExporter::~FileInclusionTimesExporter()
 {
 }
 
+template<typename T>
 bool FileInclusionTimesExporter::ExportTo(const std::string& path) const
 {
     std::ofstream out(path);
@@ -80,25 +81,47 @@ bool FileInclusionTimesExporter::ExportTo(const std::string& path) const
         return lhs.AverageInclusionTime > rhs.AverageInclusionTime;
     });
 
+
+    std::string timeType = "nanoseconds";
+
+    if (std::is_same<T, std::chrono::seconds>::value)
+    {
+        timeType = "seconds";
+    }
+    else if (std::is_same<T, std::chrono::milliseconds>::value)
+    {
+        timeType = "miliseconds";
+    }
+
     // write data header to stream
     out << "File path" << ";"
-        << "Average elapsed time (nanoseconds)" << ";"
-        << "Minimum elapsed time (nanoseconds)" << ";"
-        << "Maximum elapsed time (nanoseconds)" << ";"
-        << "Standard deviation (nanoseconds)" << ";"
+        << "Average elapsed time (" << timeType << ")" << ";"
+        << "Minimum elapsed time (" << timeType << ")" << ";"
+        << "Maximum elapsed time (" << timeType << ")" << ";"
+        << "Standard deviation (" << timeType << ")" << ";"
         << "Occurrences" << std::endl;
 
     // write data to stream
     for (auto&& data : dataPerFile)
     {
         out << (*data.FilePath) << ";"
-            << data.AverageInclusionTime.count() << ";"
-            << data.MinimumInclusionTime.count() << ";"
-            << data.MaximumInclusionTime.count() << ";"
-            << data.StandardDeviation.count() << ";"
+            << std::chrono::duration_cast<T>(data.AverageInclusionTime).count() << ";"
+            << std::chrono::duration_cast<T>(data.MinimumInclusionTime).count() << ";"
+            << std::chrono::duration_cast<T>(data.MaximumInclusionTime).count() << ";"
+            << std::chrono::duration_cast<T>(data.StandardDeviation).count() << ";"
             << data.Occurrences << std::endl;
     }
 
     out.close();
     return true;
 }
+
+template
+bool FileInclusionTimesExporter::ExportTo<std::chrono::seconds>(const std::string& path) const;
+
+template
+bool FileInclusionTimesExporter::ExportTo<std::chrono::milliseconds>(const std::string& path) const;
+
+template
+bool FileInclusionTimesExporter::ExportTo<std::chrono::nanoseconds>(const std::string& path) const;
+
