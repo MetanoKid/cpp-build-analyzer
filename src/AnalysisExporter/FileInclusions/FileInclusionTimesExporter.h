@@ -12,6 +12,7 @@ public:
     ~FileInclusionTimesExporter();
 
     // exports to CSV format
+    template<typename T>
     bool ExportTo(const std::string& path) const;
 
 private:

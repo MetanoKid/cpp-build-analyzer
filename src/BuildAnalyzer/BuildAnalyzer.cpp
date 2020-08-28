@@ -83,20 +83,40 @@ std::vector<CppBI::IAnalyzer*> BuildAnalyzer::BuildAnalyzerList(const AnalysisOp
     return analyzers;
 }
 
-bool BuildAnalyzer::ExportFunctionCompilationsData(const std::string& path) const
+bool BuildAnalyzer::ExportFunctionCompilationsData(const std::string& path, TimeDisplayEnum timeDisplay) const
 {
     assert(m_analysisPerformed);
 
     FunctionCompilationsExporter exporter(m_functionCompilations.GetData());
-    return exporter.ExportTo(path);
+
+    if (timeDisplay == TimeDisplayEnum::Sec)
+    {
+        return exporter.ExportTo<std::chrono::seconds>(path);
+    }
+    else if (timeDisplay == TimeDisplayEnum::Mili)
+    {
+        return exporter.ExportTo<std::chrono::milliseconds>(path);
+    }
+
+    return exporter.ExportTo<std::chrono::nanoseconds>(path);
 }
 
-bool BuildAnalyzer::ExportFileInclusionTimesData(const std::string& path) const
+bool BuildAnalyzer::ExportFileInclusionTimesData(const std::string& path, TimeDisplayEnum timeDisplay) const
 {
     assert(m_analysisPerformed);
 
     FileInclusionTimesExporter exporter(m_fileInclusions.GetTimeData());
-    return exporter.ExportTo(path);
+
+    if (timeDisplay == TimeDisplayEnum::Sec)
+    {
+        return exporter.ExportTo<std::chrono::seconds>(path);
+    }
+    else if (timeDisplay == TimeDisplayEnum::Mili)
+    {
+        return exporter.ExportTo<std::chrono::milliseconds>(path);
+    }
+
+    return exporter.ExportTo<std::chrono::nanoseconds>(path);
 }
 
 bool BuildAnalyzer::ExportFileInclusionGraph(const std::string& path) const
@@ -107,12 +127,21 @@ bool BuildAnalyzer::ExportFileInclusionGraph(const std::string& path) const
     return exporter.ExportTo(path);
 }
 
-bool BuildAnalyzer::ExportFileCompilationsData(const std::string& path) const
+bool BuildAnalyzer::ExportFileCompilationsData(const std::string& path, TimeDisplayEnum timeDisplay) const
 {
     assert(m_analysisPerformed);
 
     FileCompilationsExporter exporter(m_fileCompilations.GetData());
-    return exporter.ExportTo(path);
+    if (timeDisplay == TimeDisplayEnum::Sec)
+    {
+        return exporter.ExportTo<std::chrono::seconds>(path);
+    }
+    else if (timeDisplay == TimeDisplayEnum::Mili)
+    {
+        return exporter.ExportTo<std::chrono::milliseconds>(path);
+    }
+
+    return exporter.ExportTo<std::chrono::nanoseconds>(path);
 }
 
 bool BuildAnalyzer::ExportBuildTimeline(const std::string& path) const
