@@ -47,17 +47,10 @@ bool TemplateInstantiationsExporter::ExportTo(const std::string& path) const
         const std::chrono::nanoseconds& timeElapsed = pair.second.Duration;
         
         auto itSpecializationTemplateName = m_symbolNames.find(pair.second.Specialization);
-        if (itSpecializationTemplateName != m_symbolNames.end())
-        {
-            symbolName = itSpecializationTemplateName->second;
-        }
-        else
-        {
-            symbolName = "Unknown";
-        }
-
+        assert(itSpecializationTemplateName != m_symbolNames.end());
+        
         // from the docs: "Comparing types between different compiler front-end passes requires using symbol names"
-        auto result = aggregatedData.try_emplace(symbolName, DataPerTemplate());
+        auto result = aggregatedData.try_emplace(itSpecializationTemplateName->second, DataPerTemplate());
         auto& data = result.first->second;
         
         // first occurrence?

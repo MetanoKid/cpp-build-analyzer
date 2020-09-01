@@ -72,7 +72,7 @@ int main(int argc, char** argv)
         ("out_build_timeline", "Path to output build timeline", cxxopts::value(outputPathBuildTimeline))
         ("out_template_instantiations", "Path to output template instantiations data", cxxopts::value(outputPathTemplateInstantiations))
         //timing display
-        ("timing", "defaults to ns, can use ms(miliseconds) or s(seconds)", cxxopts::value(timingDisplay))
+        ("timing", "Defaults to ns(nanoseconds), can use ms(milliseconds) or s(seconds)", cxxopts::value(timingDisplay))
         ;
 
     // parse command line
@@ -127,11 +127,15 @@ int main(int argc, char** argv)
 
     if (timingDisplay == "ms")
     {
-        analysisOptions.TimeDisplay = BuildAnalyzer::TimeDisplayEnum::Mili;
+        analysisOptions.TimeDisplay = BuildAnalyzer::TimeDisplayEnum::Milliseconds;
     }
     else if (timingDisplay == "s")
     {
-        analysisOptions.TimeDisplay = BuildAnalyzer::TimeDisplayEnum::Sec;
+        analysisOptions.TimeDisplay = BuildAnalyzer::TimeDisplayEnum::Seconds;
+    }
+    else
+    {
+        std::cout << "Unrecognized time display value '"<< timingDisplay <<"'. Defaulting to nanoseconds." << std::endl;
     }
 
     // analyze trace

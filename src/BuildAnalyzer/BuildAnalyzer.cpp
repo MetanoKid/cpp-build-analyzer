@@ -89,11 +89,11 @@ bool BuildAnalyzer::ExportFunctionCompilationsData(const std::string& path, Time
 
     FunctionCompilationsExporter exporter(m_functionCompilations.GetData());
 
-    if (timeDisplay == TimeDisplayEnum::Sec)
+    if (timeDisplay == TimeDisplayEnum::Seconds)
     {
         return exporter.ExportTo<std::chrono::seconds>(path);
     }
-    else if (timeDisplay == TimeDisplayEnum::Mili)
+    else if (timeDisplay == TimeDisplayEnum::Milliseconds)
     {
         return exporter.ExportTo<std::chrono::milliseconds>(path);
     }
@@ -107,11 +107,11 @@ bool BuildAnalyzer::ExportFileInclusionTimesData(const std::string& path, TimeDi
 
     FileInclusionTimesExporter exporter(m_fileInclusions.GetTimeData());
 
-    if (timeDisplay == TimeDisplayEnum::Sec)
+    if (timeDisplay == TimeDisplayEnum::Seconds)
     {
         return exporter.ExportTo<std::chrono::seconds>(path);
     }
-    else if (timeDisplay == TimeDisplayEnum::Mili)
+    else if (timeDisplay == TimeDisplayEnum::Milliseconds)
     {
         return exporter.ExportTo<std::chrono::milliseconds>(path);
     }
@@ -132,11 +132,11 @@ bool BuildAnalyzer::ExportFileCompilationsData(const std::string& path, TimeDisp
     assert(m_analysisPerformed);
 
     FileCompilationsExporter exporter(m_fileCompilations.GetData());
-    if (timeDisplay == TimeDisplayEnum::Sec)
+    if (timeDisplay == TimeDisplayEnum::Seconds)
     {
         return exporter.ExportTo<std::chrono::seconds>(path);
     }
-    else if (timeDisplay == TimeDisplayEnum::Mili)
+    else if (timeDisplay == TimeDisplayEnum::Milliseconds)
     {
         return exporter.ExportTo<std::chrono::milliseconds>(path);
     }

@@ -31,7 +31,7 @@ bool FileCompilationsExporter::ExportTo(const std::string& path) const
 
     // sort it (slowest compilations first)
     std::sort(dataPerFile.begin(), dataPerFile.end(), [](const TFileCompilationDataPerFile::value_type* lhs,
-        const TFileCompilationDataPerFile::value_type* rhs)
+                                                         const TFileCompilationDataPerFile::value_type* rhs)
     {
         std::chrono::nanoseconds lhsTotalDuration = lhs->second.BackEnd.Stop - lhs->second.FrontEnd.Start;
         std::chrono::nanoseconds rhsTotalDuration = rhs->second.BackEnd.Stop - rhs->second.FrontEnd.Start;

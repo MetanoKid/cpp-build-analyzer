@@ -48,13 +48,7 @@ const wchar_t* FileCompilationsAnalyzer::GetFilePath(const CppBI::Activities::Co
         return compilerPass.InputSourcePath();
     }
 
-    // ms turns out VS2019 OutputObjectPath can be null too
-    // fallback on something
-    if (compilerPass.OutputObjectPath() != nullptr)
-    {
-        return compilerPass.OutputObjectPath();
-    }
-
-    return L"Unknown";
+    assert(compilerPass.OutputObjectPath() != nullptr);
+    return compilerPass.OutputObjectPath();
 
 }

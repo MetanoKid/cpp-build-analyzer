@@ -19,9 +19,9 @@ class BuildAnalyzer
 public:
     enum class TimeDisplayEnum
     {
-        Nano,
-        Mili,
-        Sec,
+        Nanoseconds,
+        Milliseconds,
+        Seconds,
     };
 
     struct AnalysisOptions
@@ -34,7 +34,7 @@ public:
         bool FileCompilations = true;
         bool BuildTimeline = true;
         bool TemplateInstantiations = true;
-        TimeDisplayEnum TimeDisplay = TimeDisplayEnum::Nano;
+        TimeDisplayEnum TimeDisplay = TimeDisplayEnum::Nanoseconds;
     };
 
 public:
@@ -47,7 +47,7 @@ public:
     bool ExportFunctionCompilationsData(const std::string& path, TimeDisplayEnum timeDisplay) const;
     bool ExportFileInclusionTimesData(const std::string& path, TimeDisplayEnum timeDisplay) const;
     bool ExportFileInclusionGraph(const std::string& path) const;
-    bool ExportFileCompilationsData(const std::string& path, TimeDisplayEnum) const;
+    bool ExportFileCompilationsData(const std::string& path, TimeDisplayEnum timeDisplay) const;
     bool ExportBuildTimeline(const std::string& path) const;
     bool ExportTemplateInstantiationsData(const std::string& path) const;
 
