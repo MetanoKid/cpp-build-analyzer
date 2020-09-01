@@ -39,15 +39,25 @@ bool TemplateInstantiationsExporter::ExportTo(const std::string& path) const
     // aggregate data
     typedef std::unordered_map<std::string, DataPerTemplate> TAggregatedData;
     TAggregatedData aggregatedData;
+    std::string templateName = "Unknown";
+
     for (auto&& pair : m_templateInstantiations)
     {
         const std::chrono::nanoseconds& timeElapsed = pair.second.Duration;
 
         auto itSpecializationTemplateName = m_symbolNames.find(pair.second.Specialization);
-        assert(itSpecializationTemplateName != m_symbolNames.end());
+        
+        if (itSpecializationTemplateName != m_symbolNames.end())
+        {
+            templateName = itSpecializationTemplateName->second;
+        }
+        else
+        {
+            templateName = "Unknown";
+        }
 
         // from the docs: "Comparing types between different compiler front-end passes requires using symbol names"
-        auto result = aggregatedData.try_emplace(itSpecializationTemplateName->second, DataPerTemplate());
+        auto result = aggregatedData.try_emplace(templateName, DataPerTemplate());
         auto& data = result.first->second;
         
         // first occurrence?
